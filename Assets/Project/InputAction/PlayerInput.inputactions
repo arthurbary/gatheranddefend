@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "PlayerAttack",
+                    "type": "Button",
+                    "id": "7dac2ccb-fce8-4fd5-a29f-d59e619ebded",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -40,34 +49,12 @@
                 },
                 {
                     "name": "",
-                    "id": "14be8fbd-8cfa-4158-9b45-ca889b5f3664",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PlayerAction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "47c45a6d-36a9-46eb-aeb3-dcf4a4e0e25a",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PlayerAction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bede6144-4a2c-4784-808b-5b6197c0358d",
+                    "id": "d73f0c4d-3c14-4564-a9bb-3423342a53f9",
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PlayerAction",
+                    "action": "PlayerAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
