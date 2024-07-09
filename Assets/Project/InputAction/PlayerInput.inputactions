@@ -27,17 +27,6 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "7b53b895-e5da-4fb4-ba21-6a847b864f5e",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PlayerAction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "54e80660-1add-4da7-8be0-06b534878633",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",

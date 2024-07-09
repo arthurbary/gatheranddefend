@@ -7,10 +7,15 @@ public class PlayerBehaviour : MonoBehaviour
 {
     private PlayerInput playerInput;
     private InputAction attack;
+    private WeaponMovement weaponMovement;
     void Awake() 
     {
         playerInput = GetComponent<PlayerInput>();
         attack = playerInput.actions["PlayerAttack"];
+    }
+    void Start()
+    {
+        weaponMovement = GameObject.FindWithTag("Weapon1").GetComponent<WeaponMovement>();
     }
 
     public void OnEnable() 
@@ -24,5 +29,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
     void Update()
     {
+        if(attack.ReadValue<float>() != 0 && weaponMovement.CanRotate())StartCoroutine(weaponMovement.RotateObject());
     }
+    
 }
