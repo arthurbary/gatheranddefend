@@ -26,28 +26,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            float timeSinceLastClick = Time.time - lastClickTime;
-            lastClickTime = Time.time;
-
-            if (timeSinceLastClick <= doubleClickThreshold)
-            {
                 GoToMouse();
-            }
-            else
-            {
-                isHoldingMouseButton = true;
-            }
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            isHoldingMouseButton = false;
-            agent.isStopped = true;
-        }
-
-        if (isHoldingMouseButton)
-        {
-            GoToMouse();
         }
     }
 

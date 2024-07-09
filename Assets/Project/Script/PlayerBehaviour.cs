@@ -34,6 +34,7 @@ public class PlayerBehaviour : MonoBehaviour
     
     void BasicAttack()
     {
+        
         if(weaponMovement.CanRotate()) StartCoroutine(weaponMovement.RotateObject());
     }
 }

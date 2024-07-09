@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Wood : Resource
 {
-    public override void GiveResource()
+    [SerializeField] private int subtractor = 3;
+    void Start()
     {
-        if(Life >= 0){}
+        Type = ResourceType.WOOD;
+        Subtractor = subtractor;
+        GenerateLifeAndAmount();
     }
 }
