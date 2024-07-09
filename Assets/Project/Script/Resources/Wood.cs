@@ -10,6 +10,7 @@ public class Wood : Resource
     {
         Type = ResourceType.WOOD;
         Subtractor = subtractor;
+        WeaponMovement = GameObject.FindWithTag("WeaponBasic").GetComponent<WeaponMovement>();
         GenerateLifeAndAmount();
     }
 }

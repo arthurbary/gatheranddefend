@@ -10,6 +10,7 @@ public class Stone : Resource
     {
         Type = ResourceType.STONE;
         Subtractor = substractor;
+        WeaponMovement = GameObject.FindWithTag("WeaponBasic").GetComponent<WeaponMovement>();
         GenerateLifeAndAmount();
     }
 }

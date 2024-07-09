@@ -7,9 +7,6 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     private NavMeshAgent agent;
-    
-    private bool isMovingToDestination = false;
-    private bool isHoldingMouseButton = false;
     private Vector3 destination;
 
     // For double-click detection
@@ -33,14 +30,11 @@ public class PlayerMovement : MonoBehaviour
     void GoToMouse()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Debug.DrawRay(ray.origin, ray.direction * 100, Color.green);
+        Debug.DrawRay(ray.origin, ray.direction*100, Color.green);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if(Physics.Raycast(ray,out hit))
         {
-            destination = hit.point;
-            agent.SetDestination(destination);
-            agent.isStopped = false;
-            isMovingToDestination = true;
+            agent.SetDestination(hit.point);
         }
     }
 }

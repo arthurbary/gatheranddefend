@@ -13,13 +13,9 @@ public abstract class Resource : MonoBehaviour
     public int Amount { get; set; }
     public int Subtractor { get; set; }
     public ResourceType Type { get; set; }
+    public WeaponMovement WeaponMovement { get; set; }
 
     private bool isRunning = false;
-    private WeaponMovement weaponMovement;
-        void Start()
-    {
-        weaponMovement = GameObject.FindWithTag("WeaponBasic").GetComponent<WeaponMovement>();
-    }
     protected virtual IEnumerator _GiveResource()
     {
         isRunning = true;
@@ -60,7 +56,7 @@ public abstract class Resource : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("WeaponBasicHit") && weaponMovement.isCooldownActive)
+        if(other.gameObject.CompareTag("WeaponBasicHit") && WeaponMovement.isCooldownActive)
         {
             GiveResource();
             Debug.Log("Resource Type: " + Type);
