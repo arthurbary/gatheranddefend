@@ -14,10 +14,45 @@ public abstract class Building : MonoBehaviour
         ROAD = 6
 
     }
-    protected int woodCost { get; set; }
-    protected int stoneCost { get; set; }
-    protected int level { get; set; }
-    protected int life { get; set; }
+    private bool isUnderAttack = false;
+    protected int WoodCost { get; set; }
+    protected int StoneCost { get; set; }
+    protected int Level { get; set; }
+    protected int Life { get; set; }
     
     public abstract void GenerateMinion();
+
+    protected IEnumerator _BeingAttack()
+    {
+        isUnderAttack = true;
+        if(Life >= 0){
+            Life--;
+            WoodCost--;
+            StoneCost--;
+        } 
+        else 
+        {
+            Destroy(gameObject);
+        }
+        yield return new WaitForSeconds(0.1f);
+        isUnderAttack = false;
+    }
+    private void BeingAttack()
+    {
+        if(isUnderAttack) return;
+        StartCoroutine(_BeingAttack());
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("WeaponBasicHit"))
+        {
+            BeingAttack();
+            /* Debug.Log("Resource Type: " + Type);
+            Debug.Log("Resource Life: " + Life);
+            Debug.Log("Resource Amount: " + Amount);
+            Debug.Log("Player Wood: " + PlayerData.wood);
+            Debug.Log("Player Stone: " + PlayerData.stone); */
+        }
+    }
 }

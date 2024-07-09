@@ -48,10 +48,10 @@ public abstract class Resource : MonoBehaviour
     }
     public void GenerateLifeAndAmount()
     {
-        Debug.Log("GENERATE");
+        //Debug.Log("GENERATE");
         System.Random rand = new();
         int randomNumber = rand.Next(0, 100);
-        Life = randomNumber;
+        if(Life == 0)Life = randomNumber;
         Amount = Life * Subtractor;
     }
     void OnTriggerEnter(Collider other)
@@ -59,11 +59,11 @@ public abstract class Resource : MonoBehaviour
         if(other.gameObject.CompareTag("WeaponBasicHit") && WeaponMovement.isCooldownActive)
         {
             GiveResource();
-            Debug.Log("Resource Type: " + Type);
+            /* Debug.Log("Resource Type: " + Type);
             Debug.Log("Resource Life: " + Life);
             Debug.Log("Resource Amount: " + Amount);
             Debug.Log("Player Wood: " + PlayerData.wood);
-            Debug.Log("Player Stone: " + PlayerData.stone);
+            Debug.Log("Player Stone: " + PlayerData.stone); */
         }
     }
 }

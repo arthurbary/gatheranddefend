@@ -942,6 +942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subtractor: 3
+  life: 2
 --- !u!4 &1194181506
 Transform:
   m_ObjectHideFlags: 0
@@ -1489,6 +1490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   substractor: 2
+  life: 0
 --- !u!1 &2055304285
 GameObject:
   m_ObjectHideFlags: 0
