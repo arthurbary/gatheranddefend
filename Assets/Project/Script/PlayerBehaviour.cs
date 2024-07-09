@@ -15,7 +15,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
     void Start()
     {
-        weaponMovement = GameObject.FindWithTag("Weapon1").GetComponent<WeaponMovement>();
+        weaponMovement = GameObject.FindWithTag("WeaponBasic").GetComponent<WeaponMovement>();
     }
 
     public void OnEnable() 
@@ -29,7 +29,11 @@ public class PlayerBehaviour : MonoBehaviour
     }
     void Update()
     {
-        if(attack.ReadValue<float>() != 0 && weaponMovement.CanRotate())StartCoroutine(weaponMovement.RotateObject());
+        if(attack.ReadValue<float>() != 0)BasicAttack();
     }
     
+    void BasicAttack()
+    {
+        if(weaponMovement.CanRotate()) StartCoroutine(weaponMovement.RotateObject());
+    }
 }
