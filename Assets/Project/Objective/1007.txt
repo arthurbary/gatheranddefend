@@ -1,0 +1,16 @@
+Finir la base
+production de minions (basic il doivent seulement aller attaquer la base enemy)
+Faire les toures
+Definir comment elle attaque (factory de fleche)
+elle vise le premier qui arrive jusqu'au moment ou l'enemy est mort
+
+Definir le comportement des minions
+cree une function qui fait une liste des batiment enemy puis qui les class
+Machine State ?
+comment il attaque ?
+Target ranking:
+Base
+Tower
+Other Building
+
+Faire une map avec de 3-5 points de connexion entre les 2 camps et diriger les minions vers ces 

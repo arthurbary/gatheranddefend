@@ -3,7 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - WeaponBasicHit
+  - WeaponBasic
+  - Wood
+  - Stone
+  - RegularMinion
+  - HeavyMinion
+  - RunnerMinion
+  - FlyerMinion
+  - Base
+  - Blacksmith
+  - Gym
+  - Tower
   layers:
   - Default
   - TransparentFX
