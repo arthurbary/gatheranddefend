@@ -9,7 +9,6 @@ public class RegularMinionFactory : MonoBehaviour
     [SerializeField] GameObject prefab;
     [SerializeField]private RegularMinionPool pool;
     [SerializeField] private Transform launchPoint;
-    private bool isEnemy = false;
     void Start()
     {
         if (pool == null)
@@ -31,21 +30,13 @@ public class RegularMinionFactory : MonoBehaviour
             if (pool != null)
             {
                 RegularMinionPoolMember poolMember = pool.Spawn(launchPoint.position, launchPoint.rotation, isEnemy);
-
                 poolMember.Initialize();
-
-                Debug.Log($"Spawn is the parent {transform.parent.name}, an enemy: {transform.parent.GetComponent<Building>().isEnemy}");
-                Debug.Log($"PoolMember is enemy: {poolMember.isEnemy}");
             }
             else
             {
                 GameObject newMember = Instantiate(prefab, launchPoint.position, launchPoint.rotation);
-
                 newMember.GetComponent<Minion>().isEnemy = isEnemy;
                 newMember.GetComponent<Minion>().Initialize();
-
-                Debug.Log($"Initiate is the parent {transform.parent.name}, an enemy: {transform.parent.GetComponent<Building>().isEnemy}");
-                Debug.Log($"Minion is enemy: {newMember.GetComponent<Minion>().isEnemy}");
             }
             yield return new WaitForSeconds(cooldown);
         }
