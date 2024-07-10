@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RegularMinionPool : MonoBehaviour
+public class ArrowPool : MonoBehaviour
 {
-    private Stack<RegularMinionPoolMember> pool = new();
+    private Stack<ArrowPoolMember> pool = new();
     [Range(1, 100)][SerializeField] private int initialBatch = 50;
     [Range(1, 100)][SerializeField] private int batch = 10;
 
@@ -21,34 +21,31 @@ public class RegularMinionPool : MonoBehaviour
         for (int _ = 0; _ < number; _++)
         {
             GameObject newOne = Instantiate(prefab);
-            newOne.GetComponent<RegularMinionPoolMember>().pool = this;
-            Kill(newOne.GetComponent<RegularMinionPoolMember>());
+            newOne.GetComponent<ArrowPoolMember>().pool = this;
+            Kill(newOne.GetComponent<ArrowPoolMember>());
         }
     }
 
-    public RegularMinionPoolMember Spawn(Vector3 position, Quaternion rotation, bool isEnemy)
+    public ArrowPoolMember Spawn(Vector3 position, Quaternion rotation)
     {
         if (pool.Count == 0)
         {
             Create(batch);
         }
-        RegularMinionPoolMember member = pool.Pop();
-        member.isEnemy = isEnemy;
+        ArrowPoolMember member = pool.Pop();
         Revive(member,position, rotation);
         return member;
     }
 
-    public void Kill(RegularMinionPoolMember member)
+    public void Kill(ArrowPoolMember member)
     {
         member.gameObject.SetActive(false);
-        member.hasBeenInitialized = false;
         pool.Push(member);
     }
 
-    public void Revive(RegularMinionPoolMember member, Vector3 position, Quaternion rotation){
+    public void Revive(ArrowPoolMember member, Vector3 position, Quaternion rotation){
         member.gameObject.SetActive(true);
         member.transform.position = position;
         member.transform.rotation = rotation;
-
     }
 }

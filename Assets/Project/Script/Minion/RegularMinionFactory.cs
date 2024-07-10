@@ -25,20 +25,27 @@ public class RegularMinionFactory : MonoBehaviour
 
     private IEnumerator Create()
     {
+        bool isEnemy = transform.parent.GetComponent<Building>().isEnemy;
         while (true)
         {
             if (pool != null)
             {
-                RegularMinionPoolMember poolMember = pool.Spawn(launchPoint.position, launchPoint.rotation);
-                Debug.Log($"Spawn is the parent {transform.parent.name}, an enemy: {transform.parent.GetComponent<Building>().isEnemy}");
+                RegularMinionPoolMember poolMember = pool.Spawn(launchPoint.position, launchPoint.rotation, isEnemy);
 
-                poolMember.isEnemy = transform.parent.GetComponent<Building>().isEnemy;
+                poolMember.Initialize();
+
+                Debug.Log($"Spawn is the parent {transform.parent.name}, an enemy: {transform.parent.GetComponent<Building>().isEnemy}");
+                Debug.Log($"PoolMember is enemy: {poolMember.isEnemy}");
             }
             else
             {
                 GameObject newMember = Instantiate(prefab, launchPoint.position, launchPoint.rotation);
+
+                newMember.GetComponent<Minion>().isEnemy = isEnemy;
+                newMember.GetComponent<Minion>().Initialize();
+
                 Debug.Log($"Initiate is the parent {transform.parent.name}, an enemy: {transform.parent.GetComponent<Building>().isEnemy}");
-                newMember.GetComponent<Minion>().isEnemy = transform.parent.GetComponent<Building>().isEnemy;
+                Debug.Log($"Minion is enemy: {newMember.GetComponent<Minion>().isEnemy}");
             }
             yield return new WaitForSeconds(cooldown);
         }

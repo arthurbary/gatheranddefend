@@ -13,13 +13,17 @@ public class Minion : MonoBehaviour
     private bool canFly = false;
     public bool isEnemy = false;
 
+    internal bool hasBeenInitialized = false;
+
     private NavMeshAgent agent;
     [SerializeField] public Transform target;
 
-    void Start()
+    internal void Initialize()
     {
+        if(hasBeenInitialized) return; 
         agent = GetComponent<NavMeshAgent>();
         SetDestination();
+        hasBeenInitialized = true;
     }
     protected void SetDestination()
     {
@@ -28,7 +32,7 @@ public class Minion : MonoBehaviour
             Building[] buildings = FindObjectsOfType<Building>();
             foreach (var building in buildings)
             {
-                if(isEnemy =! building.isEnemy && building.gameObject.CompareTag("Base")) 
+                if(isEnemy != building.isEnemy && building.gameObject.CompareTag("Base")) 
                 {
                     target = building.gameObject.transform;
                     break;

@@ -18,6 +18,7 @@ public abstract class Building : MonoBehaviour
     protected int StoneCost { get; set; }
     protected int Level { get; set; }
     protected int Life { get; set; }
+    protected BuildingType Type { get; set; }
     private bool isUnderAttack = false;
     public bool isEnemy = false;
 

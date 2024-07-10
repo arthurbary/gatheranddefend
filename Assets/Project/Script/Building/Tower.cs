@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
-public class Base : Building
+public class Tower : Building
 {
     [SerializeField] private int woodCost = 1;
     [SerializeField] private int stoneCost = 1;
@@ -13,6 +14,11 @@ public class Base : Building
         WoodCost = woodCost;
         StoneCost = stoneCost;
         Life = life;
-        Type = BuildingType.BASE;
+        Type = BuildingType.TOWER;
+    }
+
+    protected void Attack()
+    {
+        
     }
 }

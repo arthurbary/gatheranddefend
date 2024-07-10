@@ -12,3 +12,5 @@ Target ranking:
 Base
 Tower
 Other Building
+
+Faire une map avec de 3-5 points de connexion entre les 2 camps et diriger les minions vers ces 
