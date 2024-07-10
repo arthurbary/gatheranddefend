@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Base : Building
 {
-    public override void GenerateMinion(){}
+
 }

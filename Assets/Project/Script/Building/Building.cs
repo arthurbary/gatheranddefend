@@ -14,21 +14,23 @@ public abstract class Building : MonoBehaviour
         ROAD = 6
 
     }
-    private bool isUnderAttack = false;
     protected int WoodCost { get; set; }
     protected int StoneCost { get; set; }
     protected int Level { get; set; }
     protected int Life { get; set; }
-    
-    public abstract void GenerateMinion();
+    private bool isUnderAttack = false;
+    public bool isEnemy = false;
 
     protected IEnumerator _BeingAttack()
     {
         isUnderAttack = true;
         if(Life >= 0){
             Life--;
+            /* 
+            ???Repaire the Building???
             WoodCost--;
-            StoneCost--;
+            StoneCost--; 
+            */
         } 
         else 
         {

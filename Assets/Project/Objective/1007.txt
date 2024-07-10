@@ -1,0 +1,13 @@
+Finir la base
+production de minions (basic il doivent seulement aller attaquer la base enemy)
+Faire les toures
+Definir comment elle attaque (factory de fleche)
+elle vise le premier qui arrive jusqu'au moment ou l'enemy est mort
+
+Definir le comportement des minions
+Machine State ?
+comment il attaque ?
+Target ranking:
+Base
+Tower
+Other Building

@@ -9,9 +9,6 @@ public class PlayerMovement : MonoBehaviour
     private NavMeshAgent agent;
     private Vector3 destination;
 
-    // For double-click detection
-    private float lastClickTime = 0;
-    private float doubleClickThreshold = 0.3f; // Time interval to detect double-click
 
 
     void Start()
