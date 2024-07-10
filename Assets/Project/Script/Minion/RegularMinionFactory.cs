@@ -1,41 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RegularMinionFactory : MonoBehaviour
 {
-    [SerializeField] float cooldown = 0.5f;
+    [SerializeField] float cooldown = 1.5f;
     [SerializeField] GameObject prefab;
     [SerializeField]private RegularMinionPool pool;
     [SerializeField] private Transform launchPoint;
     private bool isEnemy = false;
     void Start()
     {
-
         if (pool == null)
         {
             pool = GetComponent<RegularMinionPool>();
         }
-        if (pool == null)
-        {
-            pool = FindObjectOfType<RegularMinionPool>();
-        }
+        StartCoroutine(Create());
+
+    }
+    void Update()
+    {
     }
 
     private IEnumerator Create()
     {
+        while (true)
+        {
             if (pool != null)
             {
-                pool.Spawn(launchPoint.position,launchPoint.rotation);
+                RegularMinionPoolMember poolMember = pool.Spawn(launchPoint.position, launchPoint.rotation);
+                Debug.Log($"Spawn is the parent {transform.parent.name}, an enemy: {transform.parent.GetComponent<Building>().isEnemy}");
+
+                poolMember.isEnemy = transform.parent.GetComponent<Building>().isEnemy;
             }
             else
             {
                 GameObject newMember = Instantiate(prefab, launchPoint.position, launchPoint.rotation);
-                //defnir s'il est un enemy via sont parent
-                //PROVISOIR definir sa target
-                    //prendre tout les batiments
-                    //si le batiment n'est PAS du meme "coté que soit" le selectionner comme target
+                Debug.Log($"Initiate is the parent {transform.parent.name}, an enemy: {transform.parent.GetComponent<Building>().isEnemy}");
+                newMember.GetComponent<Minion>().isEnemy = transform.parent.GetComponent<Building>().isEnemy;
             }
             yield return new WaitForSeconds(cooldown);
+        }
     }
 }

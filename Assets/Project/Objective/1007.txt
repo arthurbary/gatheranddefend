@@ -5,6 +5,7 @@ Definir comment elle attaque (factory de fleche)
 elle vise le premier qui arrive jusqu'au moment ou l'enemy est mort
 
 Definir le comportement des minions
+cree une function qui fait une liste des batiment enemy puis qui les class
 Machine State ?
 comment il attaque ?
 Target ranking:

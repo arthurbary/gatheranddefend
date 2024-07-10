@@ -14,7 +14,7 @@ public class Minion : MonoBehaviour
     public bool isEnemy = false;
 
     private NavMeshAgent agent;
-    [SerializeField] protected Transform targets;
+    [SerializeField] public Transform target;
 
     void Start()
     {
@@ -23,6 +23,18 @@ public class Minion : MonoBehaviour
     }
     protected void SetDestination()
     {
-        agent.SetDestination(targets.position);
+        if(target == null)
+        {
+            Building[] buildings = FindObjectsOfType<Building>();
+            foreach (var building in buildings)
+            {
+                if(isEnemy =! building.isEnemy && building.gameObject.CompareTag("Base")) 
+                {
+                    target = building.gameObject.transform;
+                    break;
+                }
+            }
+        }
+        agent.SetDestination(target.position);
     }
 }

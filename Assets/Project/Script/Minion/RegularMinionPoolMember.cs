@@ -6,6 +6,6 @@ public class RegularMinionPoolMember : Minion
 {
     public RegularMinionPool pool;
     private void OnBecameInvisible(){
-        pool.Kill(this);
+        //pool.Kill(this);
     }
 }

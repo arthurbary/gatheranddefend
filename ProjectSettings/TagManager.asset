@@ -8,6 +8,14 @@ TagManager:
   - WeaponBasic
   - Wood
   - Stone
+  - RegularMinion
+  - HeavyMinion
+  - RunnerMinion
+  - FlyerMinion
+  - Base
+  - Blacksmith
+  - Gym
+  - Tower
   layers:
   - Default
   - TransparentFX
