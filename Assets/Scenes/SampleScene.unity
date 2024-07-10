@@ -243,7 +243,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2669336, y: 3.4238033e-15, z: -6.016015e-17, w: 0.96371496}
+  m_LocalRotation: {x: 0.26693356, y: -0.000000028720944, z: 0.00000000795524, w: 0.96371496}
   m_LocalPosition: {x: 0, y: 10, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -517,12 +517,17 @@ PrefabInstance:
     - target: {fileID: 4397517051040624458, guid: 19dd708f87f073045971d95fe2d09a4b,
         type: 3}
       propertyPath: cooldown
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9154627852696808404, guid: 19dd708f87f073045971d95fe2d09a4b,
         type: 3}
       propertyPath: m_Name
       value: MinionFacotryEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154627852696808404, guid: 19dd708f87f073045971d95fe2d09a4b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -886,6 +891,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941262757}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1286275437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1286275438}
+  m_Layer: 0
+  m_Name: Tower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1286275438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286275437}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1647740557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,7 +1373,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055304285}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2669336, y: 3.4238033e-15, z: -6.016015e-17, w: 0.96371496}
+  m_LocalRotation: {x: 0.26693356, y: -0.000000028720944, z: 0.00000000795524, w: 0.96371496}
   m_LocalPosition: {x: 0, y: 10, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1406,17 +1442,27 @@ PrefabInstance:
     - target: {fileID: 1272387557415311374, guid: 19dd708f87f073045971d95fe2d09a4b,
         type: 3}
       propertyPath: m_Name
-      value: Base
+      value: BasePlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272387557415311374, guid: 19dd708f87f073045971d95fe2d09a4b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4397517051040624458, guid: 19dd708f87f073045971d95fe2d09a4b,
         type: 3}
       propertyPath: cooldown
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9154627852696808404, guid: 19dd708f87f073045971d95fe2d09a4b,
         type: 3}
       propertyPath: m_Name
-      value: MinionFactory
+      value: MinionFactoryPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154627852696808404, guid: 19dd708f87f073045971d95fe2d09a4b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1572,3 +1618,4 @@ SceneRoots:
   - {fileID: 4676915135233038771}
   - {fileID: 1183697055313705537}
   - {fileID: 584344770}
+  - {fileID: 1286275438}
