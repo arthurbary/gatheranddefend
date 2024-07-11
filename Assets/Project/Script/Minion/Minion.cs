@@ -17,76 +17,58 @@ public class Minion : MonoBehaviour
     }
     protected int Life { get; set; }
     protected int Damage { get; set; }
+    protected float DamageRate { get; set; }
     public MinionType Type { get; set; }
     private bool canFly = false;
     public bool isEnemy = false;
-
     internal bool hasBeenInitialized = false;
-
+    private bool isAttacking = false;
     private NavMeshAgent agent;
+    //VARIABLE POUR SET LA TARGET
+    [SerializeField] private float baseRate = 0.01f;
+    [SerializeField] private float towerRate = 0.2f;
+    [SerializeField] private float otherBuildingRate = 0.15f;
+    [SerializeField] private float resourceRate = 0.15f;
     [SerializeField] public Transform target;
 
     internal void Initialize()
     {
         if(hasBeenInitialized) return; 
         agent = GetComponent<NavMeshAgent>();
-        SetDestination();
+        /* target = GameObject.FindWithTag("Gym").transform;
+        agent.SetDestination(target.position); */
+        //SetTargetBase();
+        //setTargetRandom();
+        setTarget();
         hasBeenInitialized = true;
     }
 
     void Update()
     {
-
-        StartCoroutine(Attack());
-    }
-    protected void SetDestination()
-    {
-        if(target == null)
+        if (agent.remainingDistance <= 5.0f && !isAttacking)
         {
-            Building[] buildings = FindObjectsOfType<Building>();
-            foreach (var building in buildings)
-            {
-                if(isEnemy != building.isEnemy && building.gameObject.CompareTag("Base")) 
-                {
-                    target = building.gameObject.transform;
-                    break;
-                }
-            }
+            StartCoroutine(Attack());
         }
-        agent.SetDestination(target.position);
     }
+    
 
     public IEnumerator Attack()
     {
-        /*
-        TODO
-        Ameliorer l'attaque il faut qu'il continue a attacker 
-        tant qu'il n'est pas mort
-         */
-        if (agent.remainingDistance <= 5.0f && target != null)
+
+        isAttacking = true;
+        agent.isStopped = true;
+        if (target != null)
         {  
-            agent.isStopped = true;     
             Building targetBuilding = target.GetComponent<Building>();
             targetBuilding.TakeDamage(Damage);
         }
         else
         {
             Debug.Log("TARGET IS DESTROYED");
-            /* 
-            TODO 
-            */
+            setTarget();
         }
-        yield return new WaitForSeconds(0.1f);
-    }
-    void setTarget()
-    {
-        /*
-            TODO
-            repartir le type de building en listes
-            en soit faire un randome pour choisir qu'elle liste en selon l'importance des batiments (Base, tower, ect..)
-            definir la target
-            la method doit etre appeler au debut et dans Attack si jamais la target est null
-        */
+        isAttacking = false;
+        yield return new WaitForSeconds(10f);
     }
 
     public virtual void TakeDamage(int damage)
@@ -94,8 +76,6 @@ public class Minion : MonoBehaviour
         if (Life - damage > 0)
         {
             Life -= damage;
-            Debug.Log("Life: " + Life);
-            Debug.Log("Damage: " + damage);
         }
         else
         {
@@ -104,4 +84,109 @@ public class Minion : MonoBehaviour
     }
 
     protected virtual void HandleDeath(){}
+
+    //TO test only on the base
+    protected void SetTargetBase()
+    {
+        if(target == null)
+        {
+            Building[] buildings = FindObjectsOfType<Building>();
+            foreach (var building in buildings)
+            {
+                if(isEnemy != building.isEnemy && building.gameObject.CompareTag("Gym")) 
+                {
+                    target = building.gameObject.transform;
+                    break;
+                }
+            }
+        }
+        if(target != null) agent.SetDestination(target.position);
+    }
+    //TO test on random object
+    void setTargetRandom()
+    {
+        if(target == null)
+        {
+            //Buildings Targeting
+            Building[] buildings = FindObjectsOfType<Building>();
+            List<Building> buildingsEnemy = new List<Building>();
+            foreach (var building in buildings)
+            {
+                if(isEnemy != building.isEnemy)buildingsEnemy.Add(building);
+            }
+            if(buildingsEnemy.Count > 0)
+            {
+                target = buildingsEnemy[Random.Range(0,buildingsEnemy.Count)].gameObject.transform;
+            }
+        }
+        agent.SetDestination(target.position);
+    }
+
+    void setTarget()
+    {
+        if (target == null)
+        {
+            // Buildings Targeting
+            Building[] buildings = FindObjectsOfType<Building>();
+            List<Building> baseBuildings = new List<Building>();
+            List<Building> towerBuildings = new List<Building>();
+            List<Building> otherBuildings = new List<Building>();
+            List<Building> buildingsEnemy = new List<Building>();
+
+            foreach (var building in buildings)
+            {
+                if (isEnemy != building.isEnemy)
+                {
+                    buildingsEnemy.Add(building);
+                    if (building.tag == "Base")
+                    {
+                        baseBuildings.Add(building);
+                    }
+                    else if (building.tag == "Tower")
+                    {
+                        towerBuildings.Add(building);
+                    }
+                    else
+                    {
+                        otherBuildings.Add(building);
+                    }
+                }
+            }
+
+            // Resources Targeting
+            List<Resource> resources = new List<Resource>();
+            foreach (var resource in FindObjectsOfType<Resource>())
+            {
+                resources.Add(resource);
+            }
+
+            // Determine target based on probabilities
+            float rand = Random.Range(0f, 1f);
+            if (rand < baseRate && baseBuildings.Count > 0)
+            {
+                target = baseBuildings[Random.Range(0, baseBuildings.Count)].gameObject.transform;
+            }
+            else if (rand < baseRate + towerRate && towerBuildings.Count > 0)
+            {
+                target = towerBuildings[Random.Range(0, towerBuildings.Count)].gameObject.transform;
+            }
+            else if (rand < baseRate + towerRate + otherBuildingRate && otherBuildings.Count > 0)
+            {
+                target = otherBuildings[Random.Range(0, otherBuildings.Count)].gameObject.transform;
+            }
+            else if (resources.Count > 0)
+            {
+                target = resources[Random.Range(0, resources.Count)].gameObject.transform;
+            }
+            else if (buildingsEnemy.Count > 0) // Fallback to any enemy building if specific categories are empty
+            {
+                target = buildingsEnemy[Random.Range(0, buildingsEnemy.Count)].gameObject.transform;
+            }
+
+            if (target != null)
+            {
+                agent.SetDestination(target.position);
+            }
+        }
+    }
 }

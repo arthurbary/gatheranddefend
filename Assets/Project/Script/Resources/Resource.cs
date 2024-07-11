@@ -16,6 +16,13 @@ public abstract class Resource : MonoBehaviour
     public WeaponMovement WeaponMovement { get; set; }
 
     private bool isRunning = false;
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("WeaponBasicHit") && WeaponMovement.isCooldownActive)
+        {
+            GiveResource();
+        }
+    }
     protected virtual IEnumerator _GiveResource()
     {
         isRunning = true;
@@ -39,8 +46,6 @@ public abstract class Resource : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         isRunning = false;
     }
-
-
     private void GiveResource()
     {
         if(isRunning) return;
@@ -54,16 +59,15 @@ public abstract class Resource : MonoBehaviour
         if(Life == 0)Life = randomNumber;
         Amount = Life * Subtractor;
     }
-    void OnTriggerEnter(Collider other)
+    public void TakeDamage(int damage)
     {
-        if(other.gameObject.CompareTag("WeaponBasicHit") && WeaponMovement.isCooldownActive)
+        if(Life >= 0)
         {
-            GiveResource();
-            /* Debug.Log("Resource Type: " + Type);
-            Debug.Log("Resource Life: " + Life);
-            Debug.Log("Resource Amount: " + Amount);
-            Debug.Log("Player Wood: " + PlayerData.wood);
-            Debug.Log("Player Stone: " + PlayerData.stone); */
+            Life -= damage;
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 }

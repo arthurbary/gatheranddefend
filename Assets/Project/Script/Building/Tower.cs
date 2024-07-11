@@ -24,12 +24,9 @@ public class Tower : Building
     void OnTriggerEnter(Collider other)
     {
         Transform otherParent = other.transform.parent;
-        Debug.Log($"Enemy name: {otherParent.gameObject.name}");
-        Debug.Log($"Tower is not attacking: {!isAttacking}");
-        Debug.Log($"Minion is available: {otherParent.GetComponent<Minion>() != null}");
-        Debug.Log($"Minion is enemy: {!otherParent.GetComponent<Minion>().isEnemy != isEnemy}");
         if( !isAttacking && otherParent.GetComponent<Minion>() != null)
         {
+            
             isTargetReachable = true;
             targetMinion = otherParent.GetComponent<Minion>();
             StartCoroutine(Attack(targetMinion));
