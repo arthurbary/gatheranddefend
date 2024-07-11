@@ -11,7 +11,6 @@ public class TowerFactory : MonoBehaviour
     [SerializeField] public bool canShoot = true;
     void Start()
     {
-
         if (pool == null)
         {
             pool = GetComponent<ArrowPool>();

@@ -19,43 +19,17 @@ public abstract class Building : MonoBehaviour
     protected int Level { get; set; }
     protected int Life { get; set; }
     protected BuildingType Type { get; set; }
-    private bool isUnderAttack = false;
     public bool isEnemy = false;
 
-    protected IEnumerator _BeingAttack()
+    public void TakeDamage(int damage)
     {
-        isUnderAttack = true;
-        if(Life >= 0){
-            Life--;
-            /* 
-            ???Repaire the Building???
-            WoodCost--;
-            StoneCost--; 
-            */
-        } 
-        else 
+        if(Life >= 0)
+        {
+            Life -= damage;
+        }
+        else
         {
             Destroy(gameObject);
-        }
-        yield return new WaitForSeconds(0.1f);
-        isUnderAttack = false;
-    }
-    private void BeingAttack()
-    {
-        if(isUnderAttack) return;
-        StartCoroutine(_BeingAttack());
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("WeaponBasicHit"))
-        {
-            BeingAttack();
-            /* Debug.Log("Resource Type: " + Type);
-            Debug.Log("Resource Life: " + Life);
-            Debug.Log("Resource Amount: " + Amount);
-            Debug.Log("Player Wood: " + PlayerData.wood);
-            Debug.Log("Player Stone: " + PlayerData.stone); */
         }
     }
 }

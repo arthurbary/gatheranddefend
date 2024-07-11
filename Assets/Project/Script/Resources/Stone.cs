@@ -13,7 +13,7 @@ public class Stone : Resource
         Subtractor = substractor;
         WeaponMovement = GameObject.FindWithTag("WeaponBasic").GetComponent<WeaponMovement>();
         GenerateLifeAndAmount();
-        if(life !=0) Life = life;
+        Life = (life != 0) ? life : 1;
     }
 }
 
