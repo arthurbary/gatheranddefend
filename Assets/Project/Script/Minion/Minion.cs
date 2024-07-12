@@ -28,7 +28,7 @@ public class Minion : MonoBehaviour
     [SerializeField] private float baseRate = 0.01f;
     [SerializeField] private float towerRate = 0.2f;
     [SerializeField] private float otherBuildingRate = 0.15f;
-    [SerializeField] private float resourceRate = 0.15f;
+    [SerializeField] private float resourceRate = 0f;
     [SerializeField] public Transform target;
 
     internal void Initialize()
@@ -45,9 +45,15 @@ public class Minion : MonoBehaviour
 
     void Update()
     {
-        if (agent.remainingDistance <= 5.0f && !isAttacking)
+        if(target != null)
         {
-            StartCoroutine(Attack());
+            if (agent.remainingDistance <= 5.0f && !isAttacking)
+            {
+                StartCoroutine(Attack());
+            }
+        } else
+        {
+            setTarget();
         }
     }
     
@@ -59,16 +65,24 @@ public class Minion : MonoBehaviour
         agent.isStopped = true;
         if (target != null)
         {  
-            Building targetBuilding = target.GetComponent<Building>();
-            targetBuilding.TakeDamage(Damage);
+            if(target.GetComponent<Building>() != null)
+            {
+                Building targetBuilding = target.GetComponent<Building>();
+                targetBuilding.TakeDamage(Damage);
+            }
+            else if(target.GetComponent<Resource>() != null)
+            {
+                Resource targetResource = target.GetComponent<Resource>();
+                targetResource.TakeDamage(Damage);
+            }
         }
         else
         {
             Debug.Log("TARGET IS DESTROYED");
             setTarget();
         }
+        yield return new WaitForSeconds(DamageRate);
         isAttacking = false;
-        yield return new WaitForSeconds(10f);
     }
 
     public virtual void TakeDamage(int damage)

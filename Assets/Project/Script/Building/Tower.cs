@@ -23,18 +23,18 @@ public class Tower : Building
 
     void OnTriggerEnter(Collider other)
     {
-        Transform otherParent = other.transform.parent;
-        if( !isAttacking && otherParent.GetComponent<Minion>() != null)
+        Minion otherMinion = other.transform.parent.GetComponent<Minion>();
+        if( !isAttacking && otherMinion != null && otherMinion.isEnemy != isEnemy )
         {
-            
             isTargetReachable = true;
-            targetMinion = otherParent.GetComponent<Minion>();
+            targetMinion = otherMinion;
             StartCoroutine(Attack(targetMinion));
         }
     }
     void OnTriggerExit(Collider other) 
-    { 
-        if(targetMinion != null && other.transform.parent == targetMinion.gameObject) isTargetReachable = false;
+    {
+        GameObject otherParent = other.transform.parent.gameObject;
+        if(otherParent.activeSelf && otherParent == targetMinion.gameObject) isTargetReachable = false;
     }
 
     public IEnumerator Attack(Minion targetMinion)
@@ -42,7 +42,7 @@ public class Tower : Building
         isAttacking = true;
         while (isTargetReachable && isAttacking)
         {
-                if (targetMinion != null)
+                if (targetMinion.gameObject.activeSelf)
             {
                 targetMinion.TakeDamage(damage);
             }
