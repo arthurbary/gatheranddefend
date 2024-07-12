@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -19,12 +20,12 @@ public class Weapon : MonoBehaviour
     protected IEnumerator _GiveDamage(GameObject other)
     {
         isRunning = true;
-        if(other.GetComponent<Minion>() != null)
+        if(other.GetComponent<Minion>() != null && other.GetComponent<Minion>().isEnemy)
         {
             Debug.Log("Hitting Minion");
             other.GetComponent<Minion>().TakeDamage(Damage);
         } 
-        else if (other.GetComponent<Building>() != null)
+        else if (other.GetComponent<Building>() != null && other.GetComponent<Building>().isEnemy)
         {
             Debug.Log("Hitting building");
             other.GetComponent <Building>().TakeDamage(Damage);
