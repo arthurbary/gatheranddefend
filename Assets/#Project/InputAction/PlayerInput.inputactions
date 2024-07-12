@@ -6,7 +6,7 @@
             "id": "3ac24ad5-5907-465f-bb81-82e8fa9241b1",
             "actions": [
                 {
-                    "name": "PlayerAction",
+                    "name": "PlayerMovement",
                     "type": "Value",
                     "id": "62b6a83e-472e-4513-9f12-00a76dd235d9",
                     "expectedControlType": "Button",
@@ -22,17 +22,26 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PlayerBuild",
+                    "type": "Button",
+                    "id": "f0f71137-7949-48a7-8eca-8b5b2ce4cc10",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "54e80660-1add-4da7-8be0-06b534878633",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PlayerAction",
+                    "action": "PlayerMovement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -44,6 +53,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PlayerAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a2dd3446-9311-437b-b9da-0efd64fb7d07",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerBuild",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
