@@ -963,7 +963,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5902562388464634572, guid: b20639dc706f57b4589cf0004f919968,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1954810027}
   m_SourcePrefab: {fileID: 100100000, guid: b20639dc706f57b4589cf0004f919968, type: 3}
 --- !u!1 &1286275437
 GameObject:
@@ -1037,6 +1041,7 @@ MonoBehaviour:
   stoneCost: 1
   life: 1
   damage: 1
+  damageRate: 1
   targetMinion: {fileID: 0}
 --- !u!1 &1585359730
 GameObject:
@@ -1155,6 +1160,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1647740558}
   - component: {fileID: 1647740560}
+  - component: {fileID: 1647740561}
+  - component: {fileID: 1647740562}
+  - component: {fileID: 1647740563}
   m_Layer: 0
   m_Name: WeaponBasic
   m_TagString: WeaponBasic
@@ -1194,6 +1202,60 @@ MonoBehaviour:
   duration: 0.5
   cooldown: 0.5
   isCooldownActive: 0
+--- !u!114 &1647740561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647740557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb34bc13721ffab428c06d3052508035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  damageRate: 1
+--- !u!65 &1647740562
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647740557}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.1, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 1.21}
+--- !u!114 &1647740563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647740557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &1698615475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,7 +1272,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1698615476
 Transform:
   m_ObjectHideFlags: 0
@@ -1531,6 +1593,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 015109810a7e09d4db4160d57200e7c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1954810022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5902562388464634572, guid: b20639dc706f57b4589cf0004f919968,
+    type: 3}
+  m_PrefabInstance: {fileID: 1278731748}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &1954810027
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954810022}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &2055304285
 GameObject:
   m_ObjectHideFlags: 0

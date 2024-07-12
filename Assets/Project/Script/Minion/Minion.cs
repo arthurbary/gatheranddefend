@@ -28,7 +28,6 @@ public class Minion : MonoBehaviour
     [SerializeField] private float baseRate = 0.01f;
     [SerializeField] private float towerRate = 0.2f;
     [SerializeField] private float otherBuildingRate = 0.15f;
-    [SerializeField] private float resourceRate = 0f;
     [SerializeField] public Transform target;
 
     internal void Initialize()
@@ -200,6 +199,7 @@ public class Minion : MonoBehaviour
             if (target != null)
             {
                 agent.SetDestination(target.position);
+                agent.isStopped = false;
             }
         }
     }

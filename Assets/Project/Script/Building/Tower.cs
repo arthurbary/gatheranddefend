@@ -9,6 +9,7 @@ public class Tower : Building
     [SerializeField] private int stoneCost = 1;
     [SerializeField] private int life = 1;
     [SerializeField] private int damage = 1;
+    [SerializeField] private float damageRate = 1.0f;
     private bool isTargetReachable = false;
     private bool isAttacking = false;
     public Minion targetMinion;
@@ -23,7 +24,7 @@ public class Tower : Building
 
     void OnTriggerEnter(Collider other)
     {
-        Minion otherMinion = other.transform.parent.GetComponent<Minion>();
+        Minion otherMinion = other.GetComponent<Minion>();
         if( !isAttacking && otherMinion != null && otherMinion.isEnemy != isEnemy )
         {
             isTargetReachable = true;
@@ -33,8 +34,7 @@ public class Tower : Building
     }
     void OnTriggerExit(Collider other) 
     {
-        GameObject otherParent = other.transform.parent.gameObject;
-        if(otherParent.activeSelf && otherParent == targetMinion.gameObject) isTargetReachable = false;
+        if(other.gameObject.activeSelf && other.gameObject == targetMinion.gameObject) isTargetReachable = false;
     }
 
     public IEnumerator Attack(Minion targetMinion)
@@ -51,7 +51,7 @@ public class Tower : Building
                 Debug.Log("TARGET IS OUT OF REACH OR DESTROYED");
                 isAttacking = false;
             }
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(damageRate);
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponMovement : MonoBehaviour
 {
     [SerializeField] private float duration = 1.0f;  // Time it takes to complete one orbit
-    [SerializeField] float cooldown = 0.5f;
+    [SerializeField] float cooldown = 0.5f; //Time before the next spin
     public bool isCooldownActive = false;
 
     public IEnumerator RotateObject()

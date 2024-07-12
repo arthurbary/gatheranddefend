@@ -18,13 +18,14 @@ public abstract class Resource : MonoBehaviour
     private bool isRunning = false;
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("WeaponBasicHit") && WeaponMovement.isCooldownActive)
+        if(other.gameObject.CompareTag("WeaponBasic") && WeaponMovement.isCooldownActive)
         {
             GiveResource();
         }
     }
     protected virtual IEnumerator _GiveResource()
     {
+        Debug.Log("it give resource");
         isRunning = true;
         if(Life >= 0)
         {
