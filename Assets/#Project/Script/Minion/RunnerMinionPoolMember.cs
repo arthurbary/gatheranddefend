@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeavyMinionPoolMember : Minion
+public class RunnerMinionPoolMember : Minion
 {
-    public HeavyMinionPool pool;
+    public RunnerMinionPool pool;
 
     [SerializeField] private int life;
     [SerializeField] private int damage;

@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3707473278237361414}
-  - component: {fileID: 623210712661474285}
-  - component: {fileID: 6589067024550743309}
+  - component: {fileID: 3135143813434209232}
+  - component: {fileID: 2910527753123171053}
   m_Layer: 0
-  m_Name: RunnerMinionFactory
+  m_Name: HeavyFactory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6741238543657279462}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &623210712661474285
+--- !u!114 &3135143813434209232
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,14 +42,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5141961640645263006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 021b91f2c705ad74f94020d2843a7bec, type: 3}
+  m_Script: {fileID: 11500000, guid: 3746460b3557cb349be38ad19f7c7ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 1
-  prefab: {fileID: 0}
-  pool: {fileID: 6589067024550743309}
-  launchPoint: {fileID: 3707473278237361414}
---- !u!114 &6589067024550743309
+  cooldown: 1.5
+  prefab: {fileID: 1584000564110925997, guid: 93ad0fb6cbc36194187cdff015e845ff, type: 3}
+  pool: {fileID: 2910527753123171053}
+  launchPoint: {fileID: 0}
+--- !u!114 &2910527753123171053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,12 +58,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5141961640645263006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd70bae54b7303148b19c5356fcaa852, type: 3}
+  m_Script: {fileID: 11500000, guid: e196593b4beff984fa3df40ade36c404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   initialBatch: 50
   batch: 10
-  prefab: {fileID: 0}
+  prefab: {fileID: 1584000564110925997, guid: 93ad0fb6cbc36194187cdff015e845ff, type: 3}
 --- !u!1 &5902562388464634572
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,9 +174,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6741238543657279462}
   - component: {fileID: 6554908651766990710}
-  - component: {fileID: 6043426525798576035}
+  - component: {fileID: 5917097537822935920}
   m_Layer: 0
-  m_Name: Gym
+  m_Name: Blacksmith
   m_TagString: Gym
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,7 +220,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.5, y: 5.5, z: 5.5}
   m_Center: {x: 0, y: 2.75, z: 0}
---- !u!114 &6043426525798576035
+--- !u!114 &5917097537822935920
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8426789278358727632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1caa106429049c24f80eec513cdd85a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 68063f7f08604a34abc63eb8c143298a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 0

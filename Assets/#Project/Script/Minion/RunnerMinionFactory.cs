@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeavyMinionFactory : MonoBehaviour
+public class RunnerMinionFactory : MonoBehaviour
 {
     [SerializeField] float cooldown = 1.0f;
     [SerializeField] GameObject prefab;
-    [SerializeField]private HeavyMinionPool pool;
+    [SerializeField]private RunnerMinionPool pool;
     [SerializeField] private Transform launchPoint;
     void Start()
     {
         if (pool == null)
         {
-            pool = GetComponent<HeavyMinionPool>();
+            pool = GetComponent<RunnerMinionPool>();
         }
         StartCoroutine(Create());
     }
@@ -27,7 +27,7 @@ public class HeavyMinionFactory : MonoBehaviour
         {
             if (pool != null)
             {
-                HeavyMinionPoolMember poolMember = pool.Spawn(launchPoint.position, launchPoint.rotation, isEnemy);
+                RunnerMinionPoolMember poolMember = pool.Spawn(launchPoint.position, launchPoint.rotation, isEnemy);
                 poolMember.Initialize();
             }
             else
