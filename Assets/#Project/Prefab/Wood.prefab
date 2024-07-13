@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 698870482887110431}
   - component: {fileID: 2146337190977804292}
   - component: {fileID: 5603208656474583753}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wood
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -132,6 +132,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: oakTree_leafless
       objectReference: {fileID: 0}
+    - target: {fileID: 1630287520782172, guid: 3b703535d10b66844a909b8cd4b12fc5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4789224285325908, guid: 3b703535d10b66844a909b8cd4b12fc5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -209,7 +213,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 3.3330002, y: 3.8160002, z: 3.653}
+  m_Extents: {x: 2, y: 3.75, z: 2}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1

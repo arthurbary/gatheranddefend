@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3707473278237361414}
   - component: {fileID: 623210712661474285}
   - component: {fileID: 6589067024550743309}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RunnerMinionFactory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 1
-  prefab: {fileID: 0}
+  prefab: {fileID: 4783318925777311270, guid: c1fbded44b1b5aa419615e636d030daf, type: 3}
   pool: {fileID: 6589067024550743309}
   launchPoint: {fileID: 3707473278237361414}
 --- !u!114 &6589067024550743309
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialBatch: 50
   batch: 10
-  prefab: {fileID: 0}
+  prefab: {fileID: 4783318925777311270, guid: c1fbded44b1b5aa419615e636d030daf, type: 3}
 --- !u!1 &5902562388464634572
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 182986734825709952}
   - component: {fileID: 8714428102758709649}
   - component: {fileID: 1787064438856356249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 6741238543657279462}
   - component: {fileID: 6554908651766990710}
   - component: {fileID: 6043426525798576035}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gym
   m_TagString: Gym
   m_Icon: {fileID: 0}

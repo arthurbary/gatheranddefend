@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3707473278237361414}
   - component: {fileID: 3135143813434209232}
   - component: {fileID: 2910527753123171053}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HeavyFactory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 182986734825709952}
   - component: {fileID: 8714428102758709649}
   - component: {fileID: 1787064438856356249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 6741238543657279462}
   - component: {fileID: 6554908651766990710}
   - component: {fileID: 5917097537822935920}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Blacksmith
   m_TagString: Gym
   m_Icon: {fileID: 0}

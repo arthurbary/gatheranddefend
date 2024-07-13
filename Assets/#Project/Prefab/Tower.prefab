@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 56057093843500552}
   - component: {fileID: 332048302308455665}
   - component: {fileID: 5340775563274000033}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 7854550291810310592}
   - component: {fileID: 210090241988773751}
   - component: {fileID: 5562175935421666910}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9168056033514071322}
   - component: {fileID: 7041465201494158650}
   - component: {fileID: 3350518065785572446}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stone
   m_TagString: Stone
   m_Icon: {fileID: 0}
@@ -109,6 +109,10 @@ PrefabInstance:
     - target: {fileID: 1643754901835350, guid: 8d8b11b2e2435cc4787335555d35714f, type: 3}
       propertyPath: m_Name
       value: rockGroup02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1643754901835350, guid: 8d8b11b2e2435cc4787335555d35714f, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4629373894737280, guid: 8d8b11b2e2435cc4787335555d35714f, type: 3}
       propertyPath: m_LocalPosition.x

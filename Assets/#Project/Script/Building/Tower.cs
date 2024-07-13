@@ -34,7 +34,7 @@ public class Tower : Building
     }
     void OnTriggerExit(Collider other) 
     {
-        if(other.gameObject.activeSelf && other.gameObject == targetMinion.gameObject) isTargetReachable = false;
+        if(targetMinion != null && other.gameObject == targetMinion.gameObject && other.gameObject.activeSelf) isTargetReachable = false;
     }
 
     public IEnumerator Attack(Minion targetMinion)

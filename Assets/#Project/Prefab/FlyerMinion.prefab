@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2555678831640578297}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 2.5, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -95,9 +95,9 @@ GameObject:
   - component: {fileID: 3334533798179203610}
   - component: {fileID: 3830927585716692081}
   - component: {fileID: -534465490751860321}
-  - component: {fileID: 7278232394426086158}
+  - component: {fileID: 7534843346535454050}
   m_Layer: 0
-  m_Name: RunnerMinion
+  m_Name: FlyerMinion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,9 +127,9 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4783318925777311270}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1923039037
   m_Radius: 0.25
-  m_Speed: 5
+  m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -152,7 +152,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_CenterOfMass: {x: 0, y: 0.54, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -190,8 +190,8 @@ CapsuleCollider:
   m_Radius: 0.3
   m_Height: 1.5
   m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &7278232394426086158
+  m_Center: {x: 0, y: 2.5, z: 0}
+--- !u!114 &7534843346535454050
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4783318925777311270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f114c67ddbf574f4abd7d45a94ab6781, type: 3}
+  m_Script: {fileID: 11500000, guid: 0db6e5dd683a28b448770abaf138691e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 0
