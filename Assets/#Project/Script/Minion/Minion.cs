@@ -64,12 +64,12 @@ public class Minion : MonoBehaviour
         agent.isStopped = true;
         if (target != null)
         {  
-            if(target.GetComponent<Building>() != null)
+            if(target.GetComponent<Building>() != null && target.GetComponent<Building>().isCreated)
             {
                 Building targetBuilding = target.GetComponent<Building>();
                 targetBuilding.TakeDamage(Damage);
             }
-            else if(target.GetComponent<Resource>() != null)
+            else if(target.GetComponent<Resource>() != null && target.GetComponent<Resource>().isCreated)
             {
                 Resource targetResource = target.GetComponent<Resource>();
                 targetResource.TakeDamage(Damage);
@@ -152,15 +152,15 @@ public class Minion : MonoBehaviour
                 if (isEnemy != building.isEnemy)
                 {
                     buildingsEnemy.Add(building);
-                    if (building.tag == "Base")
+                    if (building.tag == "Base" && building.isCreated)
                     {
                         baseBuildings.Add(building);
                     }
-                    else if (building.tag == "Tower")
+                    else if (building.tag == "Tower" && building.isCreated)
                     {
                         towerBuildings.Add(building);
                     }
-                    else
+                    else if(building.isCreated && building.tag != "Base" && building.tag != "Tower")
                     {
                         otherBuildings.Add(building);
                     }
@@ -171,9 +171,8 @@ public class Minion : MonoBehaviour
             List<Resource> resources = new List<Resource>();
             foreach (var resource in FindObjectsOfType<Resource>())
             {
-                resources.Add(resource);
+                if(resource.isCreated)resources.Add(resource);
             }
-
             // Determine target based on probabilities
             float rand = Random.Range(0f, 1f);
             if (rand < baseRate && baseBuildings.Count > 0)
@@ -201,6 +200,10 @@ public class Minion : MonoBehaviour
             {
                 agent.SetDestination(target.position);
                 agent.isStopped = false;
+            }
+            else if( target == null &&  (baseBuildings.Count > 0 || towerBuildings.Count > 0 || otherBuildings.Count > 0 || resources.Count > 0 || buildingsEnemy.Count > 0))
+            {
+                setTarget();
             }
         }
     }

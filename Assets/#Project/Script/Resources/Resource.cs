@@ -14,6 +14,7 @@ public abstract class Resource : MonoBehaviour
     public int Subtractor { get; set; }
     public ResourceType Type { get; set; }
     public WeaponMovement WeaponMovement { get; set; }
+    public bool isCreated = true;
 
     private bool isRunning = false;
     void OnTriggerEnter(Collider other)

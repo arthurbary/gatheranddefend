@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 1787064438856356249}
   m_Layer: 6
   m_Name: CubeForge
-  m_TagString: Untagged
+  m_TagString: Forge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 3447761179934397390}
   m_Layer: 6
   m_Name: Forge
-  m_TagString: Gym
+  m_TagString: Forge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,9 +235,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86cf32b7c014e3544b93ba5df087ceb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  validPlacementMaterial: {fileID: 0}
-  invalidPlacementMaterial: {fileID: 0}
-  meshComponents: []
+  validPlacementMaterial: {fileID: 2100000, guid: b5cca134fdfa9b0408a51a17e6ae4e63,
+    type: 2}
+  invalidPlacementMaterial: {fileID: 2100000, guid: de1cd7c7477827a45b791cc96b192b84,
+    type: 2}
+  meshComponents:
+  - {fileID: 8714428102758709649}
   hasValidPlacement: 0
   isFixed: 0
 --- !u!114 &3447761179934397390
@@ -253,6 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 0
+  isCreated: 0
   woodCost: 1
   stoneCost: 1
   life: 1

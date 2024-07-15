@@ -132,7 +132,6 @@ public class BuildingManager : MonoBehaviour
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
             Transform child = gameObject.transform.GetChild(i);
-            Debug.Log($"Child Name{child.name}");
             minionFactory = child.GetComponent<MinionFactory>();
             if (minionFactory != null)
             {

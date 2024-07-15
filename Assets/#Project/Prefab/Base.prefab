@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 0
+  isCreated: 1
   woodCost: 1
   stoneCost: 1
   life: 1
@@ -117,7 +118,7 @@ GameObject:
   - component: {fileID: 1931714310907567198}
   - component: {fileID: 4696647154524267305}
   m_Layer: 6
-  m_Name: Cube
+  m_Name: CubeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

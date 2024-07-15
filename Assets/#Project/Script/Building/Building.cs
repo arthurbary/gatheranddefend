@@ -20,6 +20,7 @@ public abstract class Building : MonoBehaviour
     protected int Life { get; set; }
     public BuildingType Type { get; set; }
     public bool isEnemy = false;
+    public bool isCreated = false;
 
     public void TakeDamage(int damage)
     {

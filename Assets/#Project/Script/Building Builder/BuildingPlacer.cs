@@ -63,9 +63,10 @@ public class BuildingPlacer : MonoBehaviour
                 {
                     BuildingManager m = _toBuild.GetComponent<BuildingManager>();
                     m.SetPlacementMode(PlacementMode.Fixed);
+                    // sortie du mode construction
                     _buildingPrefab = null;
                     _toBuild = null;
-                    /*
+                    
                     if (m.hasValidPlacement)
                     {
                         m.SetPlacementMode(PlacementMode.Fixed);
@@ -83,7 +84,6 @@ public class BuildingPlacer : MonoBehaviour
                             _toBuild = null;
                         }
                     } 
-                    */
                 } 
 
             }
