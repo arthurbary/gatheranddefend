@@ -67,6 +67,7 @@ public class BuildingManager : MonoBehaviour
         {
             isFixed = true;
             hasValidPlacement = true;
+            LaunchFacotry();
         }
         else if (mode == PlacementMode.Valid)
         {
@@ -122,6 +123,24 @@ public class BuildingManager : MonoBehaviour
     private bool _IsGround(GameObject o)
     {
         return ((1 << o.layer) & BuildingPlacer.instance.groundLayerMask.value) != 0;
+    }
+
+    private void LaunchFacotry()
+    {
+        Debug.Log($"Factory Launcher, children {gameObject.transform.childCount}");
+        MinionFactory minionFactory = null;
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            Transform child = gameObject.transform.GetChild(i);
+            Debug.Log($"Child Name{child.name}");
+            minionFactory = child.GetComponent<MinionFactory>();
+            if (minionFactory != null)
+            {
+                minionFactory.CanLaunchMinion = true;
+                minionFactory.Initialize();
+                break;
+            }
+        }
     }
 
 }

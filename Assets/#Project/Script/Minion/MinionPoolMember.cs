@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeavyMinionPoolMember : MinionPoolMember
+public class MinionPoolMember : Minion
 {
-    public HeavyMinionPool pool;
+    public MinionPool Pool;
 
     [SerializeField] private int life;
     [SerializeField] private int damage;
@@ -15,7 +15,6 @@ public class HeavyMinionPoolMember : MinionPoolMember
         Life = (life != 0) ? life : 1;
         Damage = (damage != 0) ? damage : 2;
         DamageRate = (damageRate != 0) ? damageRate : 1;
-        Type = MinionType.HEAVY;
     }
     private void OnBecameInvisible(){
         //pool.Kill(this);
@@ -29,6 +28,6 @@ public class HeavyMinionPoolMember : MinionPoolMember
     protected override void HandleDeath()
     {
         Debug.Log("MINION DESTROYED");
-        pool.Kill(this);
+        Pool.Kill(this);
     }
 }

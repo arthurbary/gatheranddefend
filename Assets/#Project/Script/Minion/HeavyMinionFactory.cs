@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class HeavyMinionFactory : MonoBehaviour
+public class HeavyMinionFactory : MinionFactory
 {
     [SerializeField] float cooldown = 1.0f;
     [SerializeField] GameObject prefab;
@@ -10,33 +11,10 @@ public class HeavyMinionFactory : MonoBehaviour
     [SerializeField] private Transform launchPoint;
     void Start()
     {
-        if (pool == null)
-        {
-            pool = GetComponent<HeavyMinionPool>();
-        }
-        StartCoroutine(Create());
-    }
-    void Update()
-    {
-    }
-
-    private IEnumerator Create()
-    {
-        bool isEnemy = transform.parent.GetComponent<Building>().isEnemy;
-        while (true)
-        {
-            if (pool != null)
-            {
-                HeavyMinionPoolMember poolMember = pool.Spawn(launchPoint.position, launchPoint.rotation, isEnemy);
-                poolMember.Initialize();
-            }
-            else
-            {
-                GameObject newMember = Instantiate(prefab, launchPoint.position, launchPoint.rotation);
-                newMember.GetComponent<Minion>().isEnemy = isEnemy;
-                newMember.GetComponent<Minion>().Initialize();
-            }
-            yield return new WaitForSeconds(cooldown);
-        }
+        Cooldown = cooldown;
+        Prefab = prefab;
+        Pool = pool;
+        LaunchPoint = launchPoint;
+        Initialize();
     }
 }

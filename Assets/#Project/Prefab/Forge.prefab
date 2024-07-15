@@ -48,7 +48,8 @@ MonoBehaviour:
   cooldown: 1.5
   prefab: {fileID: 1584000564110925997, guid: 93ad0fb6cbc36194187cdff015e845ff, type: 3}
   pool: {fileID: 2910527753123171053}
-  launchPoint: {fileID: 0}
+  launchPoint: {fileID: 5702164744028041435}
+  canLaunchMinion: 0
 --- !u!114 &2910527753123171053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,7 +78,7 @@ GameObject:
   - component: {fileID: 8714428102758709649}
   - component: {fileID: 1787064438856356249}
   m_Layer: 6
-  m_Name: Cube
+  m_Name: CubeForge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -175,8 +176,9 @@ GameObject:
   - component: {fileID: 6741238543657279462}
   - component: {fileID: 6554908651766990710}
   - component: {fileID: 5917097537822935920}
+  - component: {fileID: 4953109053931131751}
   m_Layer: 6
-  m_Name: Blacksmith
+  m_Name: Forge
   m_TagString: Gym
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,6 +199,7 @@ Transform:
   m_Children:
   - {fileID: 8081425279694198771}
   - {fileID: 3707473278237361414}
+  - {fileID: 5702164744028041435}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6554908651766990710
@@ -236,3 +239,51 @@ MonoBehaviour:
   woodCost: 1
   stoneCost: 1
   life: 1
+--- !u!114 &4953109053931131751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8426789278358727632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cf32b7c014e3544b93ba5df087ceb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  validPlacementMaterial: {fileID: 0}
+  invalidPlacementMaterial: {fileID: 0}
+  meshComponents: []
+  hasValidPlacement: 0
+  isFixed: 0
+--- !u!1 &8761153068467402012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5702164744028041435}
+  m_Layer: 6
+  m_Name: HeavyLaunchPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5702164744028041435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8761153068467402012}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3, y: 0, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6741238543657279462}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
