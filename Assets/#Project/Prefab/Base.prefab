@@ -33,6 +33,7 @@ Transform:
   m_Children:
   - {fileID: 7849118746352448131}
   - {fileID: 4483367175075252111}
+  - {fileID: 3504410064509152135}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2969550936877591302
@@ -72,6 +73,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.25, y: 3.25, z: 3.25}
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!1 &2202118395169522162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3504410064509152135}
+  m_Layer: 6
+  m_Name: LaunchPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3504410064509152135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2202118395169522162}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.08, y: 0, z: 2.19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 215000672468829140}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2769394309838273560
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +252,7 @@ MonoBehaviour:
   cooldown: 0.5
   prefab: {fileID: 4783318925777311270, guid: 27163af351eb94e49b8c0407bc741068, type: 3}
   pool: {fileID: 453943761100290443}
-  launchPoint: {fileID: 215000672468829140}
+  launchPoint: {fileID: 4483367175075252111}
 --- !u!114 &453943761100290443
 MonoBehaviour:
   m_ObjectHideFlags: 0

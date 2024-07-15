@@ -25,7 +25,7 @@ public class Minion : MonoBehaviour
     private bool isAttacking = false;
     private NavMeshAgent agent;
     //VARIABLE POUR SET LA TARGET
-    [SerializeField] private float baseRate = 0.01f;
+    [SerializeField] private float baseRate = 0.6f;
     [SerializeField] private float towerRate = 0.2f;
     [SerializeField] private float otherBuildingRate = 0.15f;
     [SerializeField] public Transform target;

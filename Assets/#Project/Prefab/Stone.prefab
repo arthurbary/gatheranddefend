@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9168056033514071322}
   - component: {fileID: 7041465201494158650}
   - component: {fileID: 3350518065785572446}
+  - component: {fileID: 6911803476116146108}
   m_Layer: 7
   m_Name: Stone
   m_TagString: Stone
@@ -98,6 +99,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 0ea1e9698b38fcf459ce485aaaacd211, type: 3}
+--- !u!114 &6911803476116146108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7291223247077083719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: 00000000f2652faea98c17ecf46d2d58
 --- !u!1001 &3462952995233601598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,34 +178,8 @@ PrefabInstance:
     - {fileID: 64323070304545576, guid: 8d8b11b2e2435cc4787335555d35714f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1643754901835350, guid: 8d8b11b2e2435cc4787335555d35714f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6826087191680752748}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d8b11b2e2435cc4787335555d35714f, type: 3}
---- !u!1 &3461921874500621928 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1643754901835350, guid: 8d8b11b2e2435cc4787335555d35714f,
-    type: 3}
-  m_PrefabInstance: {fileID: 3462952995233601598}
-  m_PrefabAsset: {fileID: 0}
---- !u!208 &6826087191680752748
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3461921874500621928}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1.687, y: 0.703, z: 1.8160001}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: -0.08800001, y: 0.703, z: -0.23200001}
-  m_TimeToStationary: 0.5
 --- !u!4 &3467370403280790974 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4629373894737280, guid: 8d8b11b2e2435cc4787335555d35714f,

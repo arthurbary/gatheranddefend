@@ -48,7 +48,7 @@ MonoBehaviour:
   cooldown: 1
   prefab: {fileID: 4783318925777311270, guid: 6ab876b90893cd64983571917480a953, type: 3}
   pool: {fileID: 4212442651582767075}
-  launchPoint: {fileID: 3707473278237361414}
+  launchPoint: {fileID: 6741238543657279462}
 --- !u!114 &4212442651582767075
 MonoBehaviour:
   m_ObjectHideFlags: 0
