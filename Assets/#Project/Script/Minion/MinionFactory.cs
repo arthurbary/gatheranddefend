@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MinionFactory : MonoBehaviour
 {
-    [SerializeField] protected MinionPool Pool;
-    [SerializeField] protected float Cooldown = 1.0f;
-    [SerializeField] protected GameObject Prefab;
-    [SerializeField] protected Transform LaunchPoint;
+    protected MinionPool Pool;
+    protected float Cooldown = 1.0f;
+    protected GameObject Prefab;
+    protected Transform LaunchPoint;
     public bool CanLaunchMinion = false;
 
     void Start()

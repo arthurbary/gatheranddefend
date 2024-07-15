@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3746460b3557cb349be38ad19f7c7ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanLaunchMinion: 0
   cooldown: 1.5
   prefab: {fileID: 1584000564110925997, guid: 93ad0fb6cbc36194187cdff015e845ff, type: 3}
   pool: {fileID: 2910527753123171053}
   launchPoint: {fileID: 5702164744028041435}
-  canLaunchMinion: 0
 --- !u!114 &2910527753123171053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,8 +175,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6741238543657279462}
   - component: {fileID: 6554908651766990710}
-  - component: {fileID: 5917097537822935920}
   - component: {fileID: 4953109053931131751}
+  - component: {fileID: 3447761179934397390}
   m_Layer: 6
   m_Name: Forge
   m_TagString: Gym
@@ -223,22 +223,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.5, y: 5.5, z: 5.5}
   m_Center: {x: 0, y: 2.75, z: 0}
---- !u!114 &5917097537822935920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8426789278358727632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68063f7f08604a34abc63eb8c143298a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isEnemy: 0
-  woodCost: 1
-  stoneCost: 1
-  life: 1
 --- !u!114 &4953109053931131751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +240,22 @@ MonoBehaviour:
   meshComponents: []
   hasValidPlacement: 0
   isFixed: 0
+--- !u!114 &3447761179934397390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8426789278358727632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68063f7f08604a34abc63eb8c143298a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnemy: 0
+  woodCost: 1
+  stoneCost: 1
+  life: 1
 --- !u!1 &8761153068467402012
 GameObject:
   m_ObjectHideFlags: 0

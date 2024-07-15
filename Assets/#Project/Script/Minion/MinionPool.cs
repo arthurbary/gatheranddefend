@@ -5,9 +5,9 @@ using UnityEngine;
 public class MinionPool : MonoBehaviour
 {
     protected Stack<MinionPoolMember> Pool = new();
-    [Range(1, 100)][SerializeField] protected int InitialBatch = 50;
-    [Range(1, 100)][SerializeField] protected int Batch = 10;
-    [SerializeField] protected GameObject prefab;
+    [Range(1, 100)] protected int InitialBatch = 50;
+    [Range(1, 100)] protected int Batch = 10;
+    protected GameObject Prefab;
 
 
     public void Awake()
@@ -19,7 +19,7 @@ public class MinionPool : MonoBehaviour
     {
         for (int _ = 0; _ < number; _++)
         {
-            GameObject newOne = Instantiate(prefab);
+            GameObject newOne = Instantiate(Prefab);
             newOne.GetComponent<MinionPoolMember>().Pool = this;
             Kill(newOne.GetComponent<MinionPoolMember>());
         }

@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3832248513780632521}
   - component: {fileID: 6006469271157825012}
-  - component: {fileID: 4596012310172754795}
   - component: {fileID: 7126587315976609330}
+  - component: {fileID: 4596012310172754795}
   m_Layer: 0
   m_Name: HeavyMinion
-  m_TagString: Untagged
+  m_TagString: HeavyMinion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,6 +58,27 @@ CapsuleCollider:
   m_Height: 2.3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7126587315976609330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584000564110925997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 527befca99331d74ea235c0f561aefeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnemy: 0
+  baseRate: 0.01
+  towerRate: 0.2
+  otherBuildingRate: 0.15
+  target: {fileID: 0}
+  Pool: {fileID: 0}
+  life: 0
+  damage: 0
+  damageRate: 0
 --- !u!195 &4596012310172754795
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -80,27 +101,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7126587315976609330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584000564110925997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 527befca99331d74ea235c0f561aefeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isEnemy: 0
-  baseRate: 0.01
-  towerRate: 0.2
-  otherBuildingRate: 0.15
-  target: {fileID: 0}
-  pool: {fileID: 0}
-  life: 0
-  damage: 0
-  damageRate: 0
 --- !u!1 &2928706212786914444
 GameObject:
   m_ObjectHideFlags: 0

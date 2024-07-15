@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class HeavyMinionPoolMember : MinionPoolMember
 {
-    public HeavyMinionPool pool;
-
     [SerializeField] private int life;
     [SerializeField] private int damage;
     [SerializeField] private float damageRate;
@@ -17,18 +15,5 @@ public class HeavyMinionPoolMember : MinionPoolMember
         DamageRate = (damageRate != 0) ? damageRate : 1;
         Type = MinionType.HEAVY;
     }
-    private void OnBecameInvisible(){
-        //pool.Kill(this);
-    }
 
-    public override void TakeDamage(int damage)
-    {
-        base.TakeDamage(damage);
-    }
-
-    protected override void HandleDeath()
-    {
-        Debug.Log("MINION DESTROYED");
-        pool.Kill(this);
-    }
 }

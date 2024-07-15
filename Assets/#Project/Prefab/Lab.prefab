@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f599109830c710146939082fb4aa09b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanLaunchMinion: 0
   cooldown: 1
   prefab: {fileID: 4783318925777311270, guid: 6ab876b90893cd64983571917480a953, type: 3}
-  pool: {fileID: 4212442651582767075}
+  pool: {fileID: 0}
   launchPoint: {fileID: 6741238543657279462}
 --- !u!114 &4212442651582767075
 MonoBehaviour:

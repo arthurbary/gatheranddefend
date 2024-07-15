@@ -5,17 +5,6 @@ using UnityEngine;
 public class MinionPoolMember : Minion
 {
     public MinionPool Pool;
-
-    [SerializeField] private int life;
-    [SerializeField] private int damage;
-    [SerializeField] private float damageRate;
-
-    void Start()
-    {
-        Life = (life != 0) ? life : 1;
-        Damage = (damage != 0) ? damage : 2;
-        DamageRate = (damageRate != 0) ? damageRate : 1;
-    }
     private void OnBecameInvisible(){
         //pool.Kill(this);
     }
