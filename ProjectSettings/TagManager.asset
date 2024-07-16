@@ -13,11 +13,12 @@ TagManager:
   - RunnerMinion
   - FlyerMinion
   - Base
-  - Blacksmith
   - Gym
   - Tower
   - Ground
   - Forge
+  - EnemyZone
+  - BaseZone
   layers:
   - Default
   - TransparentFX
