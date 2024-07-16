@@ -149,29 +149,32 @@ public class Minion : MonoBehaviour
 
             foreach (var building in buildings)
             {
-                if (isEnemy != building.isEnemy)
+                if (isEnemy != building.isEnemy && building.isCreated)
                 {
                     buildingsEnemy.Add(building);
-                    if (building.tag == "Base" && building.isCreated)
+                    if (building.tag == "Base")
                     {
                         baseBuildings.Add(building);
                     }
-                    else if (building.tag == "Tower" && building.isCreated)
+                    else if (building.tag == "Tower")
                     {
                         towerBuildings.Add(building);
                     }
-                    else if(building.isCreated && building.tag != "Base" && building.tag != "Tower")
+                    else if(building.tag != "Base" && building.tag != "Tower")
                     {
                         otherBuildings.Add(building);
                     }
                 }
             }
 
-            // Resources Targeting
+            // Resources Targeting Only Enemy can destroy ressources
             List<Resource> resources = new List<Resource>();
-            foreach (var resource in FindObjectsOfType<Resource>())
+            if(isEnemy)
             {
-                if(resource.isCreated)resources.Add(resource);
+                foreach (var resource in FindObjectsOfType<Resource>())
+                {
+                    if(resource.isCreated)resources.Add(resource);
+                }
             }
             // Determine target based on probabilities
             float rand = Random.Range(0f, 1f);

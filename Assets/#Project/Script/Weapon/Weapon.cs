@@ -13,7 +13,6 @@ public class Weapon : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"Hit {other.name} and cooldown is {weaponMovement.isCooldownActive}");
         if(weaponMovement.isCooldownActive) GiveDamage(other.gameObject);
     }
 

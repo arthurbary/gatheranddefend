@@ -14,8 +14,8 @@ public abstract class Building : MonoBehaviour
         ROAD = 6
 
     }
-    protected int WoodCost { get; set; }
-    protected int StoneCost { get; set; }
+    public int WoodCost { get; protected set; }
+    public int StoneCost { get; protected set; }
     protected int Level { get; set; }
     protected int Life { get; set; }
     public BuildingType Type { get; set; }

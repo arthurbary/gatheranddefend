@@ -8,7 +8,7 @@ public enum PlacementMode
     Valid,
     Invalid
 }
-
+[RequireComponent(typeof(Building))]
 public class BuildingManager : MonoBehaviour
 {
     public Material validPlacementMaterial;
@@ -19,11 +19,15 @@ public class BuildingManager : MonoBehaviour
 
     [HideInInspector] public bool hasValidPlacement;
     [HideInInspector] public bool isFixed;
-
     private int _nObstacles;
+    private Building building;
+    public Collider buildingCollider;
+    private bool enemyZone = false;
+    private bool baseZone = false;
 
     private void Awake()
     {
+        building = GetComponent<Building>();
         hasValidPlacement = true;
         isFixed = true;
         _nObstacles = 0;
@@ -33,10 +37,12 @@ public class BuildingManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.CompareTag("EnemyZone")) enemyZone = true;
+        if(other.CompareTag("BaseZone")) baseZone = true;
         if (isFixed) return;
-
-        // ignore ground objects
+        // ignore ground objects 
         if (_IsGround(other.gameObject)) return;
+        //ne pas faire la suite  si le building sait etre construit
 
         _nObstacles++;
         SetPlacementMode(PlacementMode.Invalid);
@@ -44,6 +50,8 @@ public class BuildingManager : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if(other.CompareTag("EnemyZone")) enemyZone = false;
+        if(other.CompareTag("BaseZone")) baseZone = false;
         if (isFixed) return;
 
         // ignore ground objects
@@ -63,13 +71,13 @@ public class BuildingManager : MonoBehaviour
 
     public void SetPlacementMode(PlacementMode mode)
     {
-        if (mode == PlacementMode.Fixed)
+        if (mode == PlacementMode.Fixed && CanBeBuild())
         {
             isFixed = true;
             hasValidPlacement = true;
-            LaunchFacotry();
+            SetUpFacotryAndBuilding();
         }
-        else if (mode == PlacementMode.Valid)
+        else if (mode == PlacementMode.Valid && CanBeBuild())
         {
             hasValidPlacement = true;
         }
@@ -89,8 +97,7 @@ public class BuildingManager : MonoBehaviour
         }
         else
         {
-            Material matToApply = mode == PlacementMode.Valid
-                ? validPlacementMaterial : invalidPlacementMaterial;
+            Material matToApply = mode == PlacementMode.Valid ? validPlacementMaterial : invalidPlacementMaterial;
 
             Material[] m; int nMaterials;
             foreach (MeshRenderer r in meshComponents)
@@ -125,9 +132,8 @@ public class BuildingManager : MonoBehaviour
         return ((1 << o.layer) & BuildingPlacer.instance.groundLayerMask.value) != 0;
     }
 
-    private void LaunchFacotry()
+    private void SetUpFacotryAndBuilding()
     {
-        Debug.Log($"Factory Launcher, children {gameObject.transform.childCount}");
         MinionFactory minionFactory = null;
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
@@ -140,6 +146,27 @@ public class BuildingManager : MonoBehaviour
                 break;
             }
         }
+        //builging available to be in setTarget()
+        gameObject.GetComponent<Building>().isCreated = true;
     }
 
+    private bool CanBeBuild()
+    {
+        /* 
+        Cette fonction va etre utiliser pour vefifier si il y a asser de:
+        bois et pierre, si il est dans la bonne zone
+        */
+        //Check si il y a assez de ressource
+        if(building.WoodCost > PlayerData.wood || building.StoneCost > PlayerData.stone ||enemyZone)
+        {
+            return false;
+        }
+        //peut uniquement etre construit dans une zone
+        if(gameObject.tag != "Tower" && !baseZone)
+        {
+            return false;
+        }
+
+        return true;
+    }
 }

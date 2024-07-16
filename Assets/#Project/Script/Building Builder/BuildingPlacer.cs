@@ -6,12 +6,17 @@ using UnityEngine.EventSystems;
 public class BuildingPlacer : MonoBehaviour
 {
     public static BuildingPlacer instance; // (Singleton pattern)
+
     public LayerMask groundLayerMask;
+
     protected GameObject _buildingPrefab;
     protected GameObject _toBuild;
+
     protected Camera _mainCamera;
+
     protected Ray _ray;
     protected RaycastHit _hit;
+
     private void Awake()
     {
         instance = this; // (Singleton pattern)
@@ -25,15 +30,13 @@ public class BuildingPlacer : MonoBehaviour
         { // if in build mode
 
             // right-click: cancel build mode
-            /* 
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(2))
             {
                 Destroy(_toBuild);
                 _toBuild = null;
                 _buildingPrefab = null;
                 return;
-            } 
-            */
+            }
 
             // hide preview when hovering UI
             if (EventSystem.current.IsPointerOverGameObject())
@@ -44,29 +47,20 @@ public class BuildingPlacer : MonoBehaviour
             else if (!_toBuild.activeSelf) _toBuild.SetActive(true);
 
             // rotate preview with Spacebar
-            /* 
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 _toBuild.transform.Rotate(Vector3.up, 90);
-            } 
-            */
+            }
 
             _ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(_ray, out _hit, 1000f, groundLayerMask))
             {
                 if (!_toBuild.activeSelf) _toBuild.SetActive(true);
                 _toBuild.transform.position = _hit.point;
-                
 
-                // if Right-click
                 if (Input.GetMouseButtonDown(1))
-                {
+                { // if right-click
                     BuildingManager m = _toBuild.GetComponent<BuildingManager>();
-                    m.SetPlacementMode(PlacementMode.Fixed);
-                    // sortie du mode construction
-                    _buildingPrefab = null;
-                    _toBuild = null;
-                    
                     if (m.hasValidPlacement)
                     {
                         m.SetPlacementMode(PlacementMode.Fixed);
@@ -83,8 +77,8 @@ public class BuildingPlacer : MonoBehaviour
                             _buildingPrefab = null;
                             _toBuild = null;
                         }
-                    } 
-                } 
+                    }
+                }
 
             }
             else if (_toBuild.activeSelf) _toBuild.SetActive(false);
@@ -95,7 +89,7 @@ public class BuildingPlacer : MonoBehaviour
     {
         _buildingPrefab = prefab;
         _PrepareBuilding();
-        //EventSystem.current.SetSelectedGameObject(null); // cancel keyboard UI nav
+        EventSystem.current.SetSelectedGameObject(null); // cancel keyboard UI nav
     }
 
     protected virtual void _PrepareBuilding()
@@ -105,9 +99,9 @@ public class BuildingPlacer : MonoBehaviour
         _toBuild = Instantiate(_buildingPrefab);
         _toBuild.SetActive(false);
 
-        
         BuildingManager m = _toBuild.GetComponent<BuildingManager>();
         m.isFixed = false;
-        m.SetPlacementMode(PlacementMode.Valid); 
+        m.SetPlacementMode(PlacementMode.Valid);
     }
+
 }
