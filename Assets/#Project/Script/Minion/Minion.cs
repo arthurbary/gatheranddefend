@@ -46,7 +46,7 @@ public class Minion : MonoBehaviour
     {
         if(target != null)
         {
-            if (agent.remainingDistance <= 5.0f && !isAttacking)
+            if ( gameObject.activeSelf && agent.remainingDistance <= 3.0f && !isAttacking)
             {
                 StartCoroutine(Attack());
             }

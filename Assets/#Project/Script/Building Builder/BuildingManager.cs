@@ -71,13 +71,13 @@ public class BuildingManager : MonoBehaviour
 
     public void SetPlacementMode(PlacementMode mode)
     {
-        if (mode == PlacementMode.Fixed && CanBeBuild())
+        if (mode == PlacementMode.Fixed)
         {
             isFixed = true;
             hasValidPlacement = true;
             SetUpFacotryAndBuilding();
         }
-        else if (mode == PlacementMode.Valid && CanBeBuild())
+        else if (mode == PlacementMode.Valid)
         {
             hasValidPlacement = true;
         }
@@ -97,7 +97,16 @@ public class BuildingManager : MonoBehaviour
         }
         else
         {
-            Material matToApply = mode == PlacementMode.Valid ? validPlacementMaterial : invalidPlacementMaterial;
+            Material matToApply = mode == PlacementMode.Valid && CanBeBuild() ? validPlacementMaterial : invalidPlacementMaterial;
+            /* Material matToApply;
+            if(mode == PlacementMode.Valid && CanBeBuild())
+            {
+                matToApply = validPlacementMaterial;
+            }
+            else
+            {
+                matToApply = invalidPlacementMaterial;
+            } */
 
             Material[] m; int nMaterials;
             foreach (MeshRenderer r in meshComponents)
@@ -147,25 +156,32 @@ public class BuildingManager : MonoBehaviour
             }
         }
         //builging available to be in setTarget()
-        gameObject.GetComponent<Building>().isCreated = true;
+        building.isCreated = true;
+        PlayerData.wood -=  building.WoodCost;
+        PlayerData.stone -= building.StoneCost;
     }
 
-    private bool CanBeBuild()
+    public bool CanBeBuild()
     {
         /* 
         Cette fonction va etre utiliser pour vefifier si il y a asser de:
         bois et pierre, si il est dans la bonne zone
         */
         //Check si il y a assez de ressource
-        if(building.WoodCost > PlayerData.wood || building.StoneCost > PlayerData.stone ||enemyZone)
+        /*
+        Debug.Log($"Wood cost available: {building.WoodCost > PlayerData.wood}");
+        Debug.Log($"Stone cost available: {building.StoneCost > PlayerData.stone}");
+        Debug.Log($"Is in enemy zone: {enemyZone}"); 
+        */
+        if(building.WoodCost > PlayerData.wood || building.StoneCost > PlayerData.stone || enemyZone)
         {
             return false;
         }
         //peut uniquement etre construit dans une zone
-        if(gameObject.tag != "Tower" && !baseZone)
+        /* if(gameObject.tag != "Tower" && !baseZone)
         {
             return false;
-        }
+        } */
 
         return true;
     }

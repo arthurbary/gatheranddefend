@@ -16,6 +16,7 @@ public class BuildingPlacer : MonoBehaviour
 
     protected Ray _ray;
     protected RaycastHit _hit;
+    
 
     private void Awake()
     {
@@ -32,10 +33,7 @@ public class BuildingPlacer : MonoBehaviour
             // right-click: cancel build mode
             if (Input.GetMouseButtonDown(2))
             {
-                Destroy(_toBuild);
-                _toBuild = null;
-                _buildingPrefab = null;
-                return;
+                CancelConstruction();
             }
 
             // hide preview when hovering UI
@@ -61,12 +59,26 @@ public class BuildingPlacer : MonoBehaviour
                 if (Input.GetMouseButtonDown(1))
                 { // if right-click
                     BuildingManager m = _toBuild.GetComponent<BuildingManager>();
+                    Building b = m.GetComponent<Building>();
+                    Debug.Log($"Player stone {PlayerData.stone} and cost {b.StoneCost}");
+                    Debug.Log($"Player wood {PlayerData.wood} and cost {b.WoodCost}");
+                    Debug.Log(b.isEnemy);
+                    Debug.Log($"Can it be build: {m.CanBeBuild()}");
+
                     if (m.hasValidPlacement)
                     {
-                        m.SetPlacementMode(PlacementMode.Fixed);
-
+                        if(m.CanBeBuild())
+                        {
+                            m.SetPlacementMode(PlacementMode.Fixed);
+                        }
+                        else
+                        {
+                            CancelConstruction();
+                        }
                         // shift-key: chain builds
-                        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+                        Building building = m.GetComponent<Building>();
+                        Debug.Log($"tag name: {building.tag} et compare {building.CompareTag("Tower")}");
+                        if (building.CompareTag("Tower") && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
                         {
                             _toBuild = null; // (to avoid destruction)
                             _PrepareBuilding();
@@ -83,6 +95,14 @@ public class BuildingPlacer : MonoBehaviour
             }
             else if (_toBuild.activeSelf) _toBuild.SetActive(false);
         }
+    }
+
+    private void CancelConstruction()
+    {
+        Destroy(_toBuild);
+                _toBuild = null;
+                _buildingPrefab = null;
+                return;
     }
 
     public void SetBuildingPrefab(GameObject prefab)
