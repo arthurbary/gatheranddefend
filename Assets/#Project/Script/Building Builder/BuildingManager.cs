@@ -203,7 +203,7 @@ public class BuildingManager : MonoBehaviour
                 {
                     return false;
                 }
-            }s
+            }
         } 
         return true;
     }
