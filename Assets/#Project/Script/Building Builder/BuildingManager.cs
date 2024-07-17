@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public enum PlacementMode
@@ -28,38 +29,60 @@ public class BuildingManager : MonoBehaviour
     private void Awake()
     {
         building = GetComponent<Building>();
-        hasValidPlacement = true;
-        isFixed = true;
+        // if(CanBeBuild())hasValidPlacement = true;
+        // isFixed = true;
         _nObstacles = 0;
-
         _InitializeMaterials();
+        SetPlacementMode(PlacementMode.Valid);
+    }
+
+    void Update()
+    {
+        if (CanBeBuild() && _nObstacles == 0 && !hasValidPlacement) 
+        {
+            SetPlacementMode(PlacementMode.Valid);
+        } 
+        else if ((!CanBeBuild() || _nObstacles > 0) && hasValidPlacement) 
+        {
+            SetPlacementMode(PlacementMode.Invalid);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("EnemyZone")) enemyZone = true;
-        if(other.CompareTag("BaseZone")) baseZone = true;
         if (isFixed) return;
-        // ignore ground objects 
-        if (_IsGround(other.gameObject)) return;
-        //ne pas faire la suite  si le building sait etre construit
+        if(other.CompareTag("EnemyZone"))
+        { 
+            enemyZone = true;
+        }
+        else if(other.CompareTag("BaseZone"))
+        { 
+            baseZone = true;
+        }
+        // ignore ground objects
+        else if (_IsGround(other.gameObject))
+        { 
+            return;
+        }
+        else
+        { 
+            _nObstacles++;
+        }
+        
+        //SetPlacementMode(PlacementMode.Invalid);
 
-        _nObstacles++;
-        SetPlacementMode(PlacementMode.Invalid);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("EnemyZone")) enemyZone = false;
-        if(other.CompareTag("BaseZone")) baseZone = false;
         if (isFixed) return;
-
+        if(other.CompareTag("EnemyZone"))enemyZone = false;
+        else if(other.CompareTag("BaseZone")) baseZone = false;
         // ignore ground objects
-        if (_IsGround(other.gameObject)) return;
-
-        _nObstacles--;
-        if (_nObstacles == 0)
-            SetPlacementMode(PlacementMode.Valid);
+        else if (_IsGround(other.gameObject)) return;
+        else _nObstacles--;
+        // if (_nObstacles == 0)
+        //     SetPlacementMode(PlacementMode.Valid);
     }
 
 #if UNITY_EDITOR
@@ -88,6 +111,8 @@ public class BuildingManager : MonoBehaviour
         SetMaterial(mode);
     }
 
+
+
     public void SetMaterial(PlacementMode mode)
     {
         if (mode == PlacementMode.Fixed)
@@ -98,15 +123,6 @@ public class BuildingManager : MonoBehaviour
         else
         {
             Material matToApply = mode == PlacementMode.Valid && CanBeBuild() ? validPlacementMaterial : invalidPlacementMaterial;
-            /* Material matToApply;
-            if(mode == PlacementMode.Valid && CanBeBuild())
-            {
-                matToApply = validPlacementMaterial;
-            }
-            else
-            {
-                matToApply = invalidPlacementMaterial;
-            } */
 
             Material[] m; int nMaterials;
             foreach (MeshRenderer r in meshComponents)
@@ -163,26 +179,32 @@ public class BuildingManager : MonoBehaviour
 
     public bool CanBeBuild()
     {
-        /* 
-        Cette fonction va etre utiliser pour vefifier si il y a asser de:
-        bois et pierre, si il est dans la bonne zone
-        */
-        //Check si il y a assez de ressource
-        /*
-        Debug.Log($"Wood cost available: {building.WoodCost > PlayerData.wood}");
-        Debug.Log($"Stone cost available: {building.StoneCost > PlayerData.stone}");
-        Debug.Log($"Is in enemy zone: {enemyZone}"); 
-        */
-        if(building.WoodCost > PlayerData.wood || building.StoneCost > PlayerData.stone || enemyZone)
+        //Check s'il y a assez de ressource
+        if(building.WoodCost > PlayerData.wood || building.StoneCost > PlayerData.stone)
         {
             return false;
         }
-        //peut uniquement etre construit dans une zone
-        /* if(gameObject.tag != "Tower" && !baseZone)
+        //check si dans la zone ennemie
+        if(enemyZone) return false;
+        //Check Base Zone Rules
+        Debug.Log($"Is it a Tower: {gameObject.tag == "Tower"}");
+        Debug.Log($"Is it base zone: {baseZone}");
+        // 1) pas de tour
+        if(gameObject.tag == "Tower" && baseZone) return false;
+        // 2) building producteur de minion uniquement dans la base Zone
+        if(gameObject.tag != "Tower" && !baseZone) return false;
+        // 3) un seul type de building a la fois dans la base zone
+        if(gameObject.tag != "Tower" && baseZone)
         {
-            return false;
-        } */
-
+            Building[] buildings = FindObjectsOfType<Building>();
+            foreach (var building in buildings)
+            {
+                if(building.isCreated && !building.isEnemy && gameObject.tag == building.gameObject.tag) 
+                {
+                    return false;
+                }
+            }s
+        } 
         return true;
     }
 }

@@ -62,7 +62,6 @@ public class BuildingPlacer : MonoBehaviour
                     Building b = m.GetComponent<Building>();
                     Debug.Log($"Player stone {PlayerData.stone} and cost {b.StoneCost}");
                     Debug.Log($"Player wood {PlayerData.wood} and cost {b.WoodCost}");
-                    Debug.Log(b.isEnemy);
                     Debug.Log($"Can it be build: {m.CanBeBuild()}");
 
                     if (m.hasValidPlacement)
@@ -77,7 +76,6 @@ public class BuildingPlacer : MonoBehaviour
                         }
                         // shift-key: chain builds
                         Building building = m.GetComponent<Building>();
-                        Debug.Log($"tag name: {building.tag} et compare {building.CompareTag("Tower")}");
                         if (building.CompareTag("Tower") && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
                         {
                             _toBuild = null; // (to avoid destruction)

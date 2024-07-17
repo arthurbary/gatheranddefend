@@ -9,7 +9,7 @@ public class FlyerMinionPool : MinionPool
 
     [SerializeField] GameObject prefab;
 
-    void Awake()
+    new void Awake()
     {
         InitialBatch = initialBatch;
         Batch = batch;

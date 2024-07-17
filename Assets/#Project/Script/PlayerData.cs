@@ -11,7 +11,7 @@ public class PlayerData : MonoBehaviour
 
     void Awake()
     {
-        wood = 1;
-        stone = 1;
+        wood = 10;
+        stone = 10;
     }
 }

@@ -19,7 +19,6 @@ public class Minion : MonoBehaviour
     protected int Damage { get; set; }
     protected float DamageRate { get; set; }
     public MinionType Type { get; set; }
-    private bool canFly = false;
     public bool isEnemy = false;
     internal bool hasBeenInitialized = false;
     private bool isAttacking = false;
@@ -93,6 +92,7 @@ public class Minion : MonoBehaviour
         }
         else
         {
+            target = null;
             HandleDeath();
         }
     }

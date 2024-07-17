@@ -9,11 +9,12 @@ public class RunnerMinionPool : MinionPool
 
     [SerializeField] GameObject prefab;
 
-    void Awake()
+    new void Awake()
     {
         InitialBatch = initialBatch;
         Batch = batch;
         Prefab = prefab;
         base.Awake();
+        
     }
 }
