@@ -19,6 +19,7 @@ TagManager:
   - Forge
   - EnemyZone
   - BaseZone
+  - Arrow
   layers:
   - Default
   - TransparentFX

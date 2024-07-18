@@ -4,16 +4,28 @@ using UnityEngine;
 
 public class TowerAttackZone : MonoBehaviour
 {
-    [SerializeField] private int damage = 1;
-    [SerializeField] private float damageRate = 1.0f;
+    [SerializeField] public int damage = 1;
+    [SerializeField] public float damageRate = 1.0f;
     private bool isTargetReachable = false;
     private bool isAttacking = false;
     public Minion targetMinion;
     private Building tower;
+
+    public ArrowFactory arrowFactory;
     void Awake()
     {
         tower = transform.parent.GetComponent<Building>();
+        arrowFactory = transform.parent.GetComponentInChildren<ArrowFactory>();
     }
+
+    /* 
+    travailler en Queue
+    la target est le premier minion de la queue
+    il rentre dans la queue quand il rentre dans la zone
+    il sort de la queue s'il est mort(inactive)
+    il sort de la queue s'il sort de la zone
+    
+    */
     void OnTriggerEnter(Collider other)
     {
         Minion otherMinion = other.GetComponent<Minion>();
@@ -36,7 +48,11 @@ public class TowerAttackZone : MonoBehaviour
         {
                 if (targetMinion.gameObject.activeSelf)
             {
-                targetMinion.TakeDamage(damage);
+                /*
+                c'est la balle qui doit donner les dammage
+                targetMinion.TakeDamage(damage); 
+                */
+                StartCoroutine(arrowFactory.Create());
             }
             else
             {

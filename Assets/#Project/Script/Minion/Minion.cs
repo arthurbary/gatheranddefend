@@ -33,10 +33,6 @@ public class Minion : MonoBehaviour
     {
         if(hasBeenInitialized) return; 
         agent = GetComponent<NavMeshAgent>();
-        /* target = GameObject.FindWithTag("Gym").transform;
-        agent.SetDestination(target.position); */
-        //SetTargetBase();
-        //setTargetRandom();
         setTarget();
         hasBeenInitialized = true;
     }
