@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerAttackZone : MonoBehaviour
+public class TowerAttackZoneDepreciated : MonoBehaviour
 {
     [SerializeField] public int damage = 1;
     [SerializeField] public float damageRate = 1.0f;
@@ -10,30 +10,38 @@ public class TowerAttackZone : MonoBehaviour
     private bool isAttacking = false;
     public Minion targetMinion;
     private Building tower;
+    private TowerStateMachine towerStateMachine;
+    Queue<Minion> minionToKill;
 
     public ArrowFactory arrowFactory;
     void Awake()
     {
         tower = transform.parent.GetComponent<Building>();
         arrowFactory = transform.parent.GetComponentInChildren<ArrowFactory>();
+        towerStateMachine =  transform.parent.GetComponent<TowerStateMachine>();
     }
 
-    /* 
-    travailler en Queue
-    la target est le premier minion de la queue
-    il rentre dans la queue quand il rentre dans la zone
-    il sort de la queue s'il est mort(inactive)
-    il sort de la queue s'il sort de la zone
-    
-    */
+    void Update()
+    {
+        while(towerStateMachine.state == TowerState.Firing)
+        {
+            StartCoroutine(Attack(minionToKill.Peek()));
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
+
         Minion otherMinion = other.GetComponent<Minion>();
-        if( !isAttacking && otherMinion != null && otherMinion.isEnemy != tower.isEnemy )
+
+        if( otherMinion != null && !minionToKill.Contains(otherMinion) && otherMinion.isEnemy != tower.isEnemy )
         {
-            isTargetReachable = true;
+            minionToKill.Enqueue(otherMinion);
+           /*
+           isTargetReachable = true;
             targetMinion = otherMinion;
-            StartCoroutine(Attack(targetMinion));
+            StartCoroutine(Attack(targetMinion)); 
+            */
         }
     }
     void OnTriggerExit(Collider other) 

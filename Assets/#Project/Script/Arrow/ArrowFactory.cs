@@ -8,11 +8,11 @@ public class ArrowFactory : MonoBehaviour
     [SerializeField] GameObject prefab;
     [SerializeField]private ArrowPool pool;
     [SerializeField] private Transform launchPoint;
-    private TowerAttackZone towerAttackZone;
+    private TowerStateMachine towerStateMachine;
     void Start()
     {
-        towerAttackZone = transform.parent.GetComponentInChildren<TowerAttackZone>();
-        cooldown = towerAttackZone.damageRate;
+        towerStateMachine = transform.parent.GetComponentInChildren<TowerStateMachine>();
+        cooldown = towerStateMachine.damageRate;
 
         if (pool == null)
         {
@@ -29,12 +29,12 @@ public class ArrowFactory : MonoBehaviour
             if (pool != null)
             {
                 ArrowPoolMember arrow = pool.Spawn(launchPoint.position,launchPoint.rotation);
-                arrow.Initialize(towerAttackZone);
+                arrow.Initialize(towerStateMachine);
             }
             else
             {
                 GameObject newArrow = Instantiate(prefab, launchPoint.position, launchPoint.rotation);
-                newArrow.GetComponent<ArrowPoolMember>().Initialize(towerAttackZone);
+                newArrow.GetComponent<ArrowPoolMember>().Initialize(towerStateMachine);
             }
             yield return new WaitForSeconds(cooldown);
     }

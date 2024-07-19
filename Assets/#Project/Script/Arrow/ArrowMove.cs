@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArrowMove : MonoBehaviour
 {
-    [SerializeField] private float speed = 10.0f;
+    [SerializeField] private float speed = 500000.0f;
     [SerializeField] public Transform target;
 
 

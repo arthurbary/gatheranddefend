@@ -8,10 +8,10 @@ public class ArrowPoolMember : MonoBehaviour
     private Minion targetMinion;
     private int damage;
     internal bool hasBeenInitialized = false;
-    internal void Initialize(TowerAttackZone towerAttackZone)
+    internal void Initialize(TowerStateMachine towerStateMachine)
     {
-        damage = towerAttackZone.damage;
-        targetMinion = towerAttackZone.targetMinion;
+        damage = towerStateMachine.damage;
+        targetMinion = towerStateMachine.minionToKill[0];
     }
 
     void Update()
@@ -22,10 +22,12 @@ public class ArrowPoolMember : MonoBehaviour
     private void OnBecameInvisible(){
         pool.Kill(this);
     }
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-
-        if(collision.gameObject == targetMinion.gameObject)
+        Debug.Log($"Are they the same objact: {other.gameObject == targetMinion.gameObject}");
+        Debug.Log($"{other.gameObject.GetInstanceID()}");
+        Debug.Log($"{targetMinion.gameObject.GetInstanceID()}");
+        if(other.gameObject == targetMinion.gameObject)
         {
             targetMinion.TakeDamage(damage); 
             pool.Kill(this);
