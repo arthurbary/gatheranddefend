@@ -134,6 +134,11 @@ public class Minion : MonoBehaviour
 
     void setTarget()
     {
+        /* 
+        Reflexion 
+        s'arranger pour qu'il ne 'attaque pas deux fois de suite le meme type de target
+        Definir si c'est l'ordre d'importance Base > Tower > Resource > other
+        */
         if (target == null)
         {
             // Buildings Targeting

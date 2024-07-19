@@ -4,6 +4,11 @@ using UnityEngine;
 
 public abstract class Resource : MonoBehaviour
 {
+    /* 
+    reflexion 
+    la vie de l'arbre ne depand que de la quantite qu'il reprensente
+    lorsqu'un minion enemy attaque l'arbre il lui enleve des ressource
+    */
     public enum ResourceType
     {
         STONE = 1,
@@ -55,7 +60,7 @@ public abstract class Resource : MonoBehaviour
     }
     public void GenerateLifeAndAmount()
     {
-        //Debug.Log("GENERATE");
+        //Changer la function c'est l'amout qui va definir la vie de la resource
         System.Random rand = new();
         int randomNumber = rand.Next(0, 100);
         if(Life == 0)Life = randomNumber;
