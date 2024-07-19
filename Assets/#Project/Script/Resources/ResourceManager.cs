@@ -6,5 +6,49 @@ public class ResourceManager : MonoBehaviour
 {
     [SerializeField] int totalWoodStock;
     [SerializeField] int totalStoneStock;
+    [SerializeField] int numberOfShuffle;
+    Resource[] resources;
+    private List<Resource> woodResources;
+    private List<Resource> stoneResources;
 
+    void Start()
+    {
+        woodResources = new List<Resource>();
+        stoneResources = new List<Resource>();
+        resources = FindObjectsOfType<Resource>();
+        foreach ( Resource resource in resources)
+        {
+
+            if(resource.Type == Resource.ResourceType.WOOD)
+            {
+                woodResources.Add(resource);
+            } else
+            {
+                stoneResources.Add(resource);
+            }
+        }
+        SetUpRessources(woodResources, totalWoodStock);
+        SetUpRessources(stoneResources, totalStoneStock);
+    }
+
+    void SetUpRessources(List<Resource> resources, int totalStock)
+    {
+        int restOfStock = totalStock % resources.Count != 0 ? totalStock % resources.Count : 0;
+        totalStock -= restOfStock;
+        int baseResource = totalStock / resources.Count;
+        //distribue un amout de base egal pour tous
+        foreach (Resource resource in resources) 
+        {
+            resource.Amount += baseResource;
+        }
+        //redistribution du reste du stock
+        for (int i = 0; i < restOfStock; i++)
+        {
+            resources[Random.Range(0, resources.Count)].Amount += 1;
+        }
+    }
+
+    void RedistributionOfResources(List<Resource> resources, int numberOfShuffle)
+    {}
 }
+

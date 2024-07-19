@@ -1553,7 +1553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42415538, y: -0.000000015581923, z: 0.000000007298182, w: 0.90558946}
+  m_LocalRotation: {x: 0.42415538, y: 0.000000015581909, z: -0.0000000072981767, w: 0.90558946}
   m_LocalPosition: {x: 1.55, y: 25, z: -3.8600006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9087,6 +9087,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1971439453}
+  - component: {fileID: 1971439454}
   m_Layer: 0
   m_Name: ResourceManager
   m_TagString: Untagged
@@ -9109,6 +9110,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2013525842}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1971439454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971439452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b9f638bc5bfe3488171af9e58a7488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalWoodStock: 100
+  totalStoneStock: 100
+  numberOfShuffle: 0
 --- !u!4 &1992796463 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6444475935942017319, guid: 7f565fbc91a23694da677ae9f7e02be6,
@@ -9376,7 +9392,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055304285}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42415538, y: -0.000000015581923, z: 0.000000007298182, w: 0.90558946}
+  m_LocalRotation: {x: 0.42415538, y: 0.000000015581909, z: -0.0000000072981767, w: 0.90558946}
   m_LocalPosition: {x: 1.55, y: 25, z: -3.8600006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9422,7 +9438,7 @@ Transform:
   m_GameObject: {fileID: 2134682835}
   serializedVersion: 2
   m_LocalRotation: {x: -0.26693356, y: 0.000000028720944, z: -0.00000000795524, w: 0.96371496}
-  m_LocalPosition: {x: 0.00000068825557, y: -0.6401844, z: 32.00922}
+  m_LocalPosition: {x: -0.0000006882549, y: -0.6401844, z: 32.00922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

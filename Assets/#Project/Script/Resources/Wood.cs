@@ -7,12 +7,17 @@ public class Wood : Resource
 {
     [SerializeField] private int subtractor = 3;
     [SerializeField] private int life;
-    void Start()
+    [SerializeField] private int amount;
+    void Awake()
     {
         Type = ResourceType.WOOD;
         Subtractor = subtractor;
         WeaponMovement = GameObject.FindWithTag("WeaponBasic").GetComponent<WeaponMovement>();
-        GenerateLifeAndAmount();
+        //GenerateLifeAndAmount();
         if(life !=0) Life = life;
+    }
+    void Update()
+    {
+        Debug.Log($"Wood amount {Amount}");
     }
 }

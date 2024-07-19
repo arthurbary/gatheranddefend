@@ -187,8 +187,6 @@ public class BuildingManager : MonoBehaviour
         //check si dans la zone ennemie
         if(enemyZone) return false;
         //Check Base Zone Rules
-        Debug.Log($"Is it a Tower: {gameObject.tag == "Tower"}");
-        Debug.Log($"Is it base zone: {baseZone}");
         // 1) pas de tour
         if(gameObject.tag == "Tower" && baseZone) return false;
         // 2) building producteur de minion uniquement dans la base Zone
