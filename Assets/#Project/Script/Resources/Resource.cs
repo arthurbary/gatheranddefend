@@ -14,7 +14,6 @@ public abstract class Resource : MonoBehaviour
         STONE = 1,
         WOOD = 2
     }
-    public int Life { get; set; }
     public int Amount { get; set; }
     public int Subtractor { get; set; }
     public ResourceType Type { get; set; }
@@ -33,7 +32,8 @@ public abstract class Resource : MonoBehaviour
     {
         Debug.Log("it give resource");
         isRunning = true;
-        if(Life >= 0)
+        if(Amount < Subtractor) Subtractor -= Amount;
+        if(Amount > 0)
         {
             Amount -= Subtractor;
             if (Type == ResourceType.STONE) 
@@ -44,7 +44,6 @@ public abstract class Resource : MonoBehaviour
             {
                 PlayerData.wood += Subtractor;
             }
-            Life--;
         } 
         else
         {
@@ -58,19 +57,11 @@ public abstract class Resource : MonoBehaviour
         if(isRunning) return;
         StartCoroutine(_GiveResource());
     }
-    public void GenerateLifeAndAmount()
-    {
-        //Changer la function c'est l'amout qui va definir la vie de la resource
-        System.Random rand = new();
-        int randomNumber = rand.Next(0, 100);
-        if(Life == 0)Life = randomNumber;
-        Amount = Life * Subtractor;
-    }
     public void TakeDamage(int damage)
     {
-        if(Life >= 0)
+        if(Amount >= 0)
         {
-            Life -= damage;
+            Amount -= damage;
         }
         else
         {
