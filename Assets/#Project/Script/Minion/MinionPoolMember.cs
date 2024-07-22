@@ -5,9 +5,6 @@ using UnityEngine;
 public class MinionPoolMember : Minion
 {
     public MinionPool Pool;
-    private void OnBecameInvisible(){
-        //pool.Kill(this);
-    }
 
     public override void TakeDamage(int damage)
     {
@@ -17,6 +14,11 @@ public class MinionPoolMember : Minion
     protected override void HandleDeath()
     {
         Debug.Log("MINION DESTROYED");
+        if(isEnemy)
+        { 
+            PlayerData.IncreaseScore(ScoreReward);
+            Debug.Log($"Player score: {PlayerData.score}");
+        }
         Pool.Kill(this);
     }
 }

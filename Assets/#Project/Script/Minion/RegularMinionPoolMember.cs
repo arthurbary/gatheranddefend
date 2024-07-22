@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RegularMinionPoolMember : Minion
+public class RegularMinionPoolMember : MinionPoolMember
 {
     
     public RegularMinionPool pool;
@@ -10,12 +10,14 @@ public class RegularMinionPoolMember : Minion
     [SerializeField] private int life;
     [SerializeField] private int damage;
     [SerializeField] private float damageRate;
+    [SerializeField] private int scoreReward;
 
     void Start()
     {
         Life = (life != 0) ? life : 1;
         Damage = (damage != 0) ? damage : 1;
         DamageRate = (damageRate != 0) ? damageRate : 1;
+        ScoreReward = (scoreReward != 0) ? scoreReward : 1;
         Type = MinionType.REGULAR;
     }
     private void OnBecameInvisible(){
@@ -30,6 +32,7 @@ public class RegularMinionPoolMember : Minion
     protected override void HandleDeath()
     {
         Debug.Log("MINION DESTROYED");
+        if(isEnemy) PlayerData.IncreaseScore(ScoreReward);
         pool.Kill(this);
     }
 }

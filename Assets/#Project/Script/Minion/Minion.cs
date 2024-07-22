@@ -19,14 +19,15 @@ public class Minion : MonoBehaviour
     protected int Damage { get; set; }
     protected float DamageRate { get; set; }
     public MinionType Type { get; set; }
+    public int ScoreReward { get; set; }
     public bool isEnemy = false;
     internal bool hasBeenInitialized = false;
     private bool isAttacking = false;
     private NavMeshAgent agent;
     //VARIABLE POUR SET LA TARGET
-    [SerializeField] private float baseRate = 0.6f;
-    [SerializeField] private float towerRate = 0.2f;
-    [SerializeField] private float otherBuildingRate = 0.15f;
+    [SerializeField] private float baseRate = 0.5f;
+    [SerializeField] private float towerRate = 0.3f;
+    [SerializeField] private float otherBuildingRate = 0.1f;
     [SerializeField] public Transform target;
 
     internal void Initialize()

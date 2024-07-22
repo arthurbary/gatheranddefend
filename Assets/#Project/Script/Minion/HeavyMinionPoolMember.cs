@@ -7,6 +7,7 @@ public class HeavyMinionPoolMember : MinionPoolMember
     [SerializeField] private int life;
     [SerializeField] private int damage;
     [SerializeField] private float damageRate;
+    [SerializeField] private int scoreReward;
 
     void Start()
     {
@@ -14,6 +15,7 @@ public class HeavyMinionPoolMember : MinionPoolMember
         Damage = (damage != 0) ? damage : 2;
         DamageRate = (damageRate != 0) ? damageRate : 1;
         Type = MinionType.HEAVY;
+        ScoreReward = (scoreReward != 0) ? scoreReward : 1;
     }
 
 }

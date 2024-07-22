@@ -24,9 +24,6 @@ public class ArrowPoolMember : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"Are they the same objact: {other.gameObject == targetMinion.gameObject}");
-        Debug.Log($"{other.gameObject.GetInstanceID()}");
-        Debug.Log($"{targetMinion.gameObject.GetInstanceID()}");
         if(other.gameObject == targetMinion.gameObject)
         {
             targetMinion.TakeDamage(damage); 

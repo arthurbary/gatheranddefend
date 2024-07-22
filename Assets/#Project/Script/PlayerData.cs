@@ -8,10 +8,14 @@ public class PlayerData : MonoBehaviour
     [SerializeField] public static int score = 0;
     [SerializeField] public static int wood = 0;
     [SerializeField] public static int stone = 0;
-
-    void Awake()
+    public delegate void ScoreReachedHandler();
+    public static event ScoreReachedHandler OnScoreReached;
+    public static event ScoreReachedHandler OnScoreReachedEnemy;
+    public static void IncreaseScore(int scoreReward)
     {
-        wood = 10;
-        stone = 10;
+        score += scoreReward;
+        OnScoreReached?.Invoke();
+        OnScoreReachedEnemy?.Invoke();
+
     }
 }

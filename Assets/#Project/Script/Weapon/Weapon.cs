@@ -7,7 +7,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     protected int Damage { get; set; }
-    protected float DamageRate { get; set; }
+    protected float Cooldown { get; set; }
     [SerializeField] WeaponMovement weaponMovement;
     private bool isRunning = false;
 
@@ -29,7 +29,7 @@ public class Weapon : MonoBehaviour
             Debug.Log("Hitting building");
             other.GetComponent <Building>().TakeDamage(Damage);
         }
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(Cooldown);
         isRunning = false;
     }
 

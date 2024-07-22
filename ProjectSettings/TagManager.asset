@@ -20,6 +20,12 @@ TagManager:
   - EnemyZone
   - BaseZone
   - Arrow
+  - Lab
+  - TowerButton
+  - ForgeButton
+  - GymButton
+  - LabButton
+  - UI info
   layers:
   - Default
   - TransparentFX

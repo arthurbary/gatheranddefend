@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 4277054780265439820}
   m_Layer: 6
   m_Name: Lab
-  m_TagString: Gym
+  m_TagString: Lab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

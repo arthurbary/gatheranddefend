@@ -55,6 +55,7 @@ MonoBehaviour:
   woodCost: 1
   stoneCost: 1
   life: 1
+  scoreReward: 1
 --- !u!114 &8902662973568214607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +96,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -114,7 +115,7 @@ GameObject:
   - component: {fileID: 3065653334642850432}
   - component: {fileID: 8732934828633157070}
   - component: {fileID: 5364693513616942928}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TowerStateMachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +370,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2

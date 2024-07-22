@@ -10,8 +10,7 @@ public abstract class Building : MonoBehaviour
         BLACKSMITH = 2,
         GYM = 3,
         LAB = 4,
-        TOWER = 5,
-        ROAD = 6
+        TOWER = 5
 
     }
     public int WoodCost { get; protected set; }
@@ -19,6 +18,7 @@ public abstract class Building : MonoBehaviour
     protected int Level { get; set; }
     public int Life { get; set; }
     public BuildingType Type { get; set; }
+    public int ScoreReward { get; set; }
     public bool isEnemy = false;
     public bool isCreated = false;
 
@@ -30,7 +30,15 @@ public abstract class Building : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            if(isEnemy)
+            {
+                PlayerData.IncreaseScore(ScoreReward);
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -6,7 +6,6 @@ using UnityEngine;
 public class Wood : Resource
 {
     [SerializeField] private int subtractor = 3;
-    [SerializeField] private int life;
     [SerializeField] private int amount;
     void Awake()
     {

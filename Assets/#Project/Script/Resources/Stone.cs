@@ -6,7 +6,6 @@ public class Stone : Resource
 {
     // Start is called before the first frame update
     [SerializeField] private int substractor = 2;
-    [SerializeField] private int life;
     void Awake()
     {
         Type = ResourceType.STONE;
