@@ -2454,7 +2454,7 @@ PrefabInstance:
     - target: {fileID: 1272387557415311374, guid: 19dd708f87f073045971d95fe2d09a4b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2969550936877591302, guid: 19dd708f87f073045971d95fe2d09a4b,
         type: 3}
@@ -2469,7 +2469,7 @@ PrefabInstance:
     - target: {fileID: 4397517051040624458, guid: 19dd708f87f073045971d95fe2d09a4b,
         type: 3}
       propertyPath: cooldown
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2667,10 +2667,9 @@ GameObject:
   - component: {fileID: 568159874}
   - component: {fileID: 568159877}
   - component: {fileID: 568159876}
-  - component: {fileID: 568159875}
   m_Layer: 5
   m_Name: PlayerDataInfo (TMP)
-  m_TagString: Untagged
+  m_TagString: UI info
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2694,19 +2693,6 @@ RectTransform:
   m_AnchoredPosition: {x: 117, y: -42}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &568159875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568159873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 059f837f6e2dea6479f700b081711804, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 568159876}
 --- !u!114 &568159876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3660,6 +3646,8 @@ GameObject:
   - component: {fileID: 778815925}
   - component: {fileID: 778815924}
   - component: {fileID: 778815926}
+  - component: {fileID: 778815927}
+  - component: {fileID: 778815928}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -3706,6 +3694,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a0ce08d44a35346ab81a5081583098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &778815927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778815923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 059f837f6e2dea6479f700b081711804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 568159876}
+--- !u!114 &778815928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778815923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 951af4d7e4c5a824fafd46cc6fa6b8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreForTower: 1
+  scoreForForge: 2
+  scoreForGym: 3
+  scoreForLab: 4
+  towerButton: {fileID: 1766286972}
+  forgeButton: {fileID: 916504004}
+  gymButton: {fileID: 1746443446}
+  labButton: {fileID: 1810494602}
 --- !u!1 &804936652
 GameObject:
   m_ObjectHideFlags: 3
@@ -4049,7 +4070,7 @@ GameObject:
   - component: {fileID: 916504007}
   - component: {fileID: 916504006}
   m_Layer: 5
-  m_Name: Forge
+  m_Name: ForgeButton
   m_TagString: ForgeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7842,7 +7863,7 @@ GameObject:
   - component: {fileID: 1746443449}
   - component: {fileID: 1746443448}
   m_Layer: 5
-  m_Name: Gym
+  m_Name: GymButton
   m_TagString: GymButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8204,12 +8225,12 @@ GameObject:
   - component: {fileID: 1766286975}
   - component: {fileID: 1766286974}
   m_Layer: 5
-  m_Name: Tower
+  m_Name: TowerButton
   m_TagString: TowerButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1766286973
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8423,7 +8444,7 @@ GameObject:
   - component: {fileID: 1810494605}
   - component: {fileID: 1810494604}
   m_Layer: 5
-  m_Name: Lab
+  m_Name: LabButton
   m_TagString: LabButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

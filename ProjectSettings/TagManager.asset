@@ -26,6 +26,7 @@ TagManager:
   - GymButton
   - LabButton
   - UI info
+  - Enemy Buildings
   layers:
   - Default
   - TransparentFX

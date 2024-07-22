@@ -37,14 +37,17 @@ public class ScoreManager : MonoBehaviour
         else if (!forgeEnable && PlayerData.score > scoreForForge)
         {
             forgeEnable = true;
+            forgeButton.SetActive(true);
         }
         else if (!gymEnable && PlayerData.score > scoreForGym)
         {
             gymEnable = true;
+            gymButton.SetActive(true);
         }
         else if (!labEnable && PlayerData.score > scoreForLab)
         {
             labEnable = true;
+            labButton.SetActive(true);
         }
     }
 
