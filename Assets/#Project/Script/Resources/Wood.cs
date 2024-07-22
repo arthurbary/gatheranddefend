@@ -17,8 +17,4 @@ public class Wood : Resource
     {
         amount = Amount;
     }
-    void Update()
-    {
-        Debug.Log($"Wood amount {Amount}");
-    }
 }

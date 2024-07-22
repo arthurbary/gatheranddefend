@@ -5,7 +5,12 @@ using UnityEngine;
 public class MinionPoolMember : Minion
 {
     public MinionPool Pool;
+    private DisplayManager displayManager;
 
+    void Start()
+    {
+        displayManager = GameObject.FindObjectOfType<DisplayManager>();
+    }
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
@@ -16,8 +21,7 @@ public class MinionPoolMember : Minion
         Debug.Log("MINION DESTROYED");
         if(isEnemy)
         { 
-            PlayerData.IncreaseScore(ScoreReward);
-            Debug.Log($"Player score: {PlayerData.score}");
+            PlayerData.IncreaseScore(ScoreReward);            
         }
         Pool.Kill(this);
     }

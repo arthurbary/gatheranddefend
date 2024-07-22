@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    [SerializeField] public static int scoreForTower;
-    [SerializeField] public static int scoreForForge;
-    [SerializeField] public static int scoreForGym;
-    [SerializeField] public static int scoreForLab;
-    [SerializeField] public static bool towerEnable = false;
-    [SerializeField] public static bool forgeEnable = false;
-    [SerializeField] public static bool gymEnable = false;
-    [SerializeField] public static bool labEnable = false;
+    [SerializeField] private int scoreForTower;
+    [SerializeField] private int scoreForForge;
+    [SerializeField] private int scoreForGym;
+    [SerializeField] private int scoreForLab;
+    [SerializeField] private GameObject towerButton;
+    [SerializeField] private GameObject forgeButton;
+    [SerializeField] private GameObject gymButton;
+    [SerializeField] private GameObject labButton;
+    public static bool towerEnable = false;
+    public static bool forgeEnable = false;
+    public static bool gymEnable = false;
+    public static bool labEnable = false;
+    
 
     private void OnEnable()
     {
@@ -24,10 +29,10 @@ public class ScoreManager : MonoBehaviour
     }
     private void HandleScoreReached()
     {
-        if(!towerEnable && PlayerData.score > scoreForTower)
+        if(!towerEnable && PlayerData.score >= scoreForTower)
         {
             towerEnable = true;
-            // activation du button
+            towerButton.SetActive(true);
         }
         else if (!forgeEnable && PlayerData.score > scoreForForge)
         {

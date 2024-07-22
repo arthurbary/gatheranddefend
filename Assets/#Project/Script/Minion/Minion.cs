@@ -178,6 +178,9 @@ public class Minion : MonoBehaviour
                     if(resource.isCreated)resources.Add(resource);
                 }
             }
+
+            //Add Player as target
+            
             // Determine target based on probabilities
             float rand = Random.Range(0f, 1f);
             if (rand < baseRate && baseBuildings.Count > 0)

@@ -13,6 +13,6 @@ public class DisplayManager : MonoBehaviour
     }
     public void UpdatePlayerBoard()
     {
-        scoreText.SetText($"Score: {PlayerData.score}  Wood: {PlayerData.wood}  Stone {PlayerData.score}");
+        scoreText.SetText($"Score: {PlayerData.score}  Wood: {PlayerData.wood}  Stone {PlayerData.stone}");
     }
 }

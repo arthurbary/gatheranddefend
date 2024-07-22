@@ -29,13 +29,14 @@ public class Weapon : MonoBehaviour
             Debug.Log("Hitting building");
             other.GetComponent <Building>().TakeDamage(Damage);
         }
+        GameObject.FindObjectOfType<DisplayManager>().UpdatePlayerBoard();
         yield return new WaitForSeconds(Cooldown);
         isRunning = false;
     }
 
     private void GiveDamage(GameObject other)
     {
-        if(isRunning) return;
+        //if(isRunning) return;
         StartCoroutine(_GiveDamage(other));
     }
 }

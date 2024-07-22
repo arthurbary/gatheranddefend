@@ -11,6 +11,11 @@ public class PlayerData : MonoBehaviour
     public delegate void ScoreReachedHandler();
     public static event ScoreReachedHandler OnScoreReached;
     public static event ScoreReachedHandler OnScoreReachedEnemy;
+    DisplayManager displayManager;
+    void Start()
+    {
+        displayManager = GameObject.FindObjectOfType<DisplayManager>();
+    }
     public static void IncreaseScore(int scoreReward)
     {
         score += scoreReward;

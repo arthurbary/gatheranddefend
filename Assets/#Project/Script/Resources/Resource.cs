@@ -21,6 +21,12 @@ public abstract class Resource : MonoBehaviour
     public bool isCreated = true;
 
     private bool isRunning = false;
+    private DisplayManager displayManager;
+    void Start()
+    {
+        
+        
+    }
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("WeaponBasic") && WeaponMovement.isCooldownActive)
@@ -36,19 +42,17 @@ public abstract class Resource : MonoBehaviour
         if(Amount > 0)
         {
             Amount -= Subtractor;
-            if (Type == ResourceType.STONE) 
-            {
-                PlayerData.stone += Subtractor;
-            }
-            if (Type == ResourceType.WOOD) 
-            {
-                PlayerData.wood += Subtractor;
-            }
+            if (Type == ResourceType.STONE) PlayerData.stone += Subtractor;
+            if (Type == ResourceType.WOOD) PlayerData.wood += Subtractor;
+            if(Amount <= 0)Destroy(gameObject);
         } 
         else
         {
             Destroy(gameObject);
         }
+        displayManager = GameObject.FindObjectOfType<DisplayManager>();
+        if(displayManager != null) displayManager.UpdatePlayerBoard();
+        else Debug.Log("display manager not found");
         yield return new WaitForSeconds(0.1f);
         isRunning = false;
     }
