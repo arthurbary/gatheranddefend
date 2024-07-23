@@ -269,9 +269,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemy: 0
   isCreated: 0
-  woodCost: 1
-  stoneCost: 1
-  life: 1
+  woodCost: 30
+  stoneCost: 20
+  life: 15
+  scoreReward: 30
 --- !u!114 &2216098615308677022
 MonoBehaviour:
   m_ObjectHideFlags: 0

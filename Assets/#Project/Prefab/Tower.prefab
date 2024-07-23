@@ -52,10 +52,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemy: 0
   isCreated: 0
-  woodCost: 1
-  stoneCost: 1
-  life: 1
-  scoreReward: 1
+  woodCost: 10
+  stoneCost: 5
+  life: 5
+  scoreReward: 10
 --- !u!114 &8902662973568214607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  damageRate: 1
+  damageRate: 0.5
   arrowFactory: {fileID: 0}
   minionToKill: []
   state: 0

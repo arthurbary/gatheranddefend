@@ -2454,21 +2454,11 @@ PrefabInstance:
     - target: {fileID: 1272387557415311374, guid: 19dd708f87f073045971d95fe2d09a4b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2969550936877591302, guid: 19dd708f87f073045971d95fe2d09a4b,
-        type: 3}
-      propertyPath: life
-      value: 5000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2969550936877591302, guid: 19dd708f87f073045971d95fe2d09a4b,
         type: 3}
       propertyPath: isEnemy
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4397517051040624458, guid: 19dd708f87f073045971d95fe2d09a4b,
-        type: 3}
-      propertyPath: cooldown
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3695,6 +3685,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a0ce08d44a35346ab81a5081583098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreForEnemyTower: 0
+  scoreForEnemyForge: 0
+  scoreForEnemyGym: 0
+  scoreForEnemyLab: 0
+  enemyTower: {fileID: 0}
+  enemyForge: {fileID: 0}
+  enemyGym: {fileID: 0}
+  enemyLab: {fileID: 0}
 --- !u!114 &778815927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5190,11 +5188,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1584000564110925997, guid: 93ad0fb6cbc36194187cdff015e845ff,
         type: 3}
-    - target: {fileID: 3135143813434209232, guid: b20639dc706f57b4589cf0004f919968,
-        type: 3}
-      propertyPath: cooldown
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3135143813434209232, guid: b20639dc706f57b4589cf0004f919968,
         type: 3}
       propertyPath: launchPoint
@@ -7163,7 +7156,7 @@ GameObject:
   - component: {fileID: 1664323689}
   m_Layer: 0
   m_Name: Enemy's Building
-  m_TagString: Untagged
+  m_TagString: Enemy Buildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7182,9 +7175,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2014491081}
+  - {fileID: 1812417795}
   - {fileID: 738376036}
   - {fileID: 307261014}
-  - {fileID: 1812417795}
   - {fileID: 464977699}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
@@ -8243,7 +8236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1766286973
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9663,17 +9656,7 @@ PrefabInstance:
     - target: {fileID: 1272387557415311374, guid: 19dd708f87f073045971d95fe2d09a4b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2969550936877591302, guid: 19dd708f87f073045971d95fe2d09a4b,
-        type: 3}
-      propertyPath: life
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 4397517051040624458, guid: 19dd708f87f073045971d95fe2d09a4b,
-        type: 3}
-      propertyPath: cooldown
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9154627852696808404, guid: 19dd708f87f073045971d95fe2d09a4b,
         type: 3}

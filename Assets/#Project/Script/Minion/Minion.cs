@@ -25,18 +25,18 @@ public class Minion : MonoBehaviour
     private bool isAttacking = false;
     private NavMeshAgent agent;
     //VARIABLE POUR SET LA TARGET
-    public float baseRate = MinionManager.BaseRate;
-    public float towerRate = MinionManager.TowerRate;
-    public float otherBuildingRate = MinionManager.OtherBuildingRate;
+    [HideInInspector] public float baseRate;
+    [HideInInspector] public float towerRate;
+    [HideInInspector] public float otherBuildingRate;
     public Transform target;
-    /* 
+    
     void Awake()
     {
         baseRate = MinionManager.BaseRate;
         towerRate = MinionManager.TowerRate;
         otherBuildingRate = MinionManager.OtherBuildingRate;
     } 
-    */
+    
 
     internal void Initialize()
     {

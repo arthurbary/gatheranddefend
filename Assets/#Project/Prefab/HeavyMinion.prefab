@@ -76,9 +76,10 @@ MonoBehaviour:
   otherBuildingRate: 0.15
   target: {fileID: 0}
   Pool: {fileID: 0}
-  life: 0
-  damage: 0
-  damageRate: 0
+  life: 3
+  damage: 3
+  damageRate: 1
+  scoreReward: 2
 --- !u!195 &4596012310172754795
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -89,7 +90,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

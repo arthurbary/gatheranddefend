@@ -4,14 +4,26 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] public static int scoreForEnemyTower;
-    [SerializeField] public static int scoreForEnemyForge;
-    [SerializeField] public static int scoreForEnemyGym;
-    [SerializeField] public static int scoreForEnemyLab;
+    [SerializeField] private int scoreForEnemyTower;
+    [SerializeField] private int scoreForEnemyForge;
+    [SerializeField] private int scoreForEnemyGym;
+    [SerializeField] private int scoreForEnemyLab;
     [SerializeField] public static bool enemyTowerEnable = false;
     [SerializeField] public static bool enemyForgeEnable = false;
     [SerializeField] public static bool enemyGymEnable = false;
     [SerializeField] public static bool enemyLabEnable = false;
+    [SerializeField] private GameObject enemyTower;
+    [SerializeField] private GameObject enemyForge;
+    [SerializeField] private GameObject enemyGym;
+    [SerializeField] private GameObject enemyLab;
+    void Awake()
+    {
+        GameObject enemyBuildings = GameObject.Find("Enemy's Building");
+        enemyTower = enemyBuildings.transform.GetComponentInChildren<Tower>().gameObject;
+        enemyForge = enemyBuildings.transform.GetComponentInChildren<Blacksmith>().gameObject;
+        enemyGym = enemyBuildings.transform.GetComponentInChildren<Gym>().gameObject;
+        enemyLab = enemyBuildings.transform.GetComponentInChildren<Lab>().gameObject;
+    }
 
     private void OnEnable()
     {
@@ -24,12 +36,12 @@ public class EnemyManager : MonoBehaviour
         // Unsubscribe from the event to avoid memory leaks
         PlayerData.OnScoreReachedEnemy -= EnemyManagerScoreEvent;
     }
-    public static void EnemyManagerScoreEvent()
+    public void EnemyManagerScoreEvent()
     {
         if(!enemyTowerEnable && PlayerData.score > scoreForEnemyTower)
         {
             enemyTowerEnable = true;
-            // activation du button
+            enemyTower.SetActive(true);
         }
         else if (!enemyForgeEnable && PlayerData.score > scoreForEnemyForge)
         {

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanLaunchMinion: 0
-  cooldown: 1.5
+  cooldown: 1
   prefab: {fileID: 1584000564110925997, guid: 93ad0fb6cbc36194187cdff015e845ff, type: 3}
   pool: {fileID: 2910527753123171053}
   launchPoint: {fileID: 5702164744028041435}
@@ -287,9 +287,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemy: 0
   isCreated: 0
-  woodCost: 1
-  stoneCost: 1
-  life: 1
+  woodCost: 20
+  stoneCost: 10
+  life: 10
+  scoreReward: 20
 --- !u!54 &2456512944186210918
 Rigidbody:
   m_ObjectHideFlags: 0

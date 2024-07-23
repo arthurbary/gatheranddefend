@@ -50,9 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemy: 0
   isCreated: 1
-  woodCost: 1
-  stoneCost: 1
-  life: 1
+  life: 40
+  scoreReward: 100
 --- !u!65 &3944216709637784156
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -250,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23d1d5126fb1dca4091bbeefee3ddcd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0.5
+  cooldown: 1
   prefab: {fileID: 4783318925777311270, guid: 27163af351eb94e49b8c0407bc741068, type: 3}
   pool: {fileID: 453943761100290443}
   launchPoint: {fileID: 4483367175075252111}
