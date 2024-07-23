@@ -1553,7 +1553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42415538, y: -0.000000015581923, z: 0.000000007298182, w: 0.90558946}
+  m_LocalRotation: {x: 0.42415538, y: 0.000000015581909, z: -0.0000000072981767, w: 0.90558946}
   m_LocalPosition: {x: -0.27999997, y: 25, z: -66.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3644,10 +3644,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 778815925}
-  - component: {fileID: 778815924}
-  - component: {fileID: 778815926}
   - component: {fileID: 778815927}
   - component: {fileID: 778815928}
+  - component: {fileID: 778815926}
+  - component: {fileID: 778815929}
+  - component: {fileID: 778815924}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -3727,6 +3728,18 @@ MonoBehaviour:
   forgeButton: {fileID: 916504004}
   gymButton: {fileID: 1746443446}
   labButton: {fileID: 1810494602}
+--- !u!114 &778815929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778815923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619d6906c97b69f48820858cedf5ed0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &804936652
 GameObject:
   m_ObjectHideFlags: 3
@@ -9507,7 +9520,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055304285}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42415538, y: -0.000000015581923, z: 0.000000007298182, w: 0.90558946}
+  m_LocalRotation: {x: 0.42415538, y: 0.000000015581909, z: -0.0000000072981767, w: 0.90558946}
   m_LocalPosition: {x: -0.27999997, y: 25, z: -66.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9553,7 +9566,7 @@ Transform:
   m_GameObject: {fileID: 2134682835}
   serializedVersion: 2
   m_LocalRotation: {x: -0.26693356, y: 0.000000028720944, z: -0.00000000795524, w: 0.96371496}
-  m_LocalPosition: {x: 0.00000068825557, y: -0.6401844, z: 32.00922}
+  m_LocalPosition: {x: -0.0000006882549, y: -0.6401844, z: 32.00922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9850,15 +9863,15 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 94534311}
+  - {fileID: 778815925}
+  - {fileID: 1293443307}
   - {fileID: 330585546}
   - {fileID: 2055304287}
   - {fileID: 1814425866}
   - {fileID: 1183697055313705537}
-  - {fileID: 1293443307}
   - {fileID: 1664323689}
   - {fileID: 1706783649}
   - {fileID: 363142676}
   - {fileID: 418157386}
   - {fileID: 1333053054}
-  - {fileID: 778815925}
   - {fileID: 2013525842}

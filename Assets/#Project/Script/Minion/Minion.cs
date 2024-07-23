@@ -25,10 +25,18 @@ public class Minion : MonoBehaviour
     private bool isAttacking = false;
     private NavMeshAgent agent;
     //VARIABLE POUR SET LA TARGET
-    [SerializeField] private float baseRate = 0.5f;
-    [SerializeField] private float towerRate = 0.3f;
-    [SerializeField] private float otherBuildingRate = 0.1f;
-    [SerializeField] public Transform target;
+    public float baseRate = MinionManager.BaseRate;
+    public float towerRate = MinionManager.TowerRate;
+    public float otherBuildingRate = MinionManager.OtherBuildingRate;
+    public Transform target;
+    /* 
+    void Awake()
+    {
+        baseRate = MinionManager.BaseRate;
+        towerRate = MinionManager.TowerRate;
+        otherBuildingRate = MinionManager.OtherBuildingRate;
+    } 
+    */
 
     internal void Initialize()
     {
@@ -183,15 +191,15 @@ public class Minion : MonoBehaviour
             
             // Determine target based on probabilities
             float rand = Random.Range(0f, 1f);
-            if (rand < baseRate && baseBuildings.Count > 0)
+            if ( baseRate > rand && baseBuildings.Count > 0)
             {
                 target = baseBuildings[Random.Range(0, baseBuildings.Count)].gameObject.transform;
             }
-            else if (rand < baseRate + towerRate && towerBuildings.Count > 0)
+            else if (baseRate + towerRate > rand && towerBuildings.Count > 0)
             {
                 target = towerBuildings[Random.Range(0, towerBuildings.Count)].gameObject.transform;
             }
-            else if (rand < baseRate + towerRate + otherBuildingRate && otherBuildings.Count > 0)
+            else if (baseRate + towerRate + otherBuildingRate >rand && otherBuildings.Count > 0)
             {
                 target = otherBuildings[Random.Range(0, otherBuildings.Count)].gameObject.transform;
             }

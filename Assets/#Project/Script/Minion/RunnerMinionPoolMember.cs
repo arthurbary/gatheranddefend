@@ -13,7 +13,7 @@ public class RunnerMinionPoolMember : MinionPoolMember
     {
         Life = (life != 0) ? life : 1;
         Damage = (damage != 0) ? damage : 2;
-        DamageRate = (damageRate != 0) ? damageRate : 1;
+        DamageRate = (damageRate != 0) ? damageRate : 0.1f;
         ScoreReward = (scoreReward != 0) ? scoreReward : 1;
         Type = MinionType.RUNNER;
     }
