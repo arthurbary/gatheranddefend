@@ -77,6 +77,33 @@ MonoBehaviour:
   hasValidPlacement: 0
   isFixed: 0
   buildingCollider: {fileID: 210090241988773751}
+  whenIsBuild:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2603272107276154549}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5775850577286813495}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!54 &652573766046546406
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -117,11 +144,11 @@ GameObject:
   - component: {fileID: 5364693513616942928}
   m_Layer: 2
   m_Name: TowerStateMachine
-  m_TagString: Untagged
+  m_TagString: Attack Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3065653334642850432
 Transform:
   m_ObjectHideFlags: 0
@@ -223,7 +250,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3013917261117352333
 Transform:
   m_ObjectHideFlags: 0

@@ -15,9 +15,9 @@ public class Minion : MonoBehaviour
         FLYER = 4
 
     }
-    protected int Life { get; set; }
-    protected int Damage { get; set; }
-    protected float DamageRate { get; set; }
+    [SerializeField]protected int Life { get; set; }
+    [SerializeField]protected int Damage { get; set; }
+    [SerializeField]protected float DamageRate { get; set; }
     public MinionType Type { get; set; }
     public int ScoreReward { get; set; }
     public bool isEnemy = false;
@@ -30,7 +30,7 @@ public class Minion : MonoBehaviour
     [HideInInspector] public float otherBuildingRate;
     public Transform target;
     
-    void Awake()
+    virtual protected void Awake()
     {
         baseRate = MinionManager.BaseRate;
         towerRate = MinionManager.TowerRate;

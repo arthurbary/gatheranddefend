@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MinionFactory : MonoBehaviour
 {
-    protected MinionPool Pool;
-    protected float Cooldown = 1.0f;
-    protected GameObject Prefab;
-    protected Transform LaunchPoint;
+    [SerializeField]protected MinionPool pool;
+    [SerializeField]protected float Cooldown = 1.0f;
+    [SerializeField]protected GameObject Prefab;
+    [SerializeField]protected Transform LaunchPoint;
     public bool CanLaunchMinion = false;
 
     void Start()
@@ -19,9 +19,9 @@ public class MinionFactory : MonoBehaviour
     {
         if(CanLaunchMinion)
         {
-            if (Pool == null)
+            if (pool == null)
             {
-                Pool = GetComponent<MinionPool>();
+                pool = GetComponent<MinionPool>();
             }
             StartCoroutine(Create());
         }
@@ -33,9 +33,9 @@ public class MinionFactory : MonoBehaviour
 
         while (true)
         {
-            if (Pool != null)
+            if (pool != null)
             {
-                MinionPoolMember PoolMember = Pool.Spawn(LaunchPoint.position, LaunchPoint.rotation, isEnemy);
+                MinionPoolMember PoolMember = pool.Spawn(LaunchPoint.position, LaunchPoint.rotation, isEnemy);
                 PoolMember.Initialize();
             }
             else

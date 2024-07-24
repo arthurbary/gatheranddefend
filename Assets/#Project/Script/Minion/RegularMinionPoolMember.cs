@@ -5,7 +5,6 @@ using UnityEngine;
 public class RegularMinionPoolMember : MinionPoolMember
 {
     
-    public RegularMinionPool pool;
 
     [SerializeField] private int life;
     [SerializeField] private int damage;
@@ -19,16 +18,5 @@ public class RegularMinionPoolMember : MinionPoolMember
         DamageRate = (damageRate != 0) ? damageRate : 0.1f;
         ScoreReward = (scoreReward != 0) ? scoreReward : 1;
         Type = MinionType.REGULAR;
-    }
-    public override void TakeDamage(int damage)
-    {
-        base.TakeDamage(damage);
-    }
-
-    protected override void HandleDeath()
-    {
-        Debug.Log("MINION DESTROYED");
-        if(isEnemy) PlayerData.IncreaseScore(ScoreReward);
-        pool.Kill(this);
     }
 }

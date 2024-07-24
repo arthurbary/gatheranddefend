@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3707473278237361414}
-  - component: {fileID: 623210712661474285}
-  - component: {fileID: 6589067024550743309}
+  - component: {fileID: 9077118980938025440}
+  - component: {fileID: 1698438537180571879}
   m_Layer: 6
   m_Name: RunnerMinionFactory
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6741238543657279462}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &623210712661474285
+--- !u!114 &9077118980938025440
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,15 +42,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5141961640645263006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 021b91f2c705ad74f94020d2843a7bec, type: 3}
+  m_Script: {fileID: 11500000, guid: 39e0db0af2d3a864699fb26bd0b06a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pool: {fileID: 1698438537180571879}
+  Cooldown: 1
+  Prefab: {fileID: 4783318925777311270, guid: c1fbded44b1b5aa419615e636d030daf, type: 3}
+  LaunchPoint: {fileID: 1238688808593607410}
   CanLaunchMinion: 0
-  cooldown: 1
-  prefab: {fileID: 4783318925777311270, guid: c1fbded44b1b5aa419615e636d030daf, type: 3}
-  pool: {fileID: 0}
-  launchPoint: {fileID: 1238688808593607410}
---- !u!114 &6589067024550743309
+--- !u!114 &1698438537180571879
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,12 +59,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5141961640645263006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd70bae54b7303148b19c5356fcaa852, type: 3}
+  m_Script: {fileID: 11500000, guid: d10298d7eb8fe8d488317b6df448692c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialBatch: 50
-  batch: 10
-  prefab: {fileID: 4783318925777311270, guid: c1fbded44b1b5aa419615e636d030daf, type: 3}
+  InitialBatch: 50
+  Batch: 10
+  Prefab: {fileID: 4783318925777311270, guid: c1fbded44b1b5aa419615e636d030daf, type: 3}
 --- !u!1 &5902562388464634572
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,6 +294,9 @@ MonoBehaviour:
   hasValidPlacement: 0
   isFixed: 0
   buildingCollider: {fileID: 0}
+  whenIsBuild:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &-409505414837688823
 Rigidbody:
   m_ObjectHideFlags: 0

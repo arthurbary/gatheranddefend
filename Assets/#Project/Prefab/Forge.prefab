@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3707473278237361414}
-  - component: {fileID: 3135143813434209232}
-  - component: {fileID: 2910527753123171053}
+  - component: {fileID: 7201366682799705173}
+  - component: {fileID: 8290759689840593302}
   m_Layer: 6
   m_Name: HeavyFactory
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6741238543657279462}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3135143813434209232
+--- !u!114 &7201366682799705173
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,15 +42,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5141961640645263006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3746460b3557cb349be38ad19f7c7ce3, type: 3}
+  m_Script: {fileID: 11500000, guid: 39e0db0af2d3a864699fb26bd0b06a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pool: {fileID: 8290759689840593302}
+  Cooldown: 1
+  Prefab: {fileID: 1584000564110925997, guid: 93ad0fb6cbc36194187cdff015e845ff, type: 3}
+  LaunchPoint: {fileID: 5702164744028041435}
   CanLaunchMinion: 0
-  cooldown: 1
-  prefab: {fileID: 1584000564110925997, guid: 93ad0fb6cbc36194187cdff015e845ff, type: 3}
-  pool: {fileID: 2910527753123171053}
-  launchPoint: {fileID: 5702164744028041435}
---- !u!114 &2910527753123171053
+--- !u!114 &8290759689840593302
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,12 +59,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5141961640645263006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e196593b4beff984fa3df40ade36c404, type: 3}
+  m_Script: {fileID: 11500000, guid: d10298d7eb8fe8d488317b6df448692c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialBatch: 50
-  batch: 10
-  prefab: {fileID: 1584000564110925997, guid: 93ad0fb6cbc36194187cdff015e845ff, type: 3}
+  InitialBatch: 50
+  Batch: 10
+  Prefab: {fileID: 1584000564110925997, guid: 93ad0fb6cbc36194187cdff015e845ff, type: 3}
 --- !u!1 &5902562388464634572
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +273,9 @@ MonoBehaviour:
   hasValidPlacement: 0
   isFixed: 0
   buildingCollider: {fileID: 0}
+  whenIsBuild:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3447761179934397390
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,14 +18,12 @@ public class TowerStateMachine : MonoBehaviour
     public TowerState state;
     private Building tower;
     private float cooldownTimer;
-    void Awake()
-    {
-        tower = transform.parent.GetComponent<Building>();
-        arrowFactory = transform.parent.GetComponentInChildren<ArrowFactory>();
-    }
+    
     void Start()
     {
+        tower = transform.parent.GetComponent<Building>();
         state = TowerState.Wait;
+        arrowFactory = transform.parent.GetComponentInChildren<ArrowFactory>();
     }
 
     void Update()
@@ -82,5 +80,4 @@ public class TowerStateMachine : MonoBehaviour
             state = TowerState.Wait;
         }
     }
-
 }

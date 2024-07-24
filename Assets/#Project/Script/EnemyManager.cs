@@ -42,14 +42,17 @@ public class EnemyManager : MonoBehaviour
         else if (!enemyForgeEnable && PlayerData.score > scoreForEnemyForge)
         {
             enemyForgeEnable = true;
+            enemyForge.SetActive(true);
         }
         else if (!enemyGymEnable && PlayerData.score > scoreForEnemyGym)
         {
             enemyGymEnable = true;
+            enemyGym.SetActive(true);
         }
         else if (!enemyLabEnable && PlayerData.score > scoreForEnemyLab)
         {
             enemyLabEnable = true;
+            enemyLab.SetActive(true);
         }
     }
     public static void EnemyManagerDestroyedEvent(){}

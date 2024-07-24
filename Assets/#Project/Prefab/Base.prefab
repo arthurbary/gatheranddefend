@@ -213,8 +213,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4483367175075252111}
-  - component: {fileID: 4397517051040624458}
-  - component: {fileID: 453943761100290443}
+  - component: {fileID: 3524290080103262684}
+  - component: {fileID: 3068796097398107870}
   m_Layer: 6
   m_Name: RegularMinionFactory
   m_TagString: Untagged
@@ -237,7 +237,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 215000672468829140}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4397517051040624458
+--- !u!114 &3524290080103262684
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,14 +246,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 9154627852696808404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23d1d5126fb1dca4091bbeefee3ddcd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 39e0db0af2d3a864699fb26bd0b06a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 1
-  prefab: {fileID: 4783318925777311270, guid: 27163af351eb94e49b8c0407bc741068, type: 3}
-  pool: {fileID: 453943761100290443}
-  launchPoint: {fileID: 4483367175075252111}
---- !u!114 &453943761100290443
+  pool: {fileID: 3068796097398107870}
+  Cooldown: 1
+  Prefab: {fileID: 4783318925777311270, guid: 27163af351eb94e49b8c0407bc741068, type: 3}
+  LaunchPoint: {fileID: 3504410064509152135}
+  CanLaunchMinion: 1
+--- !u!114 &3068796097398107870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,9 +263,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9154627852696808404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da3a649000d28744db619a494d93bc43, type: 3}
+  m_Script: {fileID: 11500000, guid: d10298d7eb8fe8d488317b6df448692c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialBatch: 50
-  batch: 10
-  prefab: {fileID: 4783318925777311270, guid: 27163af351eb94e49b8c0407bc741068, type: 3}
+  InitialBatch: 50
+  Batch: 10
+  Prefab: {fileID: 4783318925777311270, guid: 27163af351eb94e49b8c0407bc741068, type: 3}

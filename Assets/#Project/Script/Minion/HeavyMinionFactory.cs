@@ -1,4 +1,4 @@
-using System.Collections;
+/* using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -13,8 +13,9 @@ public class HeavyMinionFactory : MinionFactory
     {
         Cooldown = cooldown;
         Prefab = prefab;
-        Pool = pool;
+        base.pool = pool;
         LaunchPoint = launchPoint;
         Initialize();
     }
 }
+ */

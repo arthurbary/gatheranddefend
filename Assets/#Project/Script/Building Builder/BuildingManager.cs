@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum PlacementMode
 {
@@ -26,6 +27,8 @@ public class BuildingManager : MonoBehaviour
     private bool enemyZone = false;
     private bool baseZone = false;
     DisplayManager displayManager;
+
+    public UnityEvent whenIsBuild;
 
 
     private void Awake()
@@ -60,6 +63,8 @@ public class BuildingManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"{other.name} - {other.tag}");
+        if(other.CompareTag("Attack Zone")) return;
         if (isFixed) return;
         if (other.CompareTag("EnemyZone"))
         {
@@ -77,11 +82,14 @@ public class BuildingManager : MonoBehaviour
         else
         {
             _nObstacles++;
+        Debug.Log(_nObstacles);
         }
+
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if(other.CompareTag("Attack Zone")) return;
         if (isFixed) return;
         if (other.CompareTag("EnemyZone")) enemyZone = false;
         else if (other.CompareTag("BaseZone")) baseZone = false;
@@ -176,6 +184,7 @@ public class BuildingManager : MonoBehaviour
         PlayerData.wood -= building.WoodCost;
         PlayerData.stone -= building.StoneCost;
         displayManager.UpdatePlayerBoard();
+        whenIsBuild?.Invoke();
     }
 
     public bool CanBeBuild()

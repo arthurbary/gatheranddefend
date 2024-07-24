@@ -4,25 +4,23 @@ using UnityEngine;
 
 public class MinionPoolMember : Minion
 {
-    public MinionPool Pool;
+    public MinionPool pool;
     private DisplayManager displayManager;
+    public delegate void TargetHandler();
+    public static event TargetHandler OnScoreReached;
+    public static event TargetHandler OnScoreReachedEnemy;
 
     void Start()
     {
         displayManager = GameObject.FindObjectOfType<DisplayManager>();
     }
-    public override void TakeDamage(int damage)
-    {
-        base.TakeDamage(damage);
-    }
 
     protected override void HandleDeath()
     {
         Debug.Log("MINION DESTROYED");
-        if(isEnemy)
-        { 
-            PlayerData.IncreaseScore(ScoreReward);            
-        }
-        Pool.Kill(this);
+        if(isEnemy) PlayerData.IncreaseScore(ScoreReward);
+        //ajouter l'event ?Invoke
+        pool.Kill(this);
+
     }
 }

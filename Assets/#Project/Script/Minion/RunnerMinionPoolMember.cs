@@ -17,4 +17,5 @@ public class RunnerMinionPoolMember : MinionPoolMember
         ScoreReward = (scoreReward != 0) ? scoreReward : 1;
         Type = MinionType.RUNNER;
     }
+
 }

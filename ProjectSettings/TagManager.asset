@@ -27,6 +27,7 @@ TagManager:
   - LabButton
   - UI info
   - Enemy Buildings
+  - Attack Zone
   layers:
   - Default
   - TransparentFX

@@ -1,4 +1,4 @@
-using System.Collections;
+/* using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,8 +12,9 @@ public class FlyerMinionFactory : MinionFactory
     {
         Cooldown = cooldown;
         Prefab = prefab;
-        Pool = pool;
+        base.pool = pool;
         LaunchPoint = launchPoint;
         Initialize();
     }
 }
+ */

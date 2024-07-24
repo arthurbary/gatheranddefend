@@ -49,8 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32542bb657f92cf45a3dc3985ac809fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCreated: 1
   subtractor: 3
-  life: 2
+  amount: 0
 --- !u!65 &698870482887110431
 BoxCollider:
   m_ObjectHideFlags: 0
