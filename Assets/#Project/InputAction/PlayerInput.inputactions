@@ -58,6 +58,17 @@
                 },
                 {
                     "name": "",
+                    "id": "4b1a633c-d7ef-4b15-9bc4-11e7858a92dc",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a2dd3446-9311-437b-b9da-0efd64fb7d07",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",

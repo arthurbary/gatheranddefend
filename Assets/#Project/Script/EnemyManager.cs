@@ -18,11 +18,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private GameObject enemyLab;
     void Awake()
     {
-        GameObject enemyBuildings = GameObject.Find("Enemy's Building");
-        enemyTower = enemyBuildings.transform.GetComponentInChildren<Tower>().gameObject;
-        enemyForge = enemyBuildings.transform.GetComponentInChildren<Blacksmith>().gameObject;
-        enemyGym = enemyBuildings.transform.GetComponentInChildren<Gym>().gameObject;
-        enemyLab = enemyBuildings.transform.GetComponentInChildren<Lab>().gameObject;
+
     }
 
     private void OnEnable()

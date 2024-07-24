@@ -11,10 +11,11 @@ public class PlayerData : MonoBehaviour
     public delegate void ScoreReachedHandler();
     public static event ScoreReachedHandler OnScoreReached;
     public static event ScoreReachedHandler OnScoreReachedEnemy;
-    DisplayManager displayManager;
-    void Start()
+    
+    void Awake()
     {
-        displayManager = GameObject.FindObjectOfType<DisplayManager>();
+        wood = 100;
+        stone = 100;
     }
     public static void IncreaseScore(int scoreReward)
     {

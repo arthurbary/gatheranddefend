@@ -39,10 +39,10 @@ public class BuildingPlacer : MonoBehaviour
             // hide preview when hovering UI
             if (EventSystem.current.IsPointerOverGameObject())
             {
-                if (_toBuild.activeSelf) _toBuild.SetActive(false);
+                if (_toBuild != null &&_toBuild.activeSelf) _toBuild.SetActive(false);
                 return;
             }
-            else if (!_toBuild.activeSelf) _toBuild.SetActive(true);
+            else if (_toBuild != null && !_toBuild.activeSelf) _toBuild.SetActive(true);
 
             // rotate preview with Spacebar
             if (Input.GetKeyDown(KeyCode.Space))
@@ -51,7 +51,7 @@ public class BuildingPlacer : MonoBehaviour
             }
 
             _ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(_ray, out _hit, 1000f, groundLayerMask))
+            if (_toBuild != null && Physics.Raycast(_ray, out _hit, 1000f, groundLayerMask))
             {
                 if (!_toBuild.activeSelf) _toBuild.SetActive(true);
                 _toBuild.transform.position = _hit.point;
@@ -60,9 +60,8 @@ public class BuildingPlacer : MonoBehaviour
                 { // if right-click
                     BuildingManager m = _toBuild.GetComponent<BuildingManager>();
                     Building b = m.GetComponent<Building>();
-                    Debug.Log($"Player stone {PlayerData.stone} and cost {b.StoneCost}");
-                    Debug.Log($"Player wood {PlayerData.wood} and cost {b.WoodCost}");
                     Debug.Log($"Can it be build: {m.CanBeBuild()}");
+                    Debug.Log($"Has Valid Placement: {m.hasValidPlacement}");
 
                     if (m.hasValidPlacement)
                     {
@@ -88,19 +87,24 @@ public class BuildingPlacer : MonoBehaviour
                             _toBuild = null;
                         }
                     }
+                    else
+                    {
+                        CancelConstruction();
+                    }
                 }
 
             }
-            else if (_toBuild.activeSelf) _toBuild.SetActive(false);
+            else if (_toBuild != null && _toBuild.activeSelf) _toBuild.SetActive(false);
         }
     }
 
     private void CancelConstruction()
     {
+
         Destroy(_toBuild);
-                _toBuild = null;
-                _buildingPrefab = null;
-                return;
+        _toBuild = null;
+        _buildingPrefab = null;
+        return;
     }
 
     public void SetBuildingPrefab(GameObject prefab)

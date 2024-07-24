@@ -12,7 +12,6 @@ public class ArrowMove : MonoBehaviour
     {
         if (target != null)
         {
-            Debug.Log(speed);
             Vector3 direction = (target.position - transform.position).normalized;
             transform.rotation = Quaternion.LookRotation(direction);
             transform.Translate(Vector3.forward * speed * Time.deltaTime);

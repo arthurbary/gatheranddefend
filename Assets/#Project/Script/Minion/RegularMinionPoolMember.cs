@@ -20,10 +20,6 @@ public class RegularMinionPoolMember : MinionPoolMember
         ScoreReward = (scoreReward != 0) ? scoreReward : 1;
         Type = MinionType.REGULAR;
     }
-    private void OnBecameInvisible(){
-        //pool.Kill(this);
-    }
-
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);

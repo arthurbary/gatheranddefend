@@ -19,34 +19,43 @@ public class BuildingManager : MonoBehaviour
     private Dictionary<MeshRenderer, List<Material>> initialMaterials;
 
     [HideInInspector] public bool hasValidPlacement;
-    [HideInInspector] public bool isFixed;
+    public bool isFixed;
     private int _nObstacles;
     private Building building;
     public Collider buildingCollider;
     private bool enemyZone = false;
     private bool baseZone = false;
-    
+    DisplayManager displayManager;
+
 
     private void Awake()
     {
         building = GetComponent<Building>();
-        // if(CanBeBuild())hasValidPlacement = true;
-        // isFixed = true;
         _nObstacles = 0;
-        if(!building.isEnemy){_InitializeMaterials();
-        SetPlacementMode(PlacementMode.Valid);}
+        displayManager = GameObject.FindObjectOfType<DisplayManager>();
+        if (displayManager == null) Debug.Log("NOT FOUND");
+        if (building.isEnemy) isFixed = true;
+        if (!building.isEnemy && !isFixed)
+        {
+            _InitializeMaterials();
+            SetPlacementMode(PlacementMode.Valid);
+        }
+
     }
 
     void Update()
     {
-        if(!building.isEnemy){if (CanBeBuild() && _nObstacles == 0 && !hasValidPlacement)
+        if (!building.isEnemy && !isFixed)
         {
-            SetPlacementMode(PlacementMode.Valid);
+            if (CanBeBuild() && _nObstacles == 0 && !hasValidPlacement)
+            {
+                SetPlacementMode(PlacementMode.Valid);
+            }
+            else if ((!CanBeBuild() || _nObstacles > 0) && hasValidPlacement)
+            {
+                SetPlacementMode(PlacementMode.Invalid);
+            }
         }
-        else if ((!CanBeBuild() || _nObstacles > 0) && hasValidPlacement)
-        {
-            SetPlacementMode(PlacementMode.Invalid);
-        }}
     }
 
     private void OnTriggerEnter(Collider other)
@@ -69,9 +78,6 @@ public class BuildingManager : MonoBehaviour
         {
             _nObstacles++;
         }
-
-        //SetPlacementMode(PlacementMode.Invalid);
-
     }
 
     private void OnTriggerExit(Collider other)
@@ -139,8 +145,7 @@ public class BuildingManager : MonoBehaviour
 
     private void _InitializeMaterials()
     {
-        if (initialMaterials == null)
-            initialMaterials = new Dictionary<MeshRenderer, List<Material>>();
+        if (initialMaterials == null) initialMaterials = new Dictionary<MeshRenderer, List<Material>>();
         if (initialMaterials.Count > 0)
         {
             foreach (var l in initialMaterials) l.Value.Clear();
@@ -170,6 +175,7 @@ public class BuildingManager : MonoBehaviour
         building.isCreated = true;
         PlayerData.wood -= building.WoodCost;
         PlayerData.stone -= building.StoneCost;
+        displayManager.UpdatePlayerBoard();
     }
 
     public bool CanBeBuild()
@@ -198,7 +204,6 @@ public class BuildingManager : MonoBehaviour
                 }
             }
         }
-        Debug.Log($"Tower: {!baseZone}");
         return true;
     }
 }
