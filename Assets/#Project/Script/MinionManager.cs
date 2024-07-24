@@ -11,5 +11,5 @@ public class MinionManager : MonoBehaviour
     [SerializeField] public static float BaseRate = 0.6f;
     [SerializeField] public static float TowerRate = 0.2f;
     [SerializeField] public static float OtherBuildingRate = 0.1f;
-    // RESSOURCE  0.1f
+    // RESSOURCE : 0.1f
 }

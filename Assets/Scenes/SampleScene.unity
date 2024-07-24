@@ -1641,7 +1641,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42415538, y: -0.000000015581923, z: 0.000000007298182, w: 0.90558946}
+  m_LocalRotation: {x: 0.42415538, y: 0.000000015581909, z: -0.0000000072981767, w: 0.90558946}
   m_LocalPosition: {x: -0.27999997, y: 25, z: -66.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4480,12 +4480,12 @@ PrefabInstance:
     - target: {fileID: 8426789278358727632, guid: 73cf8d3f29d730c41b365051c3da8f2b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9077118980938025440, guid: 73cf8d3f29d730c41b365051c3da8f2b,
         type: 3}
       propertyPath: CanLaunchMinion
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5408,6 +5408,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7201366682799705173, guid: b20639dc706f57b4589cf0004f919968,
+        type: 3}
+      propertyPath: CanLaunchMinion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8081425279694198771, guid: b20639dc706f57b4589cf0004f919968,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -5431,7 +5436,7 @@ PrefabInstance:
     - target: {fileID: 8426789278358727632, guid: b20639dc706f57b4589cf0004f919968,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7297,9 +7302,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Base Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1272387557415311374, guid: 19dd708f87f073045971d95fe2d09a4b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2969550936877591302, guid: 19dd708f87f073045971d95fe2d09a4b,
         type: 3}
       propertyPath: isEnemy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3524290080103262684, guid: 19dd708f87f073045971d95fe2d09a4b,
+        type: 3}
+      propertyPath: CanLaunchMinion
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7343,13 +7358,13 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1651735240}
+  - {fileID: 984654746}
+  - {fileID: 464977699}
+  - {fileID: 738376036}
   - {fileID: 1812417795}
   - {fileID: 2040349949}
   - {fileID: 1473324134}
   - {fileID: 1456977221}
-  - {fileID: 738376036}
-  - {fileID: 984654746}
-  - {fileID: 464977699}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
 --- !u!1001 &1665689885
@@ -8866,7 +8881,7 @@ PrefabInstance:
     - target: {fileID: 6741238543657279462, guid: 74c63a64606fea24d91eb484e1dca1d2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.63
+      value: 1.6299999
       objectReference: {fileID: 0}
     - target: {fileID: 6741238543657279462, guid: 74c63a64606fea24d91eb484e1dca1d2,
         type: 3}
@@ -8876,7 +8891,7 @@ PrefabInstance:
     - target: {fileID: 6741238543657279462, guid: 74c63a64606fea24d91eb484e1dca1d2,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6741238543657279462, guid: 74c63a64606fea24d91eb484e1dca1d2,
         type: 3}
@@ -8886,7 +8901,7 @@ PrefabInstance:
     - target: {fileID: 6741238543657279462, guid: 74c63a64606fea24d91eb484e1dca1d2,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6741238543657279462, guid: 74c63a64606fea24d91eb484e1dca1d2,
         type: 3}
@@ -8911,12 +8926,12 @@ PrefabInstance:
     - target: {fileID: 8426789278358727632, guid: 74c63a64606fea24d91eb484e1dca1d2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8899112390008706510, guid: 74c63a64606fea24d91eb484e1dca1d2,
         type: 3}
       propertyPath: CanLaunchMinion
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9777,7 +9792,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055304285}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42415538, y: -0.000000015581923, z: 0.000000007298182, w: 0.90558946}
+  m_LocalRotation: {x: 0.42415538, y: 0.000000015581909, z: -0.0000000072981767, w: 0.90558946}
   m_LocalPosition: {x: -0.27999997, y: 25, z: -66.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9823,7 +9838,7 @@ Transform:
   m_GameObject: {fileID: 2134682835}
   serializedVersion: 2
   m_LocalRotation: {x: -0.26693356, y: 0.000000028720944, z: -0.00000000795524, w: 0.96371496}
-  m_LocalPosition: {x: 0.00000068825557, y: -0.6401844, z: 32.00922}
+  m_LocalPosition: {x: -0.0000006882549, y: -0.6401844, z: 32.00922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

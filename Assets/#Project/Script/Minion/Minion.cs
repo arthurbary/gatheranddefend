@@ -105,14 +105,14 @@ public class Minion : MonoBehaviour
     protected virtual void HandleDeath(){}
 
     //TO test only on the base
-    protected void SetTargetBase()
+    protected void SetTargetBuildingType()
     {
         if(target == null)
         {
             Building[] buildings = FindObjectsOfType<Building>();
             foreach (var building in buildings)
             {
-                if(isEnemy != building.isEnemy && building.gameObject.CompareTag("Gym")) 
+                if(isEnemy != building.isEnemy && building.gameObject.CompareTag("Base")) 
                 {
                     target = building.gameObject.transform;
                     break;
@@ -187,7 +187,7 @@ public class Minion : MonoBehaviour
                 }
             }
 
-            //Add Player as target
+            //Add Player as target?
             
             // Determine target based on probabilities
             float rand = Random.Range(0f, 1f);

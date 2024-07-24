@@ -17,6 +17,7 @@ public class MinionFactory : MonoBehaviour
 
     public void Initialize()
     {
+        Debug.Log($"Initialize - {gameObject.name} - Can Launch Minion {CanLaunchMinion}");
         if(CanLaunchMinion)
         {
             if (pool == null)
