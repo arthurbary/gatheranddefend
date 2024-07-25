@@ -13,15 +13,30 @@ using UnityEngine;
     }
 public abstract class Building : MonoBehaviour
 {
-    public int WoodCost { get; protected set; }
-    public int StoneCost { get; protected set; }
+    public int WoodCost { get;  set; }
+    public int StoneCost { get; set; }
     protected int Level { get; set; }
     public int Life { get; set; }
     public BuildingType Type { get; set; }
     public int ScoreReward { get; set; }
     public bool isEnemy = false;
     public bool isCreated = false;
-    protected virtual void SetUpBuildingAssets(){}
+    protected virtual void Awake()
+    {
+        if(isEnemy)
+        {
+            EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
+            enemyManager.SetUpBuildingAssets(this);
+            Debug.Log($"building: {gameObject.name} wood cost: {WoodCost} stone cost: {StoneCost} score reward: {ScoreReward}");
+        }
+        else
+        {
+            /* 
+            PlayerManager playerManager = GameObject.FindObjectOfType<PlayerManager>();
+            playerManager.SetUpBuildingAssets(this); 
+            */
+        }
+    }
     public void TakeDamage(int damage)
     {
         if(Life >= 0)

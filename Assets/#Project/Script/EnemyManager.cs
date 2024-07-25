@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    //il manque la base
+    /* 
+    Faire un heritage checker si il va y avoir des soucis avec Tower ?
+    ajouter la base 
+    */
     [Header("Tower Settings")]
 
     [SerializeField] private List<GameObject> enemyTowers;
@@ -49,8 +52,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] public static bool enemyLabEnable = false;
 
 
-    void Start
-    ()
+    void Start()
     {
         GameObject enemyBuildings = GameObject.Find("Enemy Building");
         allEnemyBuildings = new List<Building>(enemyBuildings.GetComponentsInChildren<Building>());
@@ -68,8 +70,48 @@ public class EnemyManager : MonoBehaviour
     public void SetUpBuildingAssets(Building building)
     {
         //if(type == BuildingType.FORGE)
+        switch (building.Type)
+        {
+            case BuildingType.TOWER:
+                building.WoodCost = towerWoodCost;
+                building.StoneCost = towerStoneCost;
+                building.Life = towerLife;
+                building.ScoreReward = towerScoreReward;
+                //Setup la TowerStateMAchin et puis la desactiver?
+                if(building.GetComponentInChildren<TowerStateMachine>() != null)
+                {
+                    building.GetComponentInChildren<TowerStateMachine>().damage = damage;
+                    building.GetComponentInChildren<TowerStateMachine>().damageRate = damageRate;
+                }
+                else 
+                {
+                    Debug.Log("towerStateMachine not found");
+                }
+                break;
+            case BuildingType.FORGE:
+                building.WoodCost = forgeWoodCost;
+                building.StoneCost = forgeStoneCost;
+                building.Life = forgeLife;
+                building.ScoreReward = forgeScoreReward;
+                Debug.Log($" is the factory {building.name} null ? {building.GetComponentInChildren<MinionFactory>()==null}");
+                building.GetComponentInChildren<MinionFactory>().Cooldown = forgeMinionRate;
+                break;
+            case BuildingType.GYM:
+                building.WoodCost = gymWoodCost;
+                building.StoneCost = gymStoneCost;
+                building.Life = gymLife;
+                building.ScoreReward = gymScoreReward;
+                building.GetComponentInChildren<MinionFactory>().Cooldown = gymMinionRate;
+                break;
+            case BuildingType.LAB:
+                building.WoodCost = labWoodCost;
+                building.StoneCost = labStoneCost;
+                building.Life = labLife;
+                building.ScoreReward = labScoreReward;
+                building.GetComponentInChildren<MinionFactory>().Cooldown = labMinionRate;
+                break;
+        }
     }
-
     private void OnEnable()
     {
         // Subscribe to the event

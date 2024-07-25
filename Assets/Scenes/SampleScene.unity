@@ -3705,24 +3705,29 @@ MonoBehaviour:
   towerStoneCost: 1
   towerLife: 1
   towerScoreReward: 1
+  damage: 1
+  damageRate: 1
   enemyForge: {fileID: 0}
   scoreToGetForge: 0
-  forgeWoodCost: 1
-  forgeStoneCost: 1
-  forgeLife: 1
-  forgeScoreReward: 1
+  forgeWoodCost: 2
+  forgeStoneCost: 2
+  forgeLife: 2
+  forgeScoreReward: 2
+  forgeMinionRate: 2
   enemyGym: {fileID: 0}
   scoreToGetGym: 0
-  gymWoodCost: 1
-  gymStoneCost: 1
-  gymLife: 1
-  gymScoreReward: 1
+  gymWoodCost: 3
+  gymStoneCost: 3
+  gymLife: 3
+  gymScoreReward: 3
+  gymMinionRate: 3
   enemyLab: {fileID: 0}
   scoreToGetLab: 0
-  labWoodCost: 1
-  labStoneCost: 1
-  labLife: 1
-  labScoreReward: 1
+  labWoodCost: 4
+  labStoneCost: 4
+  labLife: 4
+  labScoreReward: 4
+  labMinionRate: 4
 --- !u!114 &778815927
 MonoBehaviour:
   m_ObjectHideFlags: 0

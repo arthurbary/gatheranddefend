@@ -5,7 +5,7 @@ using UnityEngine;
 public class MinionFactory : MonoBehaviour
 {
     [SerializeField]protected MinionPool pool;
-    [SerializeField]protected float Cooldown = 1.0f;
+    [SerializeField]public float Cooldown = 1.0f;
     [SerializeField]protected GameObject Prefab;
     [SerializeField]protected Transform LaunchPoint;
     public bool CanLaunchMinion = false;

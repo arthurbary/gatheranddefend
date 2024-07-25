@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ArrowFactory : MonoBehaviour
 {
-    [SerializeField] float cooldown = 0.5f;
+    [SerializeField] public float cooldown = 0.5f;
     [SerializeField] GameObject prefab;
-    [SerializeField]private ArrowPool pool;
+    [SerializeField] private ArrowPool pool;
     [SerializeField] private Transform launchPoint;
     private TowerStateMachine towerStateMachine;
     void Start()
