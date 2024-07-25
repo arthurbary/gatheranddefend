@@ -18,8 +18,12 @@ public class MinionPoolMember : Minion
     protected override void HandleDeath()
     {
         Debug.Log("MINION DESTROYED");
-        if(isEnemy) PlayerData.IncreaseScore(ScoreReward);
-        //ajouter l'event ?Invoke
+        if(isEnemy  && gameObject.activeSelf) PlayerData.IncreaseScore(ScoreReward);
+        if(attackingTower != null) 
+        {
+            attackingTower.minionToKill.Remove(this);
+            attackingTower = null;
+        }
         pool.Kill(this);
 
     }

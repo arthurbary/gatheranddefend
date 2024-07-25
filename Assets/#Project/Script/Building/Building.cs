@@ -32,7 +32,7 @@ public abstract class Building : MonoBehaviour
         {
             if(isEnemy)
             {
-                PlayerData.IncreaseScore(ScoreReward);
+                if(gameObject.activeSelf)PlayerData.IncreaseScore(ScoreReward);
                 gameObject.SetActive(false);
             }
             else

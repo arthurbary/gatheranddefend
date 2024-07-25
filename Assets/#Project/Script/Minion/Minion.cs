@@ -23,6 +23,8 @@ public class Minion : MonoBehaviour
     public bool isEnemy = false;
     internal bool hasBeenInitialized = false;
     private bool isAttacking = false;
+    public bool isTarget = false;
+    public TowerStateMachine attackingTower = null;
     private NavMeshAgent agent;
     //VARIABLE POUR SET LA TARGET
     [HideInInspector] public float baseRate;

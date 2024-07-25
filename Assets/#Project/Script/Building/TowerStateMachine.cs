@@ -38,8 +38,9 @@ public class TowerStateMachine : MonoBehaviour
     {
         Minion otherMinion = other.GetComponent<Minion>();
 
-        if( otherMinion != null && !minionToKill.Contains(otherMinion) && otherMinion.isEnemy != tower.isEnemy )
+        if( otherMinion != null && !minionToKill.Contains(otherMinion) && otherMinion.isEnemy != tower.isEnemy && other.gameObject.activeSelf)
         {
+            otherMinion.attackingTower = this;
             minionToKill.Add(otherMinion);
         }
     }
@@ -49,11 +50,13 @@ public class TowerStateMachine : MonoBehaviour
         Minion otherMinion = other.GetComponent<Minion>();
         if(otherMinion != null && minionToKill.Count > 0 && minionToKill.Contains(otherMinion) && other.gameObject.activeSelf)
         {
+            otherMinion.attackingTower = null;
             minionToKill.Remove(otherMinion);
         }
     }
     void Wait()
     {
+        
         if(tower.isCreated && minionToKill.Count > 0) state = TowerState.Firing;
     }
 
