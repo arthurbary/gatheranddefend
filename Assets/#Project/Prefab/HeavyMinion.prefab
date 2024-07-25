@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6006469271157825012}
   - component: {fileID: 7126587315976609330}
   - component: {fileID: 4596012310172754795}
+  - component: {fileID: 4711640021709205405}
   m_Layer: 0
   m_Name: HeavyMinion
   m_TagString: HeavyMinion
@@ -54,8 +55,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.8
-  m_Height: 2.3
+  m_Radius: 0.85
+  m_Height: 2.5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7126587315976609330
@@ -71,11 +72,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 0
+  isTarget: 0
+  attackingTower: {fileID: 0}
   baseRate: 0.01
   towerRate: 0.2
   otherBuildingRate: 0.15
   target: {fileID: 0}
-  Pool: {fileID: 0}
+  pool: {fileID: 0}
   life: 3
   damage: 3
   damageRate: 1
@@ -102,6 +105,33 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &4711640021709205405
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584000564110925997}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2928706212786914444
 GameObject:
   m_ObjectHideFlags: 0

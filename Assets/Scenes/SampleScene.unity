@@ -1168,12 +1168,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1448319746}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &304689325 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2199129975095589296, guid: 9150e4ada89cba5458f3df643794cfaa,
-    type: 3}
-  m_PrefabInstance: {fileID: 226380446}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &306792099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1748,12 +1742,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1661046752106997694, guid: 7dad1824882e6b3478afc9960558aabe,
     type: 3}
   m_PrefabInstance: {fileID: 1687433499}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &360999146 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8426789278358727632, guid: 73cf8d3f29d730c41b365051c3da8f2b,
-    type: 3}
-  m_PrefabInstance: {fileID: 984654745}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &363142673
 GameObject:
@@ -3711,14 +3699,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a0ce08d44a35346ab81a5081583098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreForEnemyTower: 1
-  scoreForEnemyForge: 3
-  scoreForEnemyGym: 5
-  scoreForEnemyLab: 7
-  enemyTower: {fileID: 304689325}
-  enemyForge: {fileID: 1360579420}
-  enemyGym: {fileID: 360999146}
-  enemyLab: {fileID: 1502980566}
+  enemyTowers: []
+  scoreToGetTower: 0
+  towerWoodCost: 1
+  towerStoneCost: 1
+  towerLife: 1
+  towerScoreReward: 1
+  enemyForge: {fileID: 0}
+  scoreToGetForge: 0
+  forgeWoodCost: 1
+  forgeStoneCost: 1
+  forgeLife: 1
+  forgeScoreReward: 1
+  enemyGym: {fileID: 0}
+  scoreToGetGym: 0
+  gymWoodCost: 1
+  gymStoneCost: 1
+  gymLife: 1
+  gymScoreReward: 1
+  enemyLab: {fileID: 0}
+  scoreToGetLab: 0
+  labWoodCost: 1
+  labStoneCost: 1
+  labLife: 1
+  labScoreReward: 1
 --- !u!114 &778815927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4112,7 +4116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &916504005
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5810,12 +5814,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1745389583}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1360579420 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8426789278358727632, guid: b20639dc706f57b4589cf0004f919968,
-    type: 3}
-  m_PrefabInstance: {fileID: 1278731748}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1360860109 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6444475935942017319, guid: 7f565fbc91a23694da677ae9f7e02be6,
@@ -6366,7 +6364,7 @@ PrefabInstance:
     - target: {fileID: 2199129975095589296, guid: 9150e4ada89cba5458f3df643794cfaa,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5340775563274000033, guid: 9150e4ada89cba5458f3df643794cfaa,
         type: 3}
@@ -6524,12 +6522,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dad1824882e6b3478afc9960558aabe, type: 3}
---- !u!1 &1502980566 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8426789278358727632, guid: 74c63a64606fea24d91eb484e1dca1d2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1811001721}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1506637889 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6444475935942017319, guid: 7f565fbc91a23694da677ae9f7e02be6,
@@ -7348,7 +7340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1664323689}
   m_Layer: 0
-  m_Name: Enemy's Building
+  m_Name: Enemy Building
   m_TagString: Enemy Buildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7368,9 +7360,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1651735240}
+  - {fileID: 738376036}
   - {fileID: 984654746}
   - {fileID: 464977699}
-  - {fileID: 738376036}
   - {fileID: 1812417795}
   - {fileID: 2040349949}
   - {fileID: 1473324134}
@@ -7920,7 +7912,7 @@ PrefabInstance:
     - target: {fileID: 2199129975095589296, guid: 9150e4ada89cba5458f3df643794cfaa,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5340775563274000033, guid: 9150e4ada89cba5458f3df643794cfaa,
         type: 3}
@@ -8158,7 +8150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1746443447
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8520,7 +8512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1766286973
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8739,7 +8731,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1810494603
 RectTransform:
   m_ObjectHideFlags: 0

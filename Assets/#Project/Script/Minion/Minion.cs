@@ -95,7 +95,7 @@ public class Minion : MonoBehaviour
     {
         if (Life - damage > 0)
         {
-            Debug.Log("Minion Take Damage");
+            Debug.Log($"Minion Type {Type} Take {damage} Damage");
             Life -= damage;
         }
         else

@@ -12,11 +12,6 @@ public class PlayerData : MonoBehaviour
     public static event ScoreReachedHandler OnScoreReached;
     public static event ScoreReachedHandler OnScoreReachedEnemy;
     
-    void Awake()
-    {
-        wood = 100;
-        stone = 100;
-    }
     public static void IncreaseScore(int scoreReward)
     {
         score += scoreReward;

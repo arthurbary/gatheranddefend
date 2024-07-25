@@ -6,9 +6,6 @@ public class MinionPoolMember : Minion
 {
     public MinionPool pool;
     private DisplayManager displayManager;
-    public delegate void TargetHandler();
-    public static event TargetHandler OnScoreReached;
-    public static event TargetHandler OnScoreReachedEnemy;
 
     void Start()
     {

@@ -17,5 +17,4 @@ public class HeavyMinionPoolMember : MinionPoolMember
         Type = MinionType.HEAVY;
         ScoreReward = (scoreReward != 0) ? scoreReward : 1;
     }
-
 }
