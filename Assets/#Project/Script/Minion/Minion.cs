@@ -52,7 +52,7 @@ public class Minion : MonoBehaviour
     {
         if(target != null)
         {
-            if ( gameObject.activeSelf && agent.remainingDistance <= 3.0f && !isAttacking)
+            if ( gameObject.activeSelf && agent.remainingDistance <= 3.0f && !isAttacking && !agent.pathPending)
             {
                 StartCoroutine(Attack());
             }
@@ -88,6 +88,7 @@ public class Minion : MonoBehaviour
         }
         yield return new WaitForSeconds(DamageRate);
         isAttacking = false;
+        agent.isStopped = false;
     }
 
     public virtual void TakeDamage(int damage)

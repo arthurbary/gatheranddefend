@@ -36,7 +36,6 @@ public class BuildingManager : MonoBehaviour
         building = GetComponent<Building>();
         _nObstacles = 0;
         displayManager = GameObject.FindObjectOfType<DisplayManager>();
-        if (displayManager == null) Debug.Log("NOT FOUND");
         if (building.isEnemy) isFixed = true;
         if (!building.isEnemy && !isFixed)
         {
@@ -63,7 +62,6 @@ public class BuildingManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"{other.name} - {other.tag}");
         if(other.CompareTag("Attack Zone")) return;
         if (isFixed) return;
         if (other.CompareTag("EnemyZone"))
@@ -82,7 +80,6 @@ public class BuildingManager : MonoBehaviour
         else
         {
             _nObstacles++;
-        Debug.Log(_nObstacles);
         }
 
     }

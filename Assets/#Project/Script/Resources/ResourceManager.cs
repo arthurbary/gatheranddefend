@@ -28,7 +28,7 @@ public class ResourceManager : MonoBehaviour
                 stoneResources.Add(resource);
             }
         }
-        Debug.Log($"all the wood {woodResources.Count} stone {stoneResources.Count}");
+
         SetUpRessources(woodResources, totalWoodStock);
         SetUpRessources(stoneResources, totalStoneStock);
 

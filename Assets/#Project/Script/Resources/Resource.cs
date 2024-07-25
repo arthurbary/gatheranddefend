@@ -52,7 +52,6 @@ public abstract class Resource : MonoBehaviour
         }
         displayManager = GameObject.FindObjectOfType<DisplayManager>();
         if(displayManager != null) displayManager.UpdatePlayerBoard();
-        else Debug.Log("display manager not found");
         yield return new WaitForSeconds(0.1f);
         isRunning = false;
     }

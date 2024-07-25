@@ -60,9 +60,6 @@ public class BuildingPlacer : MonoBehaviour
                 { // if right-click
                     BuildingManager m = _toBuild.GetComponent<BuildingManager>();
                     Building b = m.GetComponent<Building>();
-                    Debug.Log($"Can it be build: {m.CanBeBuild()}");
-                    Debug.Log($"Has Valid Placement: {m.hasValidPlacement}");
-
                     if (m.hasValidPlacement)
                     {
                         if(m.CanBeBuild())
