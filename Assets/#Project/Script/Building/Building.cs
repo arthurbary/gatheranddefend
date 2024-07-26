@@ -27,7 +27,7 @@ public abstract class Building : MonoBehaviour
         {
             EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
             enemyManager.SetUpBuildingAssets(this);
-            Debug.Log($"building: {gameObject.name} wood cost: {WoodCost} stone cost: {StoneCost} score reward: {ScoreReward}");
+            //Debug.Log($"building: {gameObject.name} wood cost: {WoodCost} stone cost: {StoneCost} score reward: {ScoreReward}");
         }
         else
         {

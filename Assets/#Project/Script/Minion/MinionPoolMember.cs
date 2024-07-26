@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MinionPoolMember : Minion
 {
     public MinionPool pool;
     private DisplayManager displayManager;
-
     void Start()
     {
         displayManager = GameObject.FindObjectOfType<DisplayManager>();

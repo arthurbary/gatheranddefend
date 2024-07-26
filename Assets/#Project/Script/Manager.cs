@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Manager : MonoBehaviour
 {
@@ -52,9 +53,10 @@ public class Manager : MonoBehaviour
     [SerializeField] public static bool labEnable = false;
 
     [Header("Reuglar Minion Settings")]
-    [SerializeField] protected int Life;
-    [SerializeField]protected int Damage ;
-    [SerializeField]protected float DamageRate;
+    [SerializeField] protected int regularLife;
+    [SerializeField] protected int regularSpeed;
+    [SerializeField]protected int regularDamage ;
+    [SerializeField]protected float regularDamageRate;
 
     public void SetUpBuildingAssets(Building building)
     {
@@ -112,5 +114,16 @@ public class Manager : MonoBehaviour
                 break;
         }
     }
-    public void SetUpMinionAssets(Minion minion){}
+    public void SetUpMinionAssets(Minion minion)
+    {
+        switch (minion.Type)
+        {
+            case MinionType.REGULAR:
+                minion.Life = regularLife;
+                minion.Damage = regularDamage;
+                minion.DamageRate = regularDamageRate;
+                minion.GetComponent<NavMeshAgent>().speed = regularSpeed;
+                break;
+        }
+    }
 }

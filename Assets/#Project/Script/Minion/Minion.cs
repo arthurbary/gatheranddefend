@@ -4,20 +4,20 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Assertions.Must;
 
+public enum MinionType
+{
+    REGULAR = 1,
+    HEAVY = 2,
+    RUNNER = 3,
+    FLYER = 4
+
+}
 [RequireComponent(typeof(NavMeshAgent))]
 public class Minion : MonoBehaviour
 {
-    public enum MinionType
-    {
-        REGULAR = 1,
-        HEAVY = 2,
-        RUNNER = 3,
-        FLYER = 4
-
-    }
-    [SerializeField]protected int Life { get; set; }
-    [SerializeField]protected int Damage { get; set; }
-    [SerializeField]protected float DamageRate { get; set; }
+    [SerializeField]public int Life { get; set; }
+    [SerializeField]public int Damage { get; set; }
+    [SerializeField]public float DamageRate { get; set; }
     public MinionType Type { get; set; }
     public int ScoreReward { get; set; }
     public bool isEnemy = false;
@@ -33,7 +33,7 @@ public class Minion : MonoBehaviour
     [HideInInspector] public float otherBuildingRate;
     public Transform target;
     
-    virtual protected void Awake()
+    protected virtual void Awake()
     {
         baseRate = MinionManager.BaseRate;
         towerRate = MinionManager.TowerRate;
@@ -47,6 +47,18 @@ public class Minion : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         setTarget();
         hasBeenInitialized = true;
+        if(isEnemy)
+        {
+            EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
+            enemyManager.SetUpMinionAssets(this);
+        }
+        else
+        {
+            PlayerManager playerManager = GameObject.FindObjectOfType<PlayerManager>();
+            playerManager.SetUpMinionAssets(this); 
+        }
+        Debug.Log($" Minion {name} -> Life {Life}, Damage {Damage}, DamagerRate {DamageRate} Speed: { gameObject.GetComponent<NavMeshAgent>().speed}");
+
     }
 
     void Update()

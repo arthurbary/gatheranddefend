@@ -52,12 +52,14 @@ public class EnemyManager : Manager
             forgeEnable = true;
             enemyForge.SetActive(true);
             enemyForge.GetComponentInChildren<MinionFactory>().CanLaunchMinion = true;
+            enemyForge.GetComponentInChildren<MinionFactory>().Initialize();
         }
         else if (!gymEnable && PlayerData.score > scoreToGetGym)
         {
             gymEnable = true;
             enemyGym.SetActive(true);
             enemyGym.GetComponentInChildren<MinionFactory>().CanLaunchMinion = true;
+            enemyGym.GetComponentInChildren<MinionFactory>().Initialize();
             
         }
         else if (!labEnable && PlayerData.score > scoreToGetForge)
@@ -65,6 +67,7 @@ public class EnemyManager : Manager
             labEnable = true;
             enemyLab.SetActive(true);
             enemyLab.GetComponentInChildren<MinionFactory>().CanLaunchMinion = true;
+            enemyLab.GetComponentInChildren<MinionFactory>().Initialize();
         }
     }
     public static void EnemyManagerDestroyedEvent(){}
