@@ -53,10 +53,25 @@ public class Manager : MonoBehaviour
     [SerializeField] public static bool labEnable = false;
 
     [Header("Reuglar Minion Settings")]
-    [SerializeField] protected int regularLife;
-    [SerializeField] protected int regularSpeed;
-    [SerializeField]protected int regularDamage ;
-    [SerializeField]protected float regularDamageRate;
+    [SerializeField] protected int regularLife = 1;
+    [SerializeField] protected int regularSpeed = 1;
+    [SerializeField]protected int regularDamage = 1;
+    [SerializeField]protected float regularDamageRate = 1;
+    [Header("Heavy Minion Settings")]
+    [SerializeField] protected int heavyLife = 1;
+    [SerializeField] protected int heavySpeed = 1;
+    [SerializeField]protected int heavyDamage = 1;
+    [SerializeField]protected float heavyDamageRate = 1;
+    [Header("Runner Minion Settings")]
+    [SerializeField] protected int runnerLife = 1;
+    [SerializeField] protected int runnerSpeed = 1;
+    [SerializeField]protected int runnerDamage = 1;
+    [SerializeField]protected float runnerDamageRate = 1;
+    [Header("Flyer Minion Settings")]
+    [SerializeField] protected int flyerLife = 1;
+    [SerializeField] protected int flyerSpeed = 1;
+    [SerializeField]protected int flyerDamage = 1;
+    [SerializeField]protected float flyerDamageRate = 1;
 
     public void SetUpBuildingAssets(Building building)
     {
@@ -123,6 +138,24 @@ public class Manager : MonoBehaviour
                 minion.Damage = regularDamage;
                 minion.DamageRate = regularDamageRate;
                 minion.GetComponent<NavMeshAgent>().speed = regularSpeed;
+                break;
+            case MinionType.HEAVY:
+                minion.Life = heavyLife;
+                minion.Damage = heavyDamage;
+                minion.DamageRate = heavyDamageRate;
+                minion.GetComponent<NavMeshAgent>().speed = heavySpeed;
+                break;
+            case MinionType.RUNNER:
+                minion.Life = runnerLife;
+                minion.Damage = runnerDamage;
+                minion.DamageRate = runnerDamageRate;
+                minion.GetComponent<NavMeshAgent>().speed = runnerSpeed;
+                break;
+            case MinionType.FLYER:
+                minion.Life = flyerLife;
+                minion.Damage = flyerDamage;
+                minion.DamageRate = flyerDamageRate;
+                minion.GetComponent<NavMeshAgent>().speed = flyerSpeed;
                 break;
         }
     }
