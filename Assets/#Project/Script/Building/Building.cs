@@ -31,10 +31,8 @@ public abstract class Building : MonoBehaviour
         }
         else
         {
-            /* 
             PlayerManager playerManager = GameObject.FindObjectOfType<PlayerManager>();
             playerManager.SetUpBuildingAssets(this); 
-            */
         }
     }
     public void TakeDamage(int damage)

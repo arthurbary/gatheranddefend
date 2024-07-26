@@ -1548,9 +1548,19 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2603272107276154549, guid: 9150e4ada89cba5458f3df643794cfaa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5340775563274000033, guid: 9150e4ada89cba5458f3df643794cfaa,
         type: 3}
       propertyPath: m_ProvidesContacts
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775850577286813495, guid: 9150e4ada89cba5458f3df643794cfaa,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3650,9 +3660,10 @@ GameObject:
   - component: {fileID: 778815925}
   - component: {fileID: 778815927}
   - component: {fileID: 778815928}
-  - component: {fileID: 778815926}
   - component: {fileID: 778815929}
   - component: {fileID: 778815924}
+  - component: {fileID: 778815926}
+  - component: {fileID: 778815930}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -3699,35 +3710,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a0ce08d44a35346ab81a5081583098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTowers: []
-  scoreToGetTower: 0
-  towerWoodCost: 1
-  towerStoneCost: 1
+  baseLife: 10
+  baseScoreReward: 10
+  baseMinionRate: 1
+  scoreToGetTower: 1
+  towerWoodCost: 0
+  towerStoneCost: 0
   towerLife: 1
   towerScoreReward: 1
   damage: 1
   damageRate: 1
-  enemyForge: {fileID: 0}
-  scoreToGetForge: 0
+  scoreToGetForge: 2
   forgeWoodCost: 2
   forgeStoneCost: 2
   forgeLife: 2
   forgeScoreReward: 2
-  forgeMinionRate: 2
-  enemyGym: {fileID: 0}
-  scoreToGetGym: 0
+  forgeMinionRate: 1
+  scoreToGetGym: 3
   gymWoodCost: 3
   gymStoneCost: 3
   gymLife: 3
   gymScoreReward: 3
-  gymMinionRate: 3
-  enemyLab: {fileID: 0}
-  scoreToGetLab: 0
+  gymMinionRate: 1
+  scoreToGetLab: 4
   labWoodCost: 4
   labStoneCost: 4
   labLife: 4
   labScoreReward: 4
-  labMinionRate: 4
+  labMinionRate: 1
+  Life: 0
+  Damage: 0
+  DamageRate: 0
+  enemyBase: {fileID: 0}
+  enemyTowers: []
+  enemyForge: {fileID: 0}
+  enemyGym: {fileID: 0}
+  enemyLab: {fileID: 0}
 --- !u!114 &778815927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3773,6 +3791,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619d6906c97b69f48820858cedf5ed0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &778815930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778815923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69efb00f8b26c5d418717dff487d3514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseLife: 15
+  baseScoreReward: 15
+  baseMinionRate: 15
+  scoreToGetTower: 0
+  towerWoodCost: 5
+  towerStoneCost: 5
+  towerLife: 5
+  towerScoreReward: 5
+  damage: 5
+  damageRate: 5
+  scoreToGetForge: 0
+  forgeWoodCost: 6
+  forgeStoneCost: 6
+  forgeLife: 6
+  forgeScoreReward: 6
+  forgeMinionRate: 6
+  scoreToGetGym: 0
+  gymWoodCost: 7
+  gymStoneCost: 7
+  gymLife: 7
+  gymScoreReward: 7
+  gymMinionRate: 7
+  scoreToGetLab: 0
+  labWoodCost: 8
+  labStoneCost: 8
+  labLife: 8
+  labScoreReward: 8
+  labMinionRate: 8
+  Life: 0
+  Damage: 0
+  DamageRate: 0
 --- !u!1 &804936652
 GameObject:
   m_ObjectHideFlags: 3
@@ -4504,7 +4565,7 @@ PrefabInstance:
     - target: {fileID: 9077118980938025440, guid: 73cf8d3f29d730c41b365051c3da8f2b,
         type: 3}
       propertyPath: CanLaunchMinion
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5430,7 +5491,7 @@ PrefabInstance:
     - target: {fileID: 7201366682799705173, guid: b20639dc706f57b4589cf0004f919968,
         type: 3}
       propertyPath: CanLaunchMinion
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8081425279694198771, guid: b20639dc706f57b4589cf0004f919968,
         type: 3}
@@ -6371,9 +6432,19 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2603272107276154549, guid: 9150e4ada89cba5458f3df643794cfaa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5340775563274000033, guid: 9150e4ada89cba5458f3df643794cfaa,
         type: 3}
       propertyPath: m_ProvidesContacts
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775850577286813495, guid: 9150e4ada89cba5458f3df643794cfaa,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7919,9 +7990,19 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2603272107276154549, guid: 9150e4ada89cba5458f3df643794cfaa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5340775563274000033, guid: 9150e4ada89cba5458f3df643794cfaa,
         type: 3}
       propertyPath: m_ProvidesContacts
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775850577286813495, guid: 9150e4ada89cba5458f3df643794cfaa,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8517,7 +8598,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1766286973
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8938,7 +9019,7 @@ PrefabInstance:
     - target: {fileID: 8899112390008706510, guid: 74c63a64606fea24d91eb484e1dca1d2,
         type: 3}
       propertyPath: CanLaunchMinion
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

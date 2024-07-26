@@ -28,6 +28,7 @@ TagManager:
   - UI info
   - Enemy Buildings
   - Attack Zone
+  - FlyerTarget
   layers:
   - Default
   - TransparentFX

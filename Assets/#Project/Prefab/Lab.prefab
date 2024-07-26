@@ -127,7 +127,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: c4fa28ec634926d44a779f14258025e9, type: 2}
+  - {fileID: 2100000, guid: c4fa28ec634926d44a779f14258025e9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -237,10 +238,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemy: 0
   isCreated: 0
-  woodCost: 40
-  stoneCost: 30
-  life: 20
-  scoreReward: 40
 --- !u!114 &1332275025438225753
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -52,10 +52,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemy: 0
   isCreated: 0
-  woodCost: 10
-  stoneCost: 5
-  life: 5
-  scoreReward: 10
 --- !u!114 &8902662973568214607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3065653334642850432
 Transform:
   m_ObjectHideFlags: 0
@@ -250,7 +246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3013917261117352333
 Transform:
   m_ObjectHideFlags: 0

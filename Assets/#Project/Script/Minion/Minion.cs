@@ -21,6 +21,7 @@ public class Minion : MonoBehaviour
     public MinionType Type { get; set; }
     public int ScoreReward { get; set; }
     public bool isEnemy = false;
+    public bool canFly = false;
     internal bool hasBeenInitialized = false;
     private bool isAttacking = false;
     public bool isTarget = false;

@@ -8,10 +8,9 @@ public class Base : Building
     [SerializeField] private int life = 1;
     [SerializeField] private int scoreReward = 1;
 
-    void Awake()
+    protected override void Awake()
     {
-        Life = life;
-        ScoreReward = scoreReward;
         Type = BuildingType.BASE;
+        base.Awake();
     }
 }

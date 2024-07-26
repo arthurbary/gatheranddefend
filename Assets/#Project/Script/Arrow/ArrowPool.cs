@@ -40,6 +40,7 @@ public class ArrowPool : MonoBehaviour
     public void Kill(ArrowPoolMember member)
     {
         member.gameObject.SetActive(false);
+        member.gameObject.GetComponent<ArrowMove>().target = null;
         pool.Push(member);
     }
 
