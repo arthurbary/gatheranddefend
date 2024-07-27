@@ -6,19 +6,17 @@ using UnityEngine.AI;
 public class MinionPoolMember : Minion
 {
     public MinionPool pool;
-    private DisplayManager displayManager;
-    void Start()
-    {
-        displayManager = GameObject.FindObjectOfType<DisplayManager>();
-    }
+    [SerializeField] private DisplayManager displayManager;
+
 
     protected override void HandleDeath()
     {
         Debug.Log("MINION DESTROYED");
         if(isEnemy  && gameObject.activeSelf)
-        { 
+        {
+            displayManager = GameObject.FindObjectOfType<DisplayManager>();
             PlayerData.IncreaseScore(ScoreReward);
-            GameObject.FindObjectOfType<DisplayManager>().UpdatePlayerBoard();
+            displayManager.UpdatePlayerBoard();
         }
         if(attackingTower != null) 
         {

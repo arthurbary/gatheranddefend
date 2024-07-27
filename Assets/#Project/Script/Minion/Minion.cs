@@ -50,6 +50,7 @@ public class Minion : MonoBehaviour
         if(isEnemy)
         {
             EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
+            Debug.Log($"Minion: {name}, Manager:{enemyManager.gameObject.name}");
             enemyManager.SetUpMinionAssets(this);
         }
         else
