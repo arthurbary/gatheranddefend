@@ -43,8 +43,6 @@ public class Minion : MonoBehaviour
     [HideInInspector] public float otherBuildingRate;
     public Transform target;
     public MinionState state;
-    
-    public Animator animator;
     protected virtual void Awake()
     {
         baseRate = MinionManager.BaseRate;
@@ -74,7 +72,6 @@ public class Minion : MonoBehaviour
 
     void Update()
     {
-        if(Life <= 0) 
         if(state == MinionState.Initialize) Initialize();
         if(state == MinionState.Attacking) StartCoroutine(Attack());
         if(state == MinionState.Walk) Walk();

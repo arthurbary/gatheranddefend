@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 7965677964904348956}
   - component: {fileID: 3830927585716692081}
   - component: {fileID: -534465490751860321}
+  - component: {fileID: -2368129765694216123}
   m_Layer: 9
   m_Name: RegularMinion
   m_TagString: Untagged
@@ -163,6 +164,7 @@ MonoBehaviour:
   otherBuildingRate: 0.15
   target: {fileID: 0}
   state: 0
+  animator: {fileID: 0}
   pool: {fileID: 0}
   displayManager: {fileID: 0}
   life: 1
@@ -219,6 +221,18 @@ CapsuleCollider:
   m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &-2368129765694216123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4783318925777311270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a94c195733c147bd45b10315a98d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8051266578964760276
 PrefabInstance:
   m_ObjectHideFlags: 0

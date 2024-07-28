@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 3830927585716692081}
   - component: {fileID: -534465490751860321}
   - component: {fileID: 7534843346535454050}
+  - component: {fileID: 2257572238811912101}
   m_Layer: 0
   m_Name: FlyerMinion
   m_TagString: Untagged
@@ -213,11 +214,26 @@ MonoBehaviour:
   towerRate: 0.2
   otherBuildingRate: 0.1
   target: {fileID: 0}
+  state: 0
   pool: {fileID: 0}
+  displayManager: {fileID: 0}
   life: 1
   damage: 1
   damageRate: 1
   scoreReward: 4
+--- !u!114 &2257572238811912101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4783318925777311270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a94c195733c147bd45b10315a98d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &8196935583350035514
 GameObject:
   m_ObjectHideFlags: 0

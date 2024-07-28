@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 3830927585716692081}
   - component: {fileID: -534465490751860321}
   - component: {fileID: 7278232394426086158}
+  - component: {fileID: 331232632962790388}
   m_Layer: 0
   m_Name: RunnerMinion
   m_TagString: Untagged
@@ -212,11 +213,26 @@ MonoBehaviour:
   towerRate: 0.2
   otherBuildingRate: 0.15
   target: {fileID: 0}
+  state: 0
   pool: {fileID: 0}
+  displayManager: {fileID: 0}
   life: 1
   damage: 1
   damageRate: 1
   scoreReward: 3
+--- !u!114 &331232632962790388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4783318925777311270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a94c195733c147bd45b10315a98d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1001 &8063847213938341191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -285,6 +301,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 95000010169133924, guid: 2a4adfdefdadd7048a18bb7e7cc5b23b,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6e8903058748e994295901ad2631ec71, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

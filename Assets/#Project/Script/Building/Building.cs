@@ -36,6 +36,7 @@ public abstract class Building : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        Debug.Log($"Building Life: {Life} - Damage: {damage}");
         if(Life >= 0)
         {
             Life -= damage;

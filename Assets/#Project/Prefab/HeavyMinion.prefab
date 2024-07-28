@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3832248513780632521}
   - component: {fileID: 6006469271157825012}
   - component: {fileID: 7126587315976609330}
+  - component: {fileID: 5672010770710126837}
   - component: {fileID: 4596012310172754795}
   - component: {fileID: 4711640021709205405}
   m_Layer: 0
@@ -73,17 +74,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 0
+  canFly: 0
   isTarget: 0
   attackingTower: {fileID: 0}
   baseRate: 0.01
   towerRate: 0.2
   otherBuildingRate: 0.15
   target: {fileID: 0}
+  state: 0
+  animator: {fileID: 0}
   pool: {fileID: 0}
+  displayManager: {fileID: 0}
   life: 3
   damage: 3
   damageRate: 1
   scoreReward: 2
+--- !u!114 &5672010770710126837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584000564110925997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a94c195733c147bd45b10315a98d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!195 &4596012310172754795
 NavMeshAgent:
   m_ObjectHideFlags: 0
