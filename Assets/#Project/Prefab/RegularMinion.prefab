@@ -155,13 +155,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 0
+  canFly: 0
   isTarget: 0
   attackingTower: {fileID: 0}
   baseRate: 0.01
   towerRate: 0.2
   otherBuildingRate: 0.15
   target: {fileID: 0}
+  state: 0
   pool: {fileID: 0}
+  displayManager: {fileID: 0}
   life: 1
   damage: 1
   damageRate: 1
@@ -284,6 +287,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 2d53cfb1f51104109841f2863b9d11e9, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 976fb67168a09489887a89cfdf431e80, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -106,10 +106,7 @@ public class Manager : MonoBehaviour
                         building.GetComponentInChildren<ArrowFactory>().gameObject.SetActive(false);
                     }
                 }
-                else 
-                {
-                    Debug.Log("towerStateMachine not found");
-                }
+            
                 break;
             case BuildingType.FORGE:
                 //exemple pour utiliser les scriptable building.WoodCost = forgeData.forgeWoodCost;
@@ -117,7 +114,6 @@ public class Manager : MonoBehaviour
                 building.StoneCost = forgeStoneCost;
                 building.Life = forgeLife;
                 building.ScoreReward = forgeScoreReward;
-                Debug.Log($" is the factory {building.name} null ? {building.GetComponentInChildren<MinionFactory>()==null}");
                 building.GetComponentInChildren<MinionFactory>().Cooldown = forgeMinionRate;
                 break;
             case BuildingType.GYM:

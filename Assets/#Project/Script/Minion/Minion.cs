@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Assertions.Must;
@@ -11,6 +13,14 @@ public enum MinionType
     RUNNER = 3,
     FLYER = 4
 
+}
+public enum MinionState
+{
+    Initialize,
+    Attacking,
+    Walk,
+    Damaged,
+    Destroy
 }
 [RequireComponent(typeof(NavMeshAgent))]
 public class Minion : MonoBehaviour
@@ -32,7 +42,9 @@ public class Minion : MonoBehaviour
     [HideInInspector] public float towerRate;
     [HideInInspector] public float otherBuildingRate;
     public Transform target;
+    public MinionState state;
     
+    public Animator animator;
     protected virtual void Awake()
     {
         baseRate = MinionManager.BaseRate;
@@ -50,7 +62,6 @@ public class Minion : MonoBehaviour
         if(isEnemy)
         {
             EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
-            Debug.Log($"Minion: {name}, Manager:{enemyManager.gameObject.name}");
             enemyManager.SetUpMinionAssets(this);
         }
         else
@@ -58,23 +69,34 @@ public class Minion : MonoBehaviour
             PlayerManager playerManager = GameObject.FindObjectOfType<PlayerManager>();
             playerManager.SetUpMinionAssets(this); 
         }
-        Debug.Log($" Minion {name} -> Life {Life}, Damage {Damage}, DamagerRate {DamageRate} Speed: { gameObject.GetComponent<NavMeshAgent>().speed}");
-
+        state = MinionState.Walk;
     }
 
     void Update()
+    {
+        if(Life <= 0) 
+        if(state == MinionState.Initialize) Initialize();
+        if(state == MinionState.Attacking) StartCoroutine(Attack());
+        if(state == MinionState.Walk) Walk();
+
+        
+    }
+    void Walk()
     {
         if(target != null)
         {
             if ( gameObject.activeSelf && agent.remainingDistance <= 3.0f && !isAttacking && !agent.pathPending)
             {
-                StartCoroutine(Attack());
+                state = MinionState.Attacking;
+
             }
-        } else
+        } 
+        else
         {
             setTarget();
         }
     }
+    
     
 
     public IEnumerator Attack()
@@ -98,7 +120,8 @@ public class Minion : MonoBehaviour
         else
         {
             Debug.Log("TARGET IS DESTROYED");
-            setTarget();
+            state = MinionState.Walk;
+            //setTarget();
         }
         yield return new WaitForSeconds(DamageRate);
         isAttacking = false;
@@ -110,15 +133,18 @@ public class Minion : MonoBehaviour
         if (Life - damage > 0)
         {
             Debug.Log($"Minion Type {Type} Take {damage} Damage");
+            state = MinionState.Damaged;
             Life -= damage;
+            //attendre pour l'animation de se faire ?
+            state = MinionState.Walk;
         }
         else
         {
             target = null;
+            state = MinionState.Destroy;
             HandleDeath();
         }
     }
-
     protected virtual void HandleDeath(){}
 
     //TO test only on the base

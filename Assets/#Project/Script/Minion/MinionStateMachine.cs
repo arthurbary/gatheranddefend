@@ -3,14 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public enum MinionState
+public class MinionStateMachine : MinionPoolMember
 {
-    Walk,
-    Wait,
-    Attack
-}
-public class MinionStateMachine : MonoBehaviour
-{
-
+    
 }
 

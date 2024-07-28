@@ -186,6 +186,7 @@ public class BuildingManager : MonoBehaviour
 
     public bool CanBeBuild()
     {
+        Debug.Log($"Tag {gameObject.tag}, EnemyZone {enemyZone}, BaseZone {baseZone}");
         //Check s'il y a assez de ressource
         if (building.WoodCost > PlayerData.wood || building.StoneCost > PlayerData.stone)
         {

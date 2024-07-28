@@ -39,7 +39,6 @@ public class ArrowPoolMember : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"What the arrow touch {other.gameObject.name}");
         if(other.gameObject == targetMinion.gameObject)
         {
             targetMinion.TakeDamage(damage); 

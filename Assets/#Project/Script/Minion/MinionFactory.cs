@@ -36,13 +36,13 @@ public class MinionFactory : MonoBehaviour
             if (pool != null)
             {
                 MinionPoolMember PoolMember = pool.Spawn(LaunchPoint.position, LaunchPoint.rotation, isEnemy);
-                PoolMember.Initialize();
+                PoolMember.state = MinionState.Initialize;
             }
             else
             {
                 GameObject newMember = Instantiate(Prefab, LaunchPoint.position, LaunchPoint.rotation);
                 newMember.GetComponent<Minion>().isEnemy = isEnemy;
-                newMember.GetComponent<Minion>().Initialize();
+                newMember.GetComponent<Minion>().state = MinionState.Initialize;
             }
             yield return new WaitForSeconds(Cooldown);
         }
