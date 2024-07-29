@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 destination;
     private bool isMoving;
     private float lastClick;
+    private PlayerBehaviour playerBehaviour;
     [SerializeField] float timeBetweenClick;
 
 
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        playerBehaviour = GetComponent<PlayerBehaviour>();
     }
 
     void Update()
@@ -39,7 +41,15 @@ public class PlayerMovement : MonoBehaviour
                 GoToMouse();
             }
         }
-        if(isMoving)GoToMouse();
+        if(isMoving)
+        {
+            GoToMouse();
+            if(playerBehaviour.state != PlayerState.Walk) playerBehaviour.state = PlayerState.Walk;
+        }
+        else
+        {
+            playerBehaviour.state = PlayerState.Idle;
+        }
     }
 
     void GoToMouse()

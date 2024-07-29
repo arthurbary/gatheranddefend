@@ -7,9 +7,10 @@ public class WeaponMovement : MonoBehaviour
     [SerializeField] private float duration = 1.0f;  // Time it takes to complete one orbit
     [SerializeField] float cooldown = 0.1f; //Time before the next spin
     public bool isCooldownActive = false;
+    private PlayerBehaviour playerBehaviour;
     void Start()
     {
-        
+        playerBehaviour = transform.parent.GetComponent<PlayerBehaviour>();
     }
 
     public IEnumerator RotateObject()
@@ -30,6 +31,7 @@ public class WeaponMovement : MonoBehaviour
 
         // Assurer que l'angle de rotation final est exactement de 360 degrés
         transform.rotation = Quaternion.Euler(0, endRotation, 0);
+        playerBehaviour.state = PlayerState.Idle;
         yield return new WaitForSeconds(cooldown);
 
         // Cooldown is over
