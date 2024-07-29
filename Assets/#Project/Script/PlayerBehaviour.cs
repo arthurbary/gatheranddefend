@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public enum PlayerState
@@ -14,9 +15,13 @@ public class PlayerBehaviour : MonoBehaviour
     private InputAction attack;
     private WeaponMovement weaponMovement;
     public PlayerState state;
-    void Awake() 
+    private Animator animator;
+
+
+    void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
+        animator = GetComponentInChildren<Animator>();
         attack = playerInput.actions["PlayerAttack"];
         state = PlayerState.Idle;
     }
@@ -25,29 +30,34 @@ public class PlayerBehaviour : MonoBehaviour
         weaponMovement = GameObject.FindWithTag("WeaponBasic").GetComponent<WeaponMovement>();
     }
 
-    public void OnEnable() 
+    public void OnEnable()
     {
         attack.Enable();
     }
 
-    public void OnDisable() 
+    public void OnDisable()
     {
         attack.Disable();
     }
     void Update()
     {
-        if(attack.ReadValue<float>() != 0)BasicAttack();
+
+        if (attack.ReadValue<float>() != 0)
+        {
+            BasicAttack();
+        }
     }
-    
+
     void BasicAttack()
     {
-        
-        if(weaponMovement.CanRotate())
+
+        if (weaponMovement.CanRotate())
         {
             state = PlayerState.Attack;
+            animator.SetTrigger("Attack");
             StartCoroutine(weaponMovement.RotateObject());
         }
     }
 
-    
+
 }

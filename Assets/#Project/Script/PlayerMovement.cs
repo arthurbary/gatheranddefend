@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            playerBehaviour.state = PlayerState.Idle;
+            //playerBehaviour.state = PlayerState.Idle;
         }
     }
 

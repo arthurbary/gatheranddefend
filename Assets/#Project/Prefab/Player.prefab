@@ -344,6 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f04c5ae81dd2634eb2a671747dacc9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &5167071263740651724
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,6 +409,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponMovement: {fileID: 6567424692812680150}
+  hitEffect: {fileID: 7226583673155636401, guid: 261ac8d0b0432174783ca3ad3d979e67,
+    type: 3}
   damage: 2
   cooldown: 0.1
 --- !u!65 &6474631971842213807

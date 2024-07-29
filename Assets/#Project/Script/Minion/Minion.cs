@@ -48,7 +48,18 @@ public class Minion : MonoBehaviour
         baseRate = MinionManager.BaseRate;
         towerRate = MinionManager.TowerRate;
         otherBuildingRate = MinionManager.OtherBuildingRate;
-    } 
+    }
+
+    void  OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.tag + " -> OnCollisionEnter");
+            Debug.Log($"Contact point {collision.contacts[0]}");
+        if(isEnemy && collision.gameObject.tag == "WeaponBasic")
+        {
+            Debug.Log(collision.gameObject.tag + "OnCollisionEnter");
+            Debug.Log("{collision.contacts[0]}");
+        }
+    }
     
 
     internal void Initialize()
@@ -74,9 +85,7 @@ public class Minion : MonoBehaviour
     {
         if(state == MinionState.Initialize) Initialize();
         if(state == MinionState.Attacking) StartCoroutine(Attack());
-        if(state == MinionState.Walk) Walk();
-
-        
+        if(state == MinionState.Walk) Walk();     
     }
     void Walk()
     {
