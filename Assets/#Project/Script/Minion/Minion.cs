@@ -71,7 +71,6 @@ public class Minion : MonoBehaviour
     void Update()
     {
         if(state == MinionState.Initialize) Initialize();
-        if(state == MinionState.Attacking) StartCoroutine(Attack());
         if(state == MinionState.Walk) Walk();     
     }
     void Walk()
@@ -80,8 +79,8 @@ public class Minion : MonoBehaviour
         {
             if ( gameObject.activeSelf && agent.remainingDistance <= 3.0f && !isAttacking && !agent.pathPending)
             {
+                StartCoroutine(Attack());
                 state = MinionState.Attacking;
-
             }
         } 
         else
