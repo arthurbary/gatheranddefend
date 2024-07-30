@@ -49,19 +49,6 @@ public class Minion : MonoBehaviour
         towerRate = MinionManager.TowerRate;
         otherBuildingRate = MinionManager.OtherBuildingRate;
     }
-
-    void  OnCollisionEnter(Collision collision)
-    {
-        Debug.Log(collision.gameObject.tag + " -> OnCollisionEnter");
-            Debug.Log($"Contact point {collision.contacts[0]}");
-        if(isEnemy && collision.gameObject.tag == "WeaponBasic")
-        {
-            Debug.Log(collision.gameObject.tag + "OnCollisionEnter");
-            Debug.Log("{collision.contacts[0]}");
-        }
-    }
-    
-
     internal void Initialize()
     {
         if(hasBeenInitialized) return; 
@@ -134,8 +121,9 @@ public class Minion : MonoBehaviour
         agent.isStopped = false;
     }
 
-    public virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage, GameObject minionHited)
     {
+        CreateHit(minionHited);
         if (Life - damage > 0)
         {
             Debug.Log($"Minion Type {Type} Take {damage} Damage");
@@ -150,6 +138,18 @@ public class Minion : MonoBehaviour
             state = MinionState.Destroy;
             HandleDeath();
         }
+    }
+    private void CreateHit(GameObject other)
+    {
+        if(isEnemy)
+        {
+
+            HitMaker hitPoint = GetComponentInChildren<HitMaker>();
+            //Debug.Log($"hit point {hitPoint.name}, preFab: {hitPoint.hitPrefab.name}, transform: {hitPoint.transform}");
+            GameObject spawnedHit = Instantiate(hitPoint.hitPrefab, hitPoint.transform.position, Quaternion.identity);
+            spawnedHit.transform.LookAt(Camera.main.transform);
+        }
+        
     }
     protected virtual void HandleDeath(){}
 

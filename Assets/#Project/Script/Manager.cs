@@ -52,29 +52,29 @@ public class Manager : MonoBehaviour
     [SerializeField] public float labMinionRate = 1.0f;
     [SerializeField] public static bool labEnable = false;
 
-    [Header("Reuglar Minion Settings")]
+    [Header("Regular Minion Settings")]
     [SerializeField] protected int regularLife = 1;
-    [SerializeField] protected int regularSpeed = 1;
+    [SerializeField] protected float regularSpeed = 1;
     [SerializeField] protected int regularDamage = 1;
     [SerializeField] protected float regularDamageRate = 1;
     [SerializeField] protected int regularScoreReward = 1;
     [Header("Heavy Minion Settings")]
     [SerializeField] protected int heavyLife = 1;
-    [SerializeField] protected int heavySpeed = 1;
+    [SerializeField] protected float heavySpeed = 1;
     [SerializeField]protected int heavyDamage = 1;
     [SerializeField]protected float heavyDamageRate = 1;
     [SerializeField] protected int heavyScoreReward = 1;
 
     [Header("Runner Minion Settings")]
     [SerializeField] protected int runnerLife = 1;
-    [SerializeField] protected int runnerSpeed = 1;
+    [SerializeField] protected float runnerSpeed = 1;
     [SerializeField]protected int runnerDamage = 1;
     [SerializeField]protected float runnerDamageRate = 1;
     [SerializeField] protected int runnerScoreReward = 1;
 
     [Header("Flyer Minion Settings")]
     [SerializeField] protected int flyerLife = 1;
-    [SerializeField] protected int flyerSpeed = 1;
+    [SerializeField] protected float flyerSpeed = 1;
     [SerializeField]protected int flyerDamage = 1;
     [SerializeField]protected float flyerDamageRate = 1;
     [SerializeField] protected int flyerScoreReward = 1;

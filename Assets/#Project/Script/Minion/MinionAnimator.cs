@@ -12,10 +12,6 @@ public class MinionAnimator : MonoBehaviour
         minion = GetComponent<Minion>();
         animator = GetComponentInChildren<Animator>();
     }
-    void Start()
-    {
-        Debug.Log($" minion animator{minion.name}");
-    }
 
     // Update is called once per frame
     void Update()

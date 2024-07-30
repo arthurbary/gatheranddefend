@@ -41,7 +41,7 @@ public class ArrowPoolMember : MonoBehaviour
     {
         if(other.gameObject == targetMinion.gameObject)
         {
-            targetMinion.TakeDamage(damage); 
+            targetMinion.TakeDamage(damage, other.gameObject); 
             pool.Kill(this);
         }
     }

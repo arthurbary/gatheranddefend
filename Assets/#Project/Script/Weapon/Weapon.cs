@@ -24,14 +24,13 @@ public class Weapon : MonoBehaviour
         if(other.GetComponent<Minion>() != null && other.GetComponent<Minion>().isEnemy)
         {
             Debug.Log("Hitting Minion");
-            other.GetComponent<Minion>().TakeDamage(Damage);
+            other.GetComponent<Minion>().TakeDamage(Damage, other);
         } 
         else if (other.GetComponent<Building>() != null && other.GetComponent<Building>().isEnemy)
         {
             Debug.Log("Hitting building");
             other.GetComponent <Building>().TakeDamage(Damage);
         }
-        CreateHit(other);
         GameObject.FindObjectOfType<DisplayManager>().UpdatePlayerBoard();
         yield return new WaitForSeconds(Cooldown);
         isRunning = false;
@@ -41,16 +40,5 @@ public class Weapon : MonoBehaviour
     {
         //if(isRunning) return;
         StartCoroutine(_GiveDamage(other));
-    }
-
-    private void CreateHit(GameObject other)
-    {
-        Vector3 thisPosition = transform.position;
-        Vector3 otherPosition = other.transform.position;
-        Vector3 contactPoint = (thisPosition + otherPosition) / 2;
-        GameObject spawnedHit = Instantiate(hitEffect);
-		spawnedHit.transform.LookAt(Camera.main.transform);
-        
-        //Debug.Log("Estimation du point de contact : " + contactPoint);
     }
 }

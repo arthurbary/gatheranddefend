@@ -11,12 +11,6 @@ public class PlayerAnimator : MonoBehaviour
         playerBehaviour = GetComponent<PlayerBehaviour>();
         animator = GetComponentInChildren<Animator>();
     }
-    void Start()
-    {
-        Debug.Log($" minion animator{playerBehaviour.name}");
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if(playerBehaviour.state == PlayerState.Walk) animator.SetTrigger("Walk");
