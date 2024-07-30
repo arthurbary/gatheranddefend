@@ -1655,7 +1655,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42415538, y: 0.000000015581909, z: -0.0000000072981767, w: 0.90558946}
+  m_LocalRotation: {x: 0.42415538, y: -0.000000015581923, z: 0.000000007298182, w: 0.90558946}
   m_LocalPosition: {x: -0.27999997, y: 25, z: -66.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3713,7 +3713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseLife: 40
   baseScoreReward: 100
-  baseMinionRate: 1
+  baseMinionRate: 1.5
   scoreToGetTower: 1
   towerWoodCost: 10
   towerStoneCost: 5
@@ -3726,19 +3726,19 @@ MonoBehaviour:
   forgeStoneCost: 10
   forgeLife: 10
   forgeScoreReward: 20
-  forgeMinionRate: 1.5
+  forgeMinionRate: 2
   scoreToGetGym: 5
   gymWoodCost: 30
   gymStoneCost: 20
   gymLife: 15
   gymScoreReward: 30
-  gymMinionRate: 2
+  gymMinionRate: 2.5
   scoreToGetLab: 7
   labWoodCost: 40
   labStoneCost: 30
   labLife: 20
   labScoreReward: 40
-  labMinionRate: 2.5
+  labMinionRate: 3
   regularLife: 1
   regularSpeed: 3.5
   regularDamage: 1
@@ -3821,22 +3821,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69efb00f8b26c5d418717dff487d3514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseLife: 15
-  baseScoreReward: 15
-  baseMinionRate: 15
-  scoreToGetTower: 0
-  towerWoodCost: 5
+  baseLife: 40
+  baseScoreReward: 100
+  baseMinionRate: 1
+  scoreToGetTower: 1
+  towerWoodCost: 10
   towerStoneCost: 5
   towerLife: 5
-  towerScoreReward: 5
-  damage: 5
-  damageRate: 5
-  scoreToGetForge: 0
-  forgeWoodCost: 6
-  forgeStoneCost: 6
-  forgeLife: 6
-  forgeScoreReward: 6
-  forgeMinionRate: 6
+  towerScoreReward: 10
+  damage: 1
+  damageRate: 0.5
+  scoreToGetForge: 3
+  forgeWoodCost: 2
+  forgeStoneCost: 10
+  forgeLife: 10
+  forgeScoreReward: 20
+  forgeMinionRate: 1.5
   scoreToGetGym: 0
   gymWoodCost: 7
   gymStoneCost: 7
@@ -8698,7 +8698,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Prefab
       value: 
-      objectReference: {fileID: 4783318925777311270, guid: deb4900838c68f64982eee1aa23dc674,
+      objectReference: {fileID: 4783318925777311270, guid: 6ab876b90893cd64983571917480a953,
         type: 3}
     - target: {fileID: 8426789278358727632, guid: 74c63a64606fea24d91eb484e1dca1d2,
         type: 3}
@@ -8714,7 +8714,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Prefab
       value: 
-      objectReference: {fileID: 4783318925777311270, guid: deb4900838c68f64982eee1aa23dc674,
+      objectReference: {fileID: 4783318925777311270, guid: 6ab876b90893cd64983571917480a953,
         type: 3}
     - target: {fileID: 8899112390008706510, guid: 74c63a64606fea24d91eb484e1dca1d2,
         type: 3}
@@ -9471,7 +9471,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055304285}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42415538, y: 0.000000015581909, z: -0.0000000072981767, w: 0.90558946}
+  m_LocalRotation: {x: 0.42415538, y: -0.000000015581923, z: 0.000000007298182, w: 0.90558946}
   m_LocalPosition: {x: -0.27999997, y: 25, z: -66.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9517,7 +9517,7 @@ Transform:
   m_GameObject: {fileID: 2134682835}
   serializedVersion: 2
   m_LocalRotation: {x: -0.26693356, y: 0.000000028720944, z: -0.00000000795524, w: 0.96371496}
-  m_LocalPosition: {x: -0.0000006882549, y: -0.6401844, z: 32.00922}
+  m_LocalPosition: {x: 0.00000068825557, y: -0.6401844, z: 32.00922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

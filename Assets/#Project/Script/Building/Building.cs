@@ -35,23 +35,21 @@ public abstract class Building : MonoBehaviour
         }
         //if(isEnemy && gameObject.tag != "Tower") Debug.Log($"Minion {gameObject.name},Life {Life}, MinionRate: {GetComponentInChildren<MinionFactory>().Cooldown}, Score Reward {ScoreReward}  ");
     }
-    public void TakeDamage(int damage)
+    protected IEnumerator _TakeDamage(int damage)
     {
         if(Life >= 0)
         {
             Life -= damage;
+            yield return null;
         }
         else
         {
-            if(isEnemy)
-            {
-                if(gameObject.activeSelf)PlayerData.IncreaseScore(ScoreReward);
-                gameObject.SetActive(false);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
+        yield return null;
+    }
+    public void TakeDamage(int damage)
+    {
+        if(gameObject.activeSelf)StartCoroutine(_TakeDamage(damage));
     }
 }

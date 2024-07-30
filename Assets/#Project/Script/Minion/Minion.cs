@@ -114,8 +114,8 @@ public class Minion : MonoBehaviour
         {
             Debug.Log("TARGET IS DESTROYED");
             state = MinionState.Walk;
-            //setTarget();
         }
+        Debug.Log($"Minion attack rate: {DamageRate}");
         yield return new WaitForSeconds(DamageRate);
         isAttacking = false;
         agent.isStopped = false;
@@ -123,7 +123,8 @@ public class Minion : MonoBehaviour
 
     public virtual void TakeDamage(int damage, GameObject minionHited)
     {
-        CreateHit(minionHited);
+        HitMaker hitMaker = GetComponentInChildren<HitMaker>();
+        hitMaker.CreateHit(gameObject);
         if (Life - damage > 0)
         {
             Debug.Log($"Minion Type {Type} Take {damage} Damage");
@@ -138,18 +139,6 @@ public class Minion : MonoBehaviour
             state = MinionState.Destroy;
             HandleDeath();
         }
-    }
-    private void CreateHit(GameObject other)
-    {
-        if(isEnemy)
-        {
-
-            HitMaker hitPoint = GetComponentInChildren<HitMaker>();
-            //Debug.Log($"hit point {hitPoint.name}, preFab: {hitPoint.hitPrefab.name}, transform: {hitPoint.transform}");
-            GameObject spawnedHit = Instantiate(hitPoint.hitPrefab, hitPoint.transform.position, Quaternion.identity);
-            spawnedHit.transform.LookAt(Camera.main.transform);
-        }
-        
     }
     protected virtual void HandleDeath(){}
 
@@ -208,9 +197,9 @@ public class Minion : MonoBehaviour
 
             foreach (var building in buildings)
             {
-                if (isEnemy != building.isEnemy && building.isCreated)
+                if (isEnemy != building.isEnemy && building.isCreated && building.gameObject.activeSelf)
                 {
-                    buildingsEnemy.Add(building);
+                    //buildingsEnemy.Add(building);
                     if (building.tag == "Base")
                     {
                         baseBuildings.Add(building);
@@ -261,12 +250,12 @@ public class Minion : MonoBehaviour
                 target = buildingsEnemy[Random.Range(0, buildingsEnemy.Count)].gameObject.transform;
             }
 
-            if (target != null)
+            if (target != null && target.gameObject.activeSelf)
             {
                 agent.SetDestination(target.position);
                 agent.isStopped = false;
             }
-            else if( target == null &&  (baseBuildings.Count > 0 || towerBuildings.Count > 0 || otherBuildings.Count > 0 || resources.Count > 0 || buildingsEnemy.Count > 0))
+            else if( (target == null || !target.gameObject.activeSelf) &&  (baseBuildings.Count > 0 || towerBuildings.Count > 0 || otherBuildings.Count > 0 || resources.Count > 0 || buildingsEnemy.Count > 0))
             {
                 setTarget();
             }
