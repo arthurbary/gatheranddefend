@@ -1655,7 +1655,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42415538, y: -0.000000015581923, z: 0.000000007298182, w: 0.90558946}
+  m_LocalRotation: {x: 0.42415538, y: 0.000000015581909, z: -0.0000000072981767, w: 0.90558946}
   m_LocalPosition: {x: -0.27999997, y: 25, z: -66.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3823,7 +3823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseLife: 40
   baseScoreReward: 100
-  baseMinionRate: 1
+  baseMinionRate: 2
   scoreToGetTower: 1
   towerWoodCost: 10
   towerStoneCost: 5
@@ -3836,39 +3836,39 @@ MonoBehaviour:
   forgeStoneCost: 10
   forgeLife: 10
   forgeScoreReward: 20
-  forgeMinionRate: 1.5
-  scoreToGetGym: 0
-  gymWoodCost: 7
-  gymStoneCost: 7
-  gymLife: 7
-  gymScoreReward: 7
-  gymMinionRate: 7
-  scoreToGetLab: 0
-  labWoodCost: 8
-  labStoneCost: 8
-  labLife: 8
-  labScoreReward: 8
-  labMinionRate: 8
-  regularLife: 3
-  regularSpeed: 3
-  regularDamage: 3
-  regularDamageRate: 3
+  forgeMinionRate: 3
+  scoreToGetGym: 7
+  gymWoodCost: 30
+  gymStoneCost: 20
+  gymLife: 15
+  gymScoreReward: 30
+  gymMinionRate: 4
+  scoreToGetLab: 10
+  labWoodCost: 40
+  labStoneCost: 30
+  labLife: 20
+  labScoreReward: 40
+  labMinionRate: 5
+  regularLife: 1
+  regularSpeed: 3.5
+  regularDamage: 1
+  regularDamageRate: 1
   regularScoreReward: 1
-  heavyLife: 1
-  heavySpeed: 1
-  heavyDamage: 1
+  heavyLife: 3
+  heavySpeed: 3
+  heavyDamage: 3
   heavyDamageRate: 1
-  heavyScoreReward: 1
+  heavyScoreReward: 2
   runnerLife: 1
-  runnerSpeed: 1
+  runnerSpeed: 5
   runnerDamage: 1
   runnerDamageRate: 1
-  runnerScoreReward: 1
+  runnerScoreReward: 3
   flyerLife: 1
-  flyerSpeed: 1
+  flyerSpeed: 3.5
   flyerDamage: 1
   flyerDamageRate: 1
-  flyerScoreReward: 1
+  flyerScoreReward: 4
 --- !u!1 &804936652
 GameObject:
   m_ObjectHideFlags: 3
@@ -4217,7 +4217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &916504005
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7934,7 +7934,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1746443447
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8296,7 +8296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1766286973
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8515,7 +8515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1810494603
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9491,7 +9491,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055304285}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42415538, y: -0.000000015581923, z: 0.000000007298182, w: 0.90558946}
+  m_LocalRotation: {x: 0.42415538, y: 0.000000015581909, z: -0.0000000072981767, w: 0.90558946}
   m_LocalPosition: {x: -0.27999997, y: 25, z: -66.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9537,7 +9537,7 @@ Transform:
   m_GameObject: {fileID: 2134682835}
   serializedVersion: 2
   m_LocalRotation: {x: -0.26693356, y: 0.000000028720944, z: -0.00000000795524, w: 0.96371496}
-  m_LocalPosition: {x: 0.00000068825557, y: -0.6401844, z: 32.00922}
+  m_LocalPosition: {x: -0.0000006882549, y: -0.6401844, z: 32.00922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
