@@ -70,8 +70,11 @@ public class Minion : MonoBehaviour
 
     void Update()
     {
-        if(state == MinionState.Initialize) Initialize();
-        if(state == MinionState.Walk) Walk();     
+        switch(state){
+            case MinionState.Initialize: Initialize(); break;
+            case MinionState.Walk: Walk(); break;
+        }
+     
     }
     void Walk()
     {
@@ -80,12 +83,13 @@ public class Minion : MonoBehaviour
             if ( gameObject.activeSelf && agent.remainingDistance <= 3.0f && !isAttacking && !agent.pathPending)
             {
                 StartCoroutine(Attack());
-                state = MinionState.Attacking;
+                
             }
         } 
         else
         {
             setTarget();
+
         }
     }
     
@@ -94,6 +98,7 @@ public class Minion : MonoBehaviour
     public IEnumerator Attack()
     {
 
+        state = MinionState.Attacking;
         isAttacking = true;
         agent.isStopped = true;
         if (target != null)
@@ -112,12 +117,12 @@ public class Minion : MonoBehaviour
         else
         {
             Debug.Log("TARGET IS DESTROYED");
-            state = MinionState.Walk;
         }
         Debug.Log($"Minion attack rate: {DamageRate}");
         yield return new WaitForSeconds(DamageRate);
         isAttacking = false;
         agent.isStopped = false;
+        state = MinionState.Walk;
     }
 
     public virtual void TakeDamage(int damage, GameObject minionHited)
