@@ -18,8 +18,9 @@ public class Base : Building
         base.Awake();
         lastLife = Life;
     }
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         if(lastLife != Life)
         {
             Debug.Log($" Base name: {gameObject.name} Life: {Life}");

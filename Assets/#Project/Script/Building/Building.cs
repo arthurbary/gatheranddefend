@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum BuildingType
     {
@@ -22,8 +24,12 @@ public abstract class Building : MonoBehaviour
     public int ScoreReward { get; set; }
     public bool isEnemy = false;
     public bool isCreated = false;
+    private GameObject baseUnderAtack;
+    UnityEngine.UI.Image image;
     protected virtual void Awake()
     {
+        baseUnderAtack = GameObject.FindWithTag("BaseUnderAttack");
+        image = baseUnderAtack.GetComponent<UnityEngine.UI.Image>();
         if(isEnemy)
         {
             EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
@@ -36,8 +42,17 @@ public abstract class Building : MonoBehaviour
             //Debug.Log($"Building: {gameObject.name},Life {Life}, MinionRate: {GetComponentInChildren<MinionFactory>().Cooldown}, Score Reward {ScoreReward}  ");
         }
     }
+    protected virtual void Update()
+    {
+        Debug.Log("UPDATE BUILDING");
+        ReduceHitScreen();
+    }
     public virtual void  TakeDamage(int damage)
     {
+        if(gameObject.CompareTag("Base") && !isEnemy)
+        {
+            BaseUnderAttack();
+        }
         if(gameObject.CompareTag("Tower")) 
         {
             HitMaker hitMaker = GetComponentInChildren<HitMaker>();
@@ -59,6 +74,24 @@ public abstract class Building : MonoBehaviour
             }
             PlayerData.IncreaseScore(ScoreReward);
             Destroy(gameObject);
+        }
+    }
+    void BaseUnderAttack()
+    {
+        //var image = baseUnderAtack.GetComponent<UnityEngine.UI.Image>();
+        var color = image.color;
+        color.a = 0.3f; // Change the alpha value
+        image.color = color; // Set the modified color back to the image component
+    }
+
+    void ReduceHitScreen()
+    {
+        Debug.Log($"Image:{image != null}");
+        if(image != null)
+        {
+            var color = image.color;
+            color.a -= 0.01f;
+            image.color = color;
         }
     }
 }
