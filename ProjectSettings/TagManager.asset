@@ -30,6 +30,7 @@ TagManager:
   - Attack Zone
   - FlyerTarget
   - HitPoint
+  - BaseUnderAttack
   layers:
   - Default
   - TransparentFX
