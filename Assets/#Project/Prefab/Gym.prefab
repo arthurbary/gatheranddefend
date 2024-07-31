@@ -272,6 +272,7 @@ MonoBehaviour:
     type: 2}
   invalidPlacementMaterial: {fileID: 2100000, guid: de1cd7c7477827a45b791cc96b192b84,
     type: 2}
+  notEnoughMaterial: {fileID: 2100000, guid: d92f06755019f3843b6bddd9684ddc71, type: 2}
   meshComponents:
   - {fileID: 7501964381546415426}
   - {fileID: 1882316866609020724}

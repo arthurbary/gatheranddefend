@@ -57,6 +57,7 @@ public abstract class Building : MonoBehaviour
                 PlayerData.wood = 0;
                 PlayerData.score = 0;
             }
+            PlayerData.IncreaseScore(ScoreReward);
             Destroy(gameObject);
         }
     }

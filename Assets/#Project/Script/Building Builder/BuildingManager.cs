@@ -15,6 +15,7 @@ public class BuildingManager : MonoBehaviour
 {
     public Material validPlacementMaterial;
     public Material invalidPlacementMaterial;
+    public Material notEnoughMaterial;
 
     public MeshRenderer[] meshComponents;
     private Dictionary<MeshRenderer, List<Material>> initialMaterials;
@@ -134,22 +135,22 @@ public class BuildingManager : MonoBehaviour
         }
         else
         {
-            Material matToApply = mode == PlacementMode.Valid && CanBeBuild() ? validPlacementMaterial : invalidPlacementMaterial;
-            /* 
-            Faire 3 materials
-            if(mode == PlacementMode.Valid && CanBeBuild() && EnoughRessource)
+            //Material matToApply = mode == PlacementMode.Valid && CanBeBuild() ? validPlacementMaterial : invalidPlacementMaterial;
+            Material matToApply;
+            //Faire 3 materials
+            Debug.Log($"mode {mode}, can build: {CanBeBuild()}, enough resource: {EnoughResource()}");
+            if(mode == PlacementMode.Valid && CanBeBuild() && EnoughResource())
             {
-                Material matToApply = validPlacementMaterial
+                matToApply = validPlacementMaterial;
             } 
-            else if(mode == PlacementMode.Valid && NOT EnoughRessource)
+            else if(mode == PlacementMode.Valid && CanBeBuild() && !EnoughResource())
             {
-                Material matToApply = invalidRessourceMaterial
+                matToApply = notEnoughMaterial;
             }
             else 
             {
-                Material matToApply = invalidPlacementMaterial
+                matToApply = invalidPlacementMaterial;
             }
-            */
             Material[] m; int nMaterials;
             foreach (MeshRenderer r in meshComponents)
             {
@@ -202,10 +203,6 @@ public class BuildingManager : MonoBehaviour
     {
         Debug.Log($"Tag {gameObject.tag}, EnemyZone {enemyZone}, BaseZone {baseZone}");
         //Check s'il y a assez de ressource
-        if (building.WoodCost > PlayerData.wood || building.StoneCost > PlayerData.stone)
-        {
-            return false;
-        }
         //check si dans la zone ennemie
         if (enemyZone) return false;
         //Check Base Zone Rules
@@ -233,7 +230,10 @@ public class BuildingManager : MonoBehaviour
         if (building.WoodCost > PlayerData.wood || building.StoneCost > PlayerData.stone)
         {
             return false;
+        } 
+        else
+        {
+            return true;
         }
-        return true;
     }
 }

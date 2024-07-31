@@ -62,7 +62,7 @@ public class BuildingPlacer : MonoBehaviour
                     Building b = m.GetComponent<Building>();
                     if (m.hasValidPlacement)
                     {
-                        if(m.CanBeBuild())
+                        if(m.CanBeBuild() && m.EnoughResource())
                         {
                             m.SetPlacementMode(PlacementMode.Fixed);
                         }
