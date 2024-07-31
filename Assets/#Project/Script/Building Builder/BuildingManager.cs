@@ -135,7 +135,21 @@ public class BuildingManager : MonoBehaviour
         else
         {
             Material matToApply = mode == PlacementMode.Valid && CanBeBuild() ? validPlacementMaterial : invalidPlacementMaterial;
-
+            /* 
+            Faire 3 materials
+            if(mode == PlacementMode.Valid && CanBeBuild() && EnoughRessource)
+            {
+                Material matToApply = validPlacementMaterial
+            } 
+            else if(mode == PlacementMode.Valid && NOT EnoughRessource)
+            {
+                Material matToApply = invalidRessourceMaterial
+            }
+            else 
+            {
+                Material matToApply = invalidPlacementMaterial
+            }
+            */
             Material[] m; int nMaterials;
             foreach (MeshRenderer r in meshComponents)
             {
@@ -210,6 +224,15 @@ public class BuildingManager : MonoBehaviour
                     return false;
                 }
             }
+        }
+        return true;
+    }
+    public bool EnoughResource()
+    {
+        //Check s'il y a assez de ressource
+        if (building.WoodCost > PlayerData.wood || building.StoneCost > PlayerData.stone)
+        {
+            return false;
         }
         return true;
     }

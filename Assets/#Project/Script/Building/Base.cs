@@ -20,9 +20,9 @@ public class Base : Building
     }
     void Update()
     {
-        if(lastLife != Life && !isEnemy)
+        if(lastLife != Life)
         {
-            Debug.Log($" Base Life: {Life}");
+            Debug.Log($" Base name: {gameObject.name} Life: {Life}");
             lastLife = Life;
         }
     }

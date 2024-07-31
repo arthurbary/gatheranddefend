@@ -35,7 +35,6 @@ public abstract class Resource : MonoBehaviour
         Debug.Log("it give resource");
         isRunning = true;
         HitMaker hitMaker = GetComponentInChildren<HitMaker>();
-        Debug.Log($"hitmaker here ? : {hitMaker != null}");
         hitMaker.CreateHit(gameObject);
         if(Amount < Subtractor) Subtractor -= Amount;
         if(Amount > 0)
@@ -63,7 +62,6 @@ public abstract class Resource : MonoBehaviour
     {
         if(Amount >= 0)
         {
-            //hitMaker.CreateHit(gameObject);
             Amount -= damage;
         }
         else

@@ -28,8 +28,9 @@ public class Weapon : MonoBehaviour
         } 
         else if (other.GetComponent<Building>() != null && other.GetComponent<Building>().isEnemy)
         {
-            Debug.Log("Hitting building");
             other.GetComponent <Building>().TakeDamage(Damage);
+            Debug.Log($"Hitting building{other.GetComponent<Building>().name} at life {other.GetComponent<Building>().Life}");
+
         }
         GameObject.FindObjectOfType<DisplayManager>().UpdatePlayerBoard();
         yield return new WaitForSeconds(Cooldown);

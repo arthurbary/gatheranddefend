@@ -80,18 +80,7 @@ public class Manager : MonoBehaviour
     [SerializeField]protected float flyerDamageRate = 1;
     [SerializeField] protected int flyerScoreReward = 1;
 
-    private List<Building> bases = new List<Building>();
-    private bool isSetUp = false;
 
-    void Update()
-    {
-        EndGame();
-    }
-    private void EndGame()
-    {
-        Debug.Log($"Base Count: {bases.Count}");
-        if(isSetUp && bases.Count < 2)  SceneManager.LoadScene("SampleScene");
-    }
     public void SetUpBuildingAssets(Building building)
     {
         //if(type == BuildingType.FORGE)
@@ -101,7 +90,6 @@ public class Manager : MonoBehaviour
                 building.Life = baseLife;
                 building.ScoreReward = baseScoreReward;
                 building.GetComponentInChildren<MinionFactory>().Cooldown = baseMinionRate;
-                bases.Add(building);
                 break;
             case BuildingType.TOWER:
                 building.WoodCost = towerWoodCost;

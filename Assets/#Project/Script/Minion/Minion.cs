@@ -75,7 +75,6 @@ public class Minion : MonoBehaviour
             case MinionState.Initialize: Initialize(); break;
             case MinionState.Walk: Walk(); break;
         }
-     
     }
     void Walk()
     {

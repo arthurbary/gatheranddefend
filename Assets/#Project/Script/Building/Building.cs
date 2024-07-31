@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-    public enum BuildingType
+public enum BuildingType
     {
         BASE = 1,
         FORGE = 2,
@@ -32,17 +33,30 @@ public abstract class Building : MonoBehaviour
         {
             PlayerManager playerManager = GameObject.FindObjectOfType<PlayerManager>();
             playerManager.SetUpBuildingAssets(this); 
-            Debug.Log($"Building: {gameObject.name},Life {Life}, MinionRate: {GetComponentInChildren<MinionFactory>().Cooldown}, Score Reward {ScoreReward}  ");
+            //Debug.Log($"Building: {gameObject.name},Life {Life}, MinionRate: {GetComponentInChildren<MinionFactory>().Cooldown}, Score Reward {ScoreReward}  ");
         }
     }
     public virtual void  TakeDamage(int damage)
     {
+        if(gameObject.CompareTag("Tower")) 
+        {
+            HitMaker hitMaker = GetComponentInChildren<HitMaker>();
+            hitMaker.CreateHit(gameObject);
+        }
         if(Life >= 0)
         {
             Life -= damage;
         }
         else
         {
+            if(gameObject.CompareTag("Base"))
+            {
+                Debug.Log("END OF GAME");
+                SceneManager.LoadScene("SampleScene");
+                PlayerData.score = 0;
+                PlayerData.wood = 0;
+                PlayerData.score = 0;
+            }
             Destroy(gameObject);
         }
     }
