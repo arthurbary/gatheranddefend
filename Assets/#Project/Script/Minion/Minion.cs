@@ -63,7 +63,8 @@ public class Minion : MonoBehaviour
         else
         {
             PlayerManager playerManager = GameObject.FindObjectOfType<PlayerManager>();
-            playerManager.SetUpMinionAssets(this); 
+            playerManager.SetUpMinionAssets(this);
+            Debug.Log($"Minion Type: {Type}, Life: {Life}, Speed: {GetComponent<NavMeshAgent>().speed}, Damage: {Damage}, Damage Rate: {DamageRate}, Score Reward {ScoreReward}"); 
         }
         state = MinionState.Walk;
     }

@@ -32,8 +32,8 @@ public abstract class Building : MonoBehaviour
         {
             PlayerManager playerManager = GameObject.FindObjectOfType<PlayerManager>();
             playerManager.SetUpBuildingAssets(this); 
+            Debug.Log($"Building: {gameObject.name},Life {Life}, MinionRate: {GetComponentInChildren<MinionFactory>().Cooldown}, Score Reward {ScoreReward}  ");
         }
-        //if(isEnemy && gameObject.tag != "Tower") Debug.Log($"Minion {gameObject.name},Life {Life}, MinionRate: {GetComponentInChildren<MinionFactory>().Cooldown}, Score Reward {ScoreReward}  ");
     }
     public virtual void  TakeDamage(int damage)
     {

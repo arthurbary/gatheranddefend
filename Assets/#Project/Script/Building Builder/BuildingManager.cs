@@ -134,7 +134,6 @@ public class BuildingManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Set Materials ");
             Material matToApply = mode == PlacementMode.Valid && CanBeBuild() ? validPlacementMaterial : invalidPlacementMaterial;
 
             Material[] m; int nMaterials;
