@@ -11,6 +11,8 @@ public class Manager : MonoBehaviour
     [SerializeField] protected int baseLife = 1;
     [SerializeField] protected int baseScoreReward = 1; 
     [SerializeField] public float baseMinionRate = 1.0f;
+    [SerializeField] protected int baseDamage = 1;
+    [SerializeField] protected float baseDamageRate = 1.0f; 
 
     [Header("Tower Settings")]
     [SerializeField] protected int scoreToGetTower;
@@ -18,8 +20,8 @@ public class Manager : MonoBehaviour
     [SerializeField] protected int towerStoneCost = 1;
     [SerializeField] protected int towerLife = 1;
     [SerializeField] protected int towerScoreReward = 1;
-    [SerializeField] protected int damage = 1;
-    [SerializeField] protected float damageRate = 1.0f; 
+    [SerializeField] protected int towerDamage = 1;
+    [SerializeField] protected float towerDamageRate = 1.0f; 
     [SerializeField] public static bool towerEnable = false;
 
     [Header("Forge Settings")]
@@ -80,7 +82,10 @@ public class Manager : MonoBehaviour
     [SerializeField]protected float flyerDamageRate = 1;
     [SerializeField] protected int flyerScoreReward = 1;
 
-
+    void Start()
+    {
+        Time.timeScale = 2f;
+    }
     public void SetUpBuildingAssets(Building building)
     {
         //if(type == BuildingType.FORGE)
@@ -90,6 +95,12 @@ public class Manager : MonoBehaviour
                 building.Life = baseLife;
                 building.ScoreReward = baseScoreReward;
                 building.GetComponentInChildren<MinionFactory>().Cooldown = baseMinionRate;
+                if(building.GetComponentInChildren<TowerStateMachine>() != null)
+                {
+                    TowerStateMachine towerStateMachine = building.GetComponentInChildren<TowerStateMachine>();
+                    towerStateMachine.damage = baseDamage;
+                    towerStateMachine.damageRate = baseDamageRate;
+                }
                 break;
             case BuildingType.TOWER:
                 building.WoodCost = towerWoodCost;
@@ -99,8 +110,8 @@ public class Manager : MonoBehaviour
                 if(building.GetComponentInChildren<TowerStateMachine>() != null)
                 {
                     TowerStateMachine towerStateMachine = building.GetComponentInChildren<TowerStateMachine>();
-                    towerStateMachine.damage = damage;
-                    towerStateMachine.damageRate = damageRate;
+                    towerStateMachine.damage = towerDamage;
+                    towerStateMachine.damageRate = towerDamageRate;
                     if(!building.isEnemy)
                     {
                         towerStateMachine.gameObject.SetActive(false);

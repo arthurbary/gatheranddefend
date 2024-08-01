@@ -29,7 +29,7 @@ public abstract class Building : MonoBehaviour
     protected virtual void Awake()
     {
         baseUnderAtack = GameObject.FindWithTag("BaseUnderAttack");
-        image = baseUnderAtack.GetComponent<UnityEngine.UI.Image>();
+        //image = baseUnderAtack.GetComponent<UnityEngine.UI.Image>();
         if(isEnemy)
         {
             EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
@@ -44,14 +44,13 @@ public abstract class Building : MonoBehaviour
     }
     protected virtual void Update()
     {
-        Debug.Log("UPDATE BUILDING");
-        ReduceHitScreen();
+        //ReduceHitScreen();
     }
     public virtual void  TakeDamage(int damage)
     {
         if(gameObject.CompareTag("Base") && !isEnemy)
         {
-            BaseUnderAttack();
+            //BaseUnderAttack();
         }
         if(gameObject.CompareTag("Tower")) 
         {
@@ -67,26 +66,36 @@ public abstract class Building : MonoBehaviour
             if(gameObject.CompareTag("Base"))
             {
                 Debug.Log("END OF GAME");
-                SceneManager.LoadScene("SampleScene");
                 PlayerData.score = 0;
                 PlayerData.wood = 0;
                 PlayerData.score = 0;
+                SceneManager.LoadScene("SampleScene");
             }
             PlayerData.IncreaseScore(ScoreReward);
+            /* 
+            TODO: essayer de faire une version de active et non active
+            if(gameObject.CompareTag("Tower"))
+            {
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                Destroy(gameObject);
+            } 
+            */
             Destroy(gameObject);
         }
     }
     void BaseUnderAttack()
     {
-        //var image = baseUnderAtack.GetComponent<UnityEngine.UI.Image>();
+
         var color = image.color;
-        color.a = 0.3f; // Change the alpha value
-        image.color = color; // Set the modified color back to the image component
+        color.a = 0.3f;
+        image.color = color;
     }
 
     void ReduceHitScreen()
     {
-        Debug.Log($"Image:{image != null}");
         if(image != null)
         {
             var color = image.color;

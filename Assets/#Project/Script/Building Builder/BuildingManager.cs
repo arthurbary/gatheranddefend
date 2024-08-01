@@ -138,7 +138,7 @@ public class BuildingManager : MonoBehaviour
             //Material matToApply = mode == PlacementMode.Valid && CanBeBuild() ? validPlacementMaterial : invalidPlacementMaterial;
             Material matToApply;
             //Faire 3 materials
-            Debug.Log($"mode {mode}, can build: {CanBeBuild()}, enough resource: {EnoughResource()}");
+            //Debug.Log($"mode {mode}, can build: {CanBeBuild()}, enough resource: {EnoughResource()}");
             if(mode == PlacementMode.Valid && CanBeBuild() && EnoughResource())
             {
                 matToApply = validPlacementMaterial;
@@ -201,7 +201,7 @@ public class BuildingManager : MonoBehaviour
 
     public bool CanBeBuild()
     {
-        Debug.Log($"Tag {gameObject.tag}, EnemyZone {enemyZone}, BaseZone {baseZone}");
+        //Debug.Log($"Tag {gameObject.tag}, EnemyZone {enemyZone}, BaseZone {baseZone}");
         //Check s'il y a assez de ressource
         //check si dans la zone ennemie
         if (enemyZone) return false;

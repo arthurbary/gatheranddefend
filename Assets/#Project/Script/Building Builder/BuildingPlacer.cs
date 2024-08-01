@@ -106,6 +106,7 @@ public class BuildingPlacer : MonoBehaviour
 
     public void SetBuildingPrefab(GameObject prefab)
     {
+        Debug.Log("SetBuildingPrefab");
         _buildingPrefab = prefab;
         _PrepareBuilding();
         EventSystem.current.SetSelectedGameObject(null); // cancel keyboard UI nav

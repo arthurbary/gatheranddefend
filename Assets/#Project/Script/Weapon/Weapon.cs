@@ -23,13 +23,12 @@ public class Weapon : MonoBehaviour
         
         if(other.GetComponent<Minion>() != null && other.GetComponent<Minion>().isEnemy)
         {
-            Debug.Log("Hitting Minion");
             other.GetComponent<Minion>().TakeDamage(Damage, other);
         } 
         else if (other.GetComponent<Building>() != null && other.GetComponent<Building>().isEnemy)
         {
-            other.GetComponent <Building>().TakeDamage(Damage);
-            Debug.Log($"Hitting building{other.GetComponent<Building>().name} at life {other.GetComponent<Building>().Life}");
+            //other.GetComponent <Building>().TakeDamage(Damage);
+            //Debug.Log($"Hitting building{other.GetComponent<Building>().name} at life {other.GetComponent<Building>().Life}");
 
         }
         GameObject.FindObjectOfType<DisplayManager>().UpdatePlayerBoard();

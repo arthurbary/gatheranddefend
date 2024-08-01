@@ -32,7 +32,6 @@ public abstract class Resource : MonoBehaviour
     }
     protected virtual IEnumerator _GiveResource()
     {
-        Debug.Log("it give resource");
         isRunning = true;
         HitMaker hitMaker = GetComponentInChildren<HitMaker>();
         hitMaker.CreateHit(gameObject);

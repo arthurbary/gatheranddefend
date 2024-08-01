@@ -18,6 +18,9 @@ public class PlayerData : MonoBehaviour
         wood = 100;
         stone = 100; 
         */
+        PlayerData.score = 0;
+        PlayerData.wood = 0;
+        PlayerData.score = 0;
     }
     public static void IncreaseScore(int scoreReward)
     {

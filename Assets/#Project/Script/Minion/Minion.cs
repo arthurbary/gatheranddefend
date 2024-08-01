@@ -64,7 +64,7 @@ public class Minion : MonoBehaviour
         {
             PlayerManager playerManager = GameObject.FindObjectOfType<PlayerManager>();
             playerManager.SetUpMinionAssets(this);
-            Debug.Log($"Minion Type: {Type}, Life: {Life}, Speed: {GetComponent<NavMeshAgent>().speed}, Damage: {Damage}, Damage Rate: {DamageRate}, Score Reward {ScoreReward}"); 
+            //Debug.Log($"Minion Type: {Type}, Life: {Life}, Speed: {GetComponent<NavMeshAgent>().speed}, Damage: {Damage}, Damage Rate: {DamageRate}, Score Reward {ScoreReward}"); 
         }
         state = MinionState.Walk;
     }
@@ -118,7 +118,6 @@ public class Minion : MonoBehaviour
         {
             Debug.Log("TARGET IS DESTROYED");
         }
-        Debug.Log($"Minion attack rate: {DamageRate}");
         yield return new WaitForSeconds(DamageRate);
         isAttacking = false;
         agent.isStopped = false;
@@ -131,7 +130,7 @@ public class Minion : MonoBehaviour
         hitMaker.CreateHit(gameObject);
         if (Life - damage > 0)
         {
-            Debug.Log($"Minion Type {Type} Take {damage} Damage");
+            //Debug.Log($"Minion Type {Type} Take {damage} Damage");
             state = MinionState.Damaged;
             Life -= damage;
             //attendre pour l'animation de se faire ?

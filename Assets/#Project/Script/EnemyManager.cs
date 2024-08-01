@@ -12,6 +12,7 @@ public class EnemyManager : Manager
     [SerializeField] private GameObject enemyGym;
     [SerializeField] private GameObject enemyLab;
     private List<Building> allEnemyBuildings;
+    private List<GameObject> allEnemyTowers = new List<GameObject>();
 
     void Start()
     {
@@ -20,13 +21,15 @@ public class EnemyManager : Manager
 
         foreach (Building building in allEnemyBuildings)
         {
-            if (building.Type != BuildingType.BASE) building.gameObject.SetActive(false);
-            if(building.Type != BuildingType.BASE) enemyBase = building.gameObject;
+            if(building.Type != BuildingType.BASE) building.gameObject.SetActive(false);
+            if(building.Type == BuildingType.BASE) enemyBase = building.gameObject;
             if(building.Type == BuildingType.FORGE) enemyForge = building.gameObject;
             if(building.Type == BuildingType.GYM) enemyGym = building.gameObject;
             if(building.Type == BuildingType.LAB) enemyLab = building.gameObject;
-            if(building.Type == BuildingType.TOWER) enemyTowers.Add(building.gameObject);
+            if(building.Type == BuildingType.TOWER) allEnemyTowers.Add(building.gameObject);
         }
+        //Enemy start with one tower
+        allEnemyTowers[0].SetActive(true);
     }
     
     private void OnEnable()
@@ -45,7 +48,7 @@ public class EnemyManager : Manager
         if(!towerEnable && PlayerData.score > scoreToGetTower)
         {
             towerEnable = true;
-            enemyTowers[0].SetActive(true); 
+            StartCoroutine(LaunchTowerManager());
         }
         else if (!forgeEnable && PlayerData.score > scoreToGetForge)
         {
@@ -72,4 +75,12 @@ public class EnemyManager : Manager
     }
     public static void EnemyManagerDestroyedEvent(){}
 
+    private IEnumerator LaunchTowerManager()
+    {
+        foreach (GameObject tower in allEnemyTowers)
+        {
+            if(!tower.activeSelf) tower.SetActive(true);
+            yield return new WaitForSeconds(30f);
+        }
+    }
 }
