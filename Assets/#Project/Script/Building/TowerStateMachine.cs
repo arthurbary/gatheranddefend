@@ -40,6 +40,10 @@ public class TowerStateMachine : MonoBehaviour
 
         if( otherMinion != null && !minionToKill.Contains(otherMinion) && otherMinion.isEnemy != tower.isEnemy && other.gameObject.activeSelf)
         {
+            if(otherMinion.attackingTower != null)
+            {
+                otherMinion.attackingTower.minionToKill.Remove(otherMinion);
+            }
             otherMinion.attackingTower = this;
             minionToKill.Add(otherMinion);
         }

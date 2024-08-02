@@ -25,32 +25,34 @@ public abstract class Building : MonoBehaviour
     public bool isEnemy = false;
     public bool isCreated = false;
     private GameObject baseUnderAtack;
+    EndGameManager endGameManager;
     UnityEngine.UI.Image image;
     protected virtual void Awake()
     {
+        endGameManager = FindObjectOfType<EndGameManager>();
         baseUnderAtack = GameObject.FindWithTag("BaseUnderAttack");
-        //image = baseUnderAtack.GetComponent<UnityEngine.UI.Image>();
+        image = baseUnderAtack.GetComponent<UnityEngine.UI.Image>();
         if(isEnemy)
         {
-            EnemyManager enemyManager = GameObject.FindObjectOfType<EnemyManager>();
+            EnemyManager enemyManager = FindObjectOfType<EnemyManager>();
             enemyManager.SetUpBuildingAssets(this);
         }
         else
         {
-            PlayerManager playerManager = GameObject.FindObjectOfType<PlayerManager>();
+            PlayerManager playerManager = FindObjectOfType<PlayerManager>();
             playerManager.SetUpBuildingAssets(this); 
             //Debug.Log($"Building: {gameObject.name},Life {Life}, MinionRate: {GetComponentInChildren<MinionFactory>().Cooldown}, Score Reward {ScoreReward}  ");
         }
     }
     protected virtual void Update()
     {
-        //ReduceHitScreen();
+        ReduceHitScreen();
     }
     public virtual void  TakeDamage(int damage)
     {
         if(gameObject.CompareTag("Base") && !isEnemy)
         {
-            //BaseUnderAttack();
+            BaseUnderAttack();
         }
         if(gameObject.CompareTag("Tower")) 
         {
@@ -65,11 +67,7 @@ public abstract class Building : MonoBehaviour
         {
             if(gameObject.CompareTag("Base"))
             {
-                Debug.Log("END OF GAME");
-                PlayerData.score = 0;
-                PlayerData.wood = 0;
-                PlayerData.score = 0;
-                SceneManager.LoadScene("SampleScene");
+                endGameManager.OnEndGame(isEnemy);
             }
             PlayerData.IncreaseScore(ScoreReward);
             /* 
@@ -88,7 +86,6 @@ public abstract class Building : MonoBehaviour
     }
     void BaseUnderAttack()
     {
-
         var color = image.color;
         color.a = 0.3f;
         image.color = color;
