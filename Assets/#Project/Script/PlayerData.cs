@@ -18,9 +18,6 @@ public class PlayerData : MonoBehaviour
         wood = 100;
         stone = 100; 
         */
-        PlayerData.score = 0;
-        PlayerData.wood = 0;
-        PlayerData.score = 0;
     }
     public static void IncreaseScore(int scoreReward)
     {
@@ -28,5 +25,12 @@ public class PlayerData : MonoBehaviour
         OnScoreReached?.Invoke();
         OnScoreReachedEnemy?.Invoke();
 
+    }
+
+    public static void Reset()
+    {
+        score = 0;
+        wood = 0;
+        stone = 0;
     }
 }

@@ -66,7 +66,7 @@ public class TowerStateMachine : MonoBehaviour
 
     void Firing()
     {
-        if(minionToKill[0].gameObject.activeSelf)
+        if(minionToKill.Count > 0 && minionToKill[0].gameObject.activeSelf)
         {
             StartCoroutine(arrowFactory.Create());
         }

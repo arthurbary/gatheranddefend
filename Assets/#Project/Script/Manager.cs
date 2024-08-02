@@ -84,7 +84,7 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 2f;
+        Time.timeScale = 1.5f;
     }
     public void SetUpBuildingAssets(Building building)
     {

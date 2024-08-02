@@ -17,7 +17,7 @@ public class ScoreManager : MonoBehaviour
     public static bool gymEnable = false;
     public static bool labEnable = false;
     
-
+    
     private void OnEnable()
     {
         PlayerData.OnScoreReached += HandleScoreReached;
@@ -49,6 +49,13 @@ public class ScoreManager : MonoBehaviour
             labEnable = true;
             labButton.SetActive(true);
         }
+    }
+    static public void Reset()
+    {
+        towerEnable = false;
+        forgeEnable = false;
+        gymEnable = false;
+        labEnable = false;
     }
 
 }

@@ -87,7 +87,7 @@ public abstract class Building : MonoBehaviour
     void BaseUnderAttack()
     {
         var color = image.color;
-        color.a = 0.3f;
+        color.a = 0.5f;
         image.color = color;
     }
 
@@ -96,7 +96,7 @@ public abstract class Building : MonoBehaviour
         if(image != null)
         {
             var color = image.color;
-            color.a -= 0.01f;
+            color.a -= 0.005f;
             image.color = color;
         }
     }

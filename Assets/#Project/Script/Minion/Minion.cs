@@ -229,7 +229,7 @@ public class Minion : MonoBehaviour
             }
 
             //Add Player as target?
-            
+            if(!isEnemy) Debug.Log($"Number of enemy tower: {towerBuildings.Count}");
             // Determine target based on probabilities
             float rand = Random.Range(0f, 1f);
             if ( baseRate > rand && baseBuildings.Count > 0)
