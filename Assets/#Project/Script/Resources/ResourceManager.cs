@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
@@ -10,6 +11,9 @@ public class ResourceManager : MonoBehaviour
     Resource[] resources;
     private List<Resource> woodResources;
     private List<Resource> stoneResources;
+    [SerializeField] private NavMeshSurface navMeshSurfacePlayer;
+    [SerializeField] private NavMeshSurface navMeshSurfaceHeavy;
+    [SerializeField] private NavMeshSurface navMeshSurfaceRunner;
 
     void Start()
     {
@@ -34,6 +38,10 @@ public class ResourceManager : MonoBehaviour
 
         RedistributionOfResources(woodResources, numberOfShuffle);
         RedistributionOfResources(stoneResources, numberOfShuffle);
+
+        navMeshSurfacePlayer.BuildNavMesh();
+        navMeshSurfaceHeavy.BuildNavMesh();
+        navMeshSurfaceRunner.BuildNavMesh();
     }
 
     void SetUpRessources(List<Resource> resources, int totalStock)
