@@ -16,8 +16,8 @@ public class Manager : MonoBehaviour
 
     [Header("Tower Settings")]
     [SerializeField] protected int scoreToGetTower;
-    [SerializeField] protected int towerWoodCost = 1;
-    [SerializeField] protected int towerStoneCost = 1;
+    [SerializeField] public int towerWoodCost = 1;
+    [SerializeField] public int towerStoneCost = 1;
     [SerializeField] protected int towerLife = 1;
     [SerializeField] protected int towerScoreReward = 1;
     [SerializeField] protected int towerDamage = 1;
@@ -26,8 +26,8 @@ public class Manager : MonoBehaviour
 
     [Header("Forge Settings")]
     [SerializeField] protected int scoreToGetForge;
-    [SerializeField] protected int forgeWoodCost = 1;
-    [SerializeField] protected int forgeStoneCost = 1;
+    [SerializeField] public int forgeWoodCost = 1;
+    [SerializeField] public int forgeStoneCost = 1;
     [SerializeField] protected int forgeLife = 1;
     [SerializeField] protected int forgeScoreReward = 1; 
     [SerializeField] public float forgeMinionRate = 1.0f;
@@ -38,8 +38,8 @@ public class Manager : MonoBehaviour
     [Header("Gym Settings")]
     
     [SerializeField] protected int scoreToGetGym;
-    [SerializeField] protected int gymWoodCost = 1;
-    [SerializeField] protected int gymStoneCost = 1;
+    [SerializeField] public int gymWoodCost = 1;
+    [SerializeField] public int gymStoneCost = 1;
     [SerializeField] protected int gymLife = 1;
     [SerializeField] protected int gymScoreReward = 1;
     [SerializeField] public float gymMinionRate = 1.0f;
@@ -48,8 +48,8 @@ public class Manager : MonoBehaviour
     [Header("Lab Settings")]
     
     [SerializeField] protected int scoreToGetLab;
-    [SerializeField] protected int labWoodCost = 1;
-    [SerializeField] protected int labStoneCost = 1;
+    [SerializeField] public int labWoodCost = 1;
+    [SerializeField] public int labStoneCost = 1;
     [SerializeField] protected int labLife = 1;
     [SerializeField] protected int labScoreReward = 1; 
     [SerializeField] public float labMinionRate = 1.0f;
@@ -85,6 +85,10 @@ public class Manager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1.5f;
+    }
+    void ButtonSettingUp()
+    {
+
     }
     public void SetUpBuildingAssets(Building building)
     {
