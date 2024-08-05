@@ -13,12 +13,10 @@ public class PlayerData : MonoBehaviour
     public static event ScoreReachedHandler OnScoreReachedEnemy;
     
     void Start()
-    {
-        /*   
-        wood = 100;
-        stone = 100; 
-        score = 100;
-        */
+    {   
+        wood = 300;
+        stone = 300;
+        
     }
     public static void IncreaseScore(int scoreReward)
     {

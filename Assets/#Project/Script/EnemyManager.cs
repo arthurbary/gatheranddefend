@@ -45,6 +45,7 @@ public class EnemyManager : Manager
     }
     public void EnemyManagerScoreEvent()
     {
+        Debug.Log("EnemyManagerScoreEvent");
         if(!towerEnable && PlayerData.score > scoreToGetTower)
         {
             towerEnable = true;
