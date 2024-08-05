@@ -14,9 +14,10 @@ public class PlayerData : MonoBehaviour
     
     void Start()
     {
-        /*
+        /*   
         wood = 100;
         stone = 100; 
+        score = 100;
         */
     }
     public static void IncreaseScore(int scoreReward)
